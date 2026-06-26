@@ -1,37 +1,159 @@
-<!-- RESERVA -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quiromasaje El Capitol Bienestar</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="navbar">
+    <div class="logo">Quiromasaje El Capitol Bienestar</div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicios">Tratamientos</a>
+        <a href="#galeria">Centro</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div class="hero-content reveal">
+        <h1>Recupera tu bienestar</h1>
+        <p>Relaja tu cuerpo. Libera tu mente.</p>
+        <a href="#reserva" class="btn">Reservar sesión</a>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="section reveal">
+    <h2>Sobre nosotros</h2>
+    <p>Especialistas en quiromasaje terapéutico, relajante y deportivo.</p>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="section">
+    <h2 class="reveal">Tratamientos</h2>
+
+    <div class="cards">
+        <div class="card reveal">
+            <i class="fas fa-spa"></i>
+            <h3>Relajante</h3>
+            <p>Reduce estrés y ansiedad.</p>
+        </div>
+
+        <div class="card reveal">
+            <i class="fas fa-dumbbell"></i>
+            <h3>Deportivo</h3>
+            <p>Recuperación muscular.</p>
+        </div>
+
+        <div class="card reveal">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Terapéutico</h3>
+            <p>Dolores y contracturas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="section">
+    <h2 class="reveal">Nuestro espacio</h2>
+
+    <div class="gallery">
+        <img class="reveal" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80">
+        <img class="reveal" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80">
+        <img class="reveal" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80">
+        <img class="reveal" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80">
+    </div>
+</section>
+
+<!-- RESERVA (ACTUALIZADO) -->
 <section id="reserva" class="section cta reveal">
     <h2>Reserva tu sesión</h2>
     <p>Tu cuerpo te lo agradecerá</p>
 
-    <div class="reserve-options">
-        <p>Elige cómo quieres reservar:</p>
+    <div class="reserve-icons">
 
-        <!-- WHATSAPP -->
-        <a class="btn" href="https://wa.me/34675752500" target="_blank">
-            📱 Reservar por WhatsApp
+        <!-- WhatsApp -->
+        <a href="https://wa.me/34675752500" class="reserve-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
         </a>
 
-        <!-- EMAIL OPTIONS -->
-        <div class="email-options">
+        <!-- Gmail -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=elcapitolbienestar@gmail.com"
+           class="reserve-icon gmail">
+            <i class="fab fa-google"></i>
+        </a>
 
-            <!-- Gmail -->
-            <a class="btn" target="_blank"
-               href="https://mail.google.com/mail/?view=cm&fs=1&to=elcapitolbienestar@gmail.com&su=Reserva%20de%20cita%20-%20Quiromasaje&body=Hola,%20quiero%20reservar%20una%20sesión.">
-                📧 Gmail
-            </a>
+        <!-- Outlook -->
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elcapitolbienestar@gmail.com"
+           class="reserve-icon outlook">
+            <i class="fas fa-envelope"></i>
+        </a>
 
-            <!-- Outlook -->
-            <a class="btn" target="_blank"
-               href="https://outlook.live.com/mail/0/deeplink/compose?to=elcapitolbienestar@gmail.com&subject=Reserva%20de%20cita%20-%20Quiromasaje&body=Hola,%20quiero%20reservar%20una%20sesión.">
-                📧 Outlook
-            </a>
-
-            <!-- Mail genérico (abre cliente del sistema) -->
-            <a class="btn"
-               href="mailto:elcapitolbienestar@gmail.com?subject=Reserva%20de%20cita%20-%20Quiromasaje&body=Hola,%20quiero%20reservar%20una%20sesión.">
-                📧 Otro correo
-            </a>
-
-        </div>
     </div>
 </section>
+
+<!-- 📍 UBICACIÓN -->
+<section class="section reveal">
+    <h2>Ubicación</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012&output=embed"
+        width="100%"
+        height="350"
+        style="border:0; border-radius: 12px;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+    <p><strong>Plaça d'Alexander Fleming, 12</strong></p>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="section reveal">
+    <h2>Contacto</h2>
+
+    <form>
+        <input type="text" placeholder="Nombre">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Mensaje"></textarea>
+        <button>Enviar</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Quiromasaje El Capitol Bienestar</p>
+
+    <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/34675752500"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:elcapitolbienestar@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/34675752500" class="whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
