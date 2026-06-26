@@ -7,16 +7,12 @@
 <title>Quiromasaje El Capitol Bienestar</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
 
-<!-- NAV -->
 <header class="navbar">
     <div class="logo">Quiromasaje El Capitol Bienestar</div>
     <nav>
@@ -24,183 +20,101 @@
         <a href="#sobre">Sobre</a>
         <a href="#servicios">Tratamientos</a>
         <a href="#galeria">Centro</a>
+        <a href="#resenas">Reseñas</a>
         <a href="#contacto">Contacto</a>
     </nav>
 </header>
 
-<!-- HERO -->
 <section id="inicio" class="hero">
-    <div class="hero-content reveal">
+    <div class="hero-content">
         <h1>Recupera tu bienestar</h1>
         <p>Relaja tu cuerpo. Libera tu mente.</p>
         <a href="#reserva" class="btn">Reservar sesión</a>
     </div>
 </section>
 
-<!-- SOBRE -->
-<section id="sobre" class="section reveal">
-    <h2>Sobre nosotros</h2>
-    <p>Especialistas en quiromasaje terapéutico, relajante y deportivo.</p>
-</section>
-
-<!-- SERVICIOS -->
 <section id="servicios" class="section">
-    <h2 class="reveal">Tratamientos</h2>
+    <h2>Tratamientos</h2>
 
     <div class="cards">
-        <div class="card reveal">
-            <i class="fas fa-spa"></i>
-            <h3>Relajante</h3>
-            <p>Reduce estrés y ansiedad.</p>
-        </div>
-
-        <div class="card reveal">
-            <i class="fas fa-dumbbell"></i>
-            <h3>Deportivo</h3>
-            <p>Recuperación muscular.</p>
-        </div>
-
-        <div class="card reveal">
-            <i class="fas fa-heartbeat"></i>
-            <h3>Terapéutico</h3>
-            <p>Dolores y contracturas.</p>
-        </div>
+        <div class="card"><i class="fas fa-spa"></i><h3>Relajante</h3></div>
+        <div class="card"><i class="fas fa-dumbbell"></i><h3>Deportivo</h3></div>
+        <div class="card"><i class="fas fa-heartbeat"></i><h3>Terapéutico</h3></div>
     </div>
 </section>
 
-<!-- GALERÍA -->
 <section id="galeria" class="section">
-    <h2 class="reveal">Nuestro espacio</h2>
-
+    <h2>Centro</h2>
     <div class="gallery">
-        <img class="reveal" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80">
-        <img class="reveal" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80">
-        <img class="reveal" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80">
-        <img class="reveal" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874">
+        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15">
+        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35">
     </div>
 </section>
 
-<!-- RESERVA (ACTUALIZADO) -->
-<section id="reserva" class="section cta reveal">
+<!-- RESERVA -->
+<section id="reserva" class="section cta">
     <h2>Reserva tu sesión</h2>
-    <p>Tu cuerpo te lo agradecerá</p>
 
     <div class="reserve-icons">
-
-        <!-- WhatsApp -->
         <a href="https://wa.me/34675752500" class="reserve-icon whatsapp">
             <i class="fab fa-whatsapp"></i>
         </a>
 
-        <!-- Gmail -->
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=elcapitolbienestar@gmail.com"
-           class="reserve-icon gmail">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=elcapitolbienestar@gmail.com" class="reserve-icon gmail">
             <i class="fab fa-google"></i>
         </a>
 
-        <!-- Outlook -->
-        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elcapitolbienestar@gmail.com"
-           class="reserve-icon outlook">
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elcapitolbienestar@gmail.com" class="reserve-icon outlook">
             <i class="fas fa-envelope"></i>
         </a>
-
     </div>
 </section>
 
-<!-- 📍 UBICACIÓN -->
-<section class="section reveal">
-    <h2>Ubicación</h2>
+<!-- ⭐ RESEÑAS -->
+<section id="resenas" class="section">
 
-    <iframe
-        src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012&output=embed"
-        width="100%"
-        height="350"
-        style="border:0; border-radius: 12px;"
-        allowfullscreen=""
-        loading="lazy">
-    </iframe>
+<h2>Reseñas de nuestros clientes</h2>
 
-    <p><strong>Plaça d'Alexander Fleming, 12</strong></p>
+<div class="review-box">
+    <input id="reviewName" class="review-input" type="text" placeholder="Tu nombre">
+
+    <div class="stars" id="starRating">
+        <i class="fa fa-star" data-value="1"></i>
+        <i class="fa fa-star" data-value="2"></i>
+        <i class="fa fa-star" data-value="3"></i>
+        <i class="fa fa-star" data-value="4"></i>
+        <i class="fa fa-star" data-value="5"></i>
+    </div>
+
+    <textarea id="reviewText" class="review-text" placeholder="Escribe tu reseña..."></textarea>
+
+    <button onclick="addReview()" class="btn">Enviar reseña</button>
+</div>
+
+<div class="reviews" id="reviewsContainer"></div>
+
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="section reveal">
-    <h2>Contacto</h2>
+<section id="contacto" class="section">
+<h2>Contacto</h2>
 
-    <form>
-        <input type="text" placeholder="Nombre">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Mensaje"></textarea>
-        <button>Enviar</button>
-    </form>
+<form>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Mensaje"></textarea>
+    <button>Enviar</button>
+</form>
 </section>
 
-    <!-- 🧠 RESEÑAS -->
-<section id="reseñas" class="section reveal">
-
-    <h2>Reseñas de clientes</h2>
-    <p>Tu opinión es importante para nosotros</p>
-
-    <!-- FORMULARIO DE VALORACIÓN -->
-    <div class="review-box">
-
-        <input type="text" placeholder="Tu nombre" class="review-input">
-
-        <textarea placeholder="Escribe tu reseña..." class="review-text"></textarea>
-
-        <!-- ESTRELLAS -->
-        <div class="stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-        </div>
-
-        <button class="btn">Publicar reseña</button>
-
-    </div>
-
-    <!-- RESEÑAS PUBLICADAS (DEMO) -->
-    <div class="reviews">
-
-        <div class="review-card">
-            <h4>María G.</h4>
-            <div class="stars small">⭐⭐⭐⭐⭐</div>
-            <p>Experiencia increíble, salí totalmente relajada. Muy profesional.</p>
-        </div>
-
-        <div class="review-card">
-            <h4>Javier R.</h4>
-            <div class="stars small">⭐⭐⭐⭐⭐</div>
-            <p>El mejor quiromasaje que he probado en Palma. Repetiré seguro.</p>
-        </div>
-
-        <div class="review-card">
-            <h4>Laura S.</h4>
-            <div class="stars small">⭐⭐⭐⭐</div>
-            <p>Muy buen trato y ambiente súper relajante.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
 <footer>
-    <p>© 2026 Quiromasaje El Capitol Bienestar</p>
-
-    <div class="socials">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/34675752500"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:elcapitolbienestar@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
+<p>© 2026 Quiromasaje El Capitol Bienestar</p>
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/34675752500" class="whatsapp">
+<!-- SOLO UN BOTÓN FLOTANTE -->
+<a href="https://wa.me/34675752500" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
 
