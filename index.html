@@ -14,7 +14,7 @@
 <body>
 
 <header class="navbar">
-    <div class="logo">Quiromasaje El Capitol Bienestar</div>
+    <div class="logo">QUIROMASAJE EL CAPITOL BIENESTAR</div>
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#sobre">Sobre</a>
@@ -71,7 +71,16 @@
         </a>
     </div>
 </section>
-
+    
+<!-- 🔽 FILTRO DE RESEÑAS -->
+<div style="margin: 20px 0;">
+    <select id="reviewFilter" class="review-input" onchange="loadReviews()">
+        <option value="newest">Más recientes</option>
+        <option value="highest">Mejor valoradas</option>
+        <option value="lowest">Peor valoradas</option>
+    </select>
+</div>
+    
 <!-- ⭐ RESEÑAS -->
 <section id="resenas" class="section">
 
