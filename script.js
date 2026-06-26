@@ -123,3 +123,25 @@ function loadReviews() {
         `;
     });
 }
+ // =========================
+ // 📍 MAPA ANIMACIÓN PRO
+ // =========================
+
+const mapCard = document.querySelector(".map-card");
+
+if (mapCard) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    });
+
+    mapCard.style.opacity = "0";
+    mapCard.style.transform = "translateY(30px)";
+    mapCard.style.transition = "0.8s ease";
+
+    observer.observe(mapCard);
+}
