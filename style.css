@@ -1,9 +1,8 @@
 body{
 font-family:Inter;
-background:#000;
+background:#0b0b0b;
 color:#ffd84d;
 margin:0;
-overflow-x:hidden;
 }
 
 .section{
@@ -11,6 +10,7 @@ padding:80px 20px;
 text-align:center;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -21,7 +21,6 @@ background:#000;
 
 .hero h1{
 font-size:3rem;
-color:#ffd84d;
 text-shadow:0 0 20px #ffcc00;
 }
 
@@ -31,12 +30,15 @@ color:#000;
 padding:12px 25px;
 border-radius:30px;
 font-weight:600;
+text-decoration:none;
+display:inline-block;
 }
 
+/* TRATAMIENTOS */
 .treatments{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
+gap:18px;
 }
 
 .treatment{
@@ -49,100 +51,103 @@ overflow:hidden;
 width:100%;
 height:100%;
 object-fit:cover;
-transition:.5s;
+transition:.4s;
 }
 
 .treatment:hover img{
-transform:scale(1.1);
+transform:scale(1.08);
 filter:brightness(.7);
 }
 
+/* RESERVA */
+.booking{
+display:flex;
+flex-direction:column;
+gap:10px;
+max-width:300px;
+margin:auto;
+}
+
+input{
+padding:10px;
+border-radius:10px;
+border:none;
+background:#111;
+color:#ffd84d;
+}
+
+/* MAPA */
 .map-card{
 max-width:800px;
 margin:auto;
 border-radius:18px;
 overflow:hidden;
+background:#111;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 .map-frame{
 width:100%;
-height:300px;
+height:320px;
 border:0;
 }
 
+.map-info{
+padding:15px;
+}
+
+.map-btn{
+display:inline-block;
+padding:10px 18px;
+background:#ffd84d;
+color:#000;
+border-radius:20px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* RESEÑAS */
 .review-box{
-max-width:500px;
+max-width:400px;
 margin:auto;
 }
 
-input,textarea{
+textarea{
 width:100%;
-padding:10px;
-margin:5px 0;
+height:80px;
+margin-top:10px;
 background:#111;
 color:#ffd84d;
-border:1px solid #333;
+border:none;
+padding:10px;
+border-radius:10px;
 }
 
-.stars i{
-color:#555;
+/* ESTRELLAS */
+.stars{
+display:flex;
+justify-content:center;
+gap:8px;
+font-size:22px;
 cursor:pointer;
+color:#555;
 }
 
-.stars i.active{
+.stars i.active,
+.stars i.hovered{
 color:#ffd84d;
 }
 
-.whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
-font-size:25px;
-background:#ffd84d;
-color:#000;
+/* REVIEWS */
+#reviewsContainer{
+max-width:500px;
+margin:20px auto;
+text-align:left;
+}
+
+.review-card{
+background:#111;
 padding:15px;
-border-radius:50%;
-}
-
-.social-float{
-position:fixed;
-bottom:90px;
-right:20px;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.social-float-btn{
-width:55px;
-height:55px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-color:#000;
-background:#ffd84d;
-}
-
-.top-btn{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#ffd84d;
-border:none;
-padding:12px;
-border-radius:50%;
-cursor:pointer;
-}
-
-.lang-switch{
-position:fixed;
-top:15px;
-right:15px;
-cursor:pointer;
-}
-
-.lang-switch img{
-width:30px;
-border-radius:50%;
+margin-bottom:10px;
+border-radius:12px;
 }
