@@ -324,6 +324,27 @@ button {
     border-radius: 12px;
 }
 
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+}
+
+/* ⭐ hover general */
+.stars i {
+    transition: 0.2s;
+}
+
+/* ⭐ hover ilumina */
+.stars i.hovered,
+.stars i.active {
+    color: #ffd36a;
+    transform: scale(1.1);
+}
+
 /* BOTÓN WHATSAPP ÚNICO */
 .whatsapp-float {
     position: fixed;
