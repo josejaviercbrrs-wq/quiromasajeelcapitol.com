@@ -123,15 +123,3 @@ function loadReviews() {
         `;
     });
 }
-
-// inicializar
-loadReviews();
-
-function clearReviews() {
-    const confirmDelete = confirm("¿Seguro que quieres borrar todas las reseñas?");
-    
-    if (confirmDelete) {
-        localStorage.removeItem("reviews");
-        loadReviews(); // recarga la lista vacía
-    }
-}
