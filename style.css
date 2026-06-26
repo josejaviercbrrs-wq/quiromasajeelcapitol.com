@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: #f3f7f6;
+    background: #f4f7f6;
     color: #1b1f1e;
     margin: 0;
 }
@@ -10,79 +10,47 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    backdrop-filter: blur(14px);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 14px 30px;
+    padding: 15px 30px;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.navbar .logo {
-    font-weight: 600;
-    color: #1f3b3a;
-    letter-spacing: 0.5px;
 }
 
 .navbar a {
     margin-left: 15px;
     text-decoration: none;
-    color: #1f3b3a;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.navbar a:hover {
-    color: #2fbf9f;
+    color: #1b3b3a;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(10, 25, 25, 0.6), rgba(10, 25, 25, 0.6)),
-                url=https://ibb.co/XfmpN8Zq] img https://i.ibb.co/rKnMTsGV/Whats-App-Image-2026-06-25-at-21-54-18.jpg /img][/url;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .hero-content {
     color: white;
     text-align: center;
-    z-index: 2;
-    max-width: 700px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-size: 3rem;
 }
 
 /* BOTONES */
 .btn {
     background: linear-gradient(135deg, #2fbf9f, #4aa3df);
-    padding: 14px 28px;
-    border-radius: 50px;
+    padding: 12px 25px;
+    border-radius: 30px;
     color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
     display: inline-block;
-    box-shadow: 0 10px 25px rgba(47, 191, 159, 0.25);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(47, 191, 159, 0.35);
 }
 
 /* SECCIONES */
@@ -93,37 +61,18 @@ body {
     text-align: center;
 }
 
-.section h2 {
-    font-size: 2.2rem;
-    color: #1f3b3a;
-    margin-bottom: 30px;
-}
-
 /* CARDS */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 20px;
 }
 
 .card {
     background: white;
-    border-radius: 18px;
-    padding: 30px;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.03);
-}
-
-.card i {
-    font-size: 2rem;
-    color: #2fbf9f;
-    margin-bottom: 10px;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* GALERÍA */
@@ -135,13 +84,7 @@ body {
 
 .gallery img {
     width: 100%;
-    border-radius: 18px;
-    transition: 0.4s;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
+    border-radius: 15px;
 }
 
 /* CTA */
@@ -155,16 +98,15 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 500px;
+    gap: 10px;
+    max-width: 400px;
     margin: auto;
 }
 
 input, textarea {
-    padding: 12px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 10px;
     border: 1px solid #ddd;
-    outline: none;
 }
 
 button {
@@ -172,25 +114,7 @@ button {
     color: white;
     padding: 12px;
     border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #249f85;
-}
-
-/* ANIMACIONES */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+    border-radius: 10px;
 }
 
 /* WHATSAPP */
@@ -198,15 +122,9 @@ button:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #25D366, #1ebe57);
+    background: #25D366;
     padding: 15px;
     border-radius: 50%;
     color: white;
     font-size: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.whatsapp:hover {
-    transform: scale(1.1);
 }
