@@ -3,7 +3,6 @@ body {
     font-family: 'Inter', sans-serif;
     background: #0b0b0b;
     color: #ffd36a;
-    overflow-x: hidden;
 }
 
 /* NAV */
@@ -45,11 +44,24 @@ body {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.05);
+/* ======================= */
+/* TITULOS PRO CENTRADOS */
+/* ======================= */
+
+.section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+
+    font-family: 'Playfair Display', serif;
+
+    background: linear-gradient(180deg, #ffd36a, #ffb347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 20px rgba(255, 211, 106, 0.2);
 }
 
 /* TRATAMIENTOS */
@@ -102,7 +114,6 @@ body {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    outline: none;
 }
 
 /* RESEÑAS */
@@ -146,7 +157,7 @@ body {
     color: #ffd36a;
 }
 
-/* LISTA RESEÑAS */
+/* RESEÑAS LISTA */
 #reviewsContainer {
     display: flex;
     flex-direction: column;
@@ -174,4 +185,49 @@ body {
     padding: 12px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+/* ======================= */
+/* BOTONES FLOTANTES */
+/* ======================= */
+
+.floating {
+    position: fixed;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.floating a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* WhatsApp */
+.whatsapp {
+    background: #25D366;
+}
+
+/* Instagram */
+.instagram {
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+/* Facebook */
+.facebook {
+    background: #1877f2;
+}
+
+/* TikTok */
+.tiktok {
+    background: #000;
 }
