@@ -1,7 +1,7 @@
 let selectedRating = 0;
 const stars = document.querySelectorAll("#starRating i");
 
-/* ⭐ ESTRELLAS PRO */
+/* ⭐ ESTRELLAS */
 stars.forEach((star, index) => {
 
     star.addEventListener("mouseover", () => {
@@ -68,29 +68,38 @@ function loadReviews() {
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-    reviews.sort((a,b) => b.time - a.time);
+    reviews.sort((a, b) => b.time - a.time);
 
-    reviews.forEach((r, i) => {
+    reviews.forEach(r => {
         container.innerHTML += `
         <div class="review-card">
             <h4>${r.name}</h4>
             <div>${"⭐".repeat(r.rating)}</div>
             <p>${r.text}</p>
-            <button onclick="likeReview(${i})">❤️ ${r.likes}</button>
         </div>
         `;
     });
 }
 
-/* ❤️ LIKE */
-function likeReview(i) {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews[i].likes++;
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-    loadReviews();
+/* 📲 RESERVA WHATSAPP */
+function sendWhatsAppBooking() {
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    if (!date || !time) {
+        alert("Selecciona fecha y hora");
+        return;
+    }
+
+    const message =
+        `Hola quiero reservar:%0A` +
+        `📅 Fecha: ${date}%0A` +
+        `⏰ Hora: ${time}`;
+
+    window.open(`https://wa.me/34675752500?text=${message}`, "_blank");
 }
 
-/* ⬆️ VOLVER ARRIBA */
+/* ⬆️ TOP */
 function scrollTopSmooth() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
