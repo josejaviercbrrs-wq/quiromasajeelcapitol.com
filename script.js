@@ -1,3 +1,4 @@
+
 // =========================
 // Scroll reveal tipo Apple
 // =========================
@@ -32,27 +33,55 @@ window.addEventListener("scroll", () => {
 
 let selectedRating = 0;
 
-// selección de estrellas
-document.querySelectorAll("#starRating i").forEach(star => {
-    star.addEventListener("click", () => {
-        selectedRating = star.dataset.value;
+const stars = document.querySelectorAll("#starRating i");
 
-        document.querySelectorAll("#starRating i").forEach(s => {
-            s.classList.remove("active");
-        });
+// ⭐ interacción estrellas
+stars.forEach((star, index) => {
+
+    // hover (ilumina sin fijar)
+    star.addEventListener("mouseover", () => {
+        resetStars();
+
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add("hovered");
+        }
+    });
+
+    // salir hover
+    star.addEventListener("mouseout", () => {
+        resetStars();
 
         for (let i = 0; i < selectedRating; i++) {
-            document.querySelectorAll("#starRating i")[i].classList.add("active");
+            stars[i].classList.add("active");
+        }
+    });
+
+    // click fija rating
+    star.addEventListener("click", () => {
+        selectedRating = index + 1;
+
+        resetStars();
+
+        for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add("active");
         }
     });
 });
 
-// guardar reseña
+// 🧼 reset visual estrellas
+function resetStars() {
+    stars.forEach(s => {
+        s.classList.remove("hovered");
+        s.classList.remove("active");
+    });
+}
+
+// 💾 guardar reseña
 function addReview() {
     const name = document.getElementById("reviewName").value;
     const text = document.getElementById("reviewText").value;
 
-    if (!name || !text || selectedRating == 0) {
+    if (!name || !text || selectedRating === 0) {
         alert("Completa todo y selecciona estrellas");
         return;
     }
@@ -69,17 +98,15 @@ function addReview() {
 
     loadReviews();
 
-    // limpiar campos
+    // limpiar formulario
     document.getElementById("reviewName").value = "";
     document.getElementById("reviewText").value = "";
     selectedRating = 0;
 
-    document.querySelectorAll("#starRating i").forEach(s => {
-        s.classList.remove("active");
-    });
+    resetStars();
 }
 
-// cargar reseñas
+// 📥 cargar reseñas
 function loadReviews() {
     const container = document.getElementById("reviewsContainer");
     container.innerHTML = "";
