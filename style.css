@@ -1,0 +1,109 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f9f9;
+    color: #1a1a1a;
+}
+
+/* NAV */
+.navbar {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url("https://picsum.photos/1600/900?blur=2") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+/* BOTONES */
+.btn {
+    background: #6ec1a6;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* GALERÍA */
+.gallery img {
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, #6ec1a6, #4a90e2);
+    color: white;
+}
+
+/* ANIMACIONES */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+}
