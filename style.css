@@ -278,3 +278,61 @@ button {
     border-radius: 15px;
     text-align: left;
 }
+/* ⭐ RESEÑAS */
+.review-box {
+    max-width: 500px;
+    margin: 20px auto;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 18px;
+}
+
+.review-input, .review-text {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+.review-text { height: 80px; }
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 22px;
+    color: #666;
+    cursor: pointer;
+}
+
+.stars i.active {
+    color: #ffd36a;
+}
+
+.reviews {
+    margin-top: 30px;
+    display: grid;
+    gap: 15px;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* BOTÓN WHATSAPP ÚNICO */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
