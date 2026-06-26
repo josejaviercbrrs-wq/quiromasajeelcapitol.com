@@ -1,65 +1,29 @@
-
 // =========================
-// Scroll reveal tipo Apple
-// =========================
-const reveals = document.querySelectorAll('.reveal');
-
-function revealOnScroll() {
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            el.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-
-// =========================
-// Parallax suave HERO
-// =========================
-window.addEventListener("scroll", () => {
-    const hero = document.querySelector(".hero");
-    if (hero) {
-        hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
-    }
-});
-
-// =========================
-// ⭐ RESEÑAS FUNCIONALES
+// ⭐ RESEÑAS + ESTRELLAS
 // =========================
 
 let selectedRating = 0;
-
 const stars = document.querySelectorAll("#starRating i");
 
-// ⭐ interacción estrellas
+// hover + click
 stars.forEach((star, index) => {
 
-    // hover (ilumina sin fijar)
     star.addEventListener("mouseover", () => {
         resetStars();
-
         for (let i = 0; i <= index; i++) {
             stars[i].classList.add("hovered");
         }
     });
 
-    // salir hover
     star.addEventListener("mouseout", () => {
         resetStars();
-
         for (let i = 0; i < selectedRating; i++) {
             stars[i].classList.add("active");
         }
     });
 
-    // click fija rating
     star.addEventListener("click", () => {
         selectedRating = index + 1;
-
         resetStars();
 
         for (let i = 0; i < selectedRating; i++) {
@@ -68,7 +32,6 @@ stars.forEach((star, index) => {
     });
 });
 
-// 🧼 reset visual estrellas
 function resetStars() {
     stars.forEach(s => {
         s.classList.remove("hovered");
@@ -76,42 +39,61 @@ function resetStars() {
     });
 }
 
-// 💾 guardar reseña
+// =========================
+// 💾 GUARDAR RESEÑA
+// =========================
+
 function addReview() {
     const name = document.getElementById("reviewName").value;
     const text = document.getElementById("reviewText").value;
 
     if (!name || !text || selectedRating === 0) {
-        alert("Completa todo y selecciona estrellas");
+        alert("Completa todo");
         return;
     }
 
-    const review = {
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    reviews.push({
         name,
         text,
-        rating: selectedRating
-    };
+        rating: selectedRating,
+        time: Date.now()
+    });
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.push(review);
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
     loadReviews();
 
-    // limpiar formulario
     document.getElementById("reviewName").value = "";
     document.getElementById("reviewText").value = "";
     selectedRating = 0;
-
     resetStars();
 }
 
-// 📥 cargar reseñas
+// =========================
+// 📥 CARGAR RESEÑAS + FILTRO
+// =========================
+
 function loadReviews() {
     const container = document.getElementById("reviewsContainer");
-    container.innerHTML = "";
+    const filter = document.getElementById("reviewFilter")?.value || "newest";
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    if (filter === "newest") {
+        reviews.sort((a,b) => b.time - a.time);
+    }
+
+    if (filter === "highest") {
+        reviews.sort((a,b) => b.rating - a.rating);
+    }
+
+    if (filter === "lowest") {
+        reviews.sort((a,b) => a.rating - b.rating);
+    }
+
+    container.innerHTML = "";
 
     reviews.forEach(r => {
         container.innerHTML += `
@@ -123,25 +105,35 @@ function loadReviews() {
         `;
     });
 }
- // =========================
- // 📍 MAPA ANIMACIÓN PRO
- // =========================
 
-const mapCard = document.querySelector(".map-card");
+// =========================
+// 🧹 BORRAR TODO
+// =========================
 
-if (mapCard) {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+function clearReviews() {
+    localStorage.removeItem("reviews");
+    loadReviews();
+}
+
+// =========================
+// 📍 MAPA ANIMACIÓN
+// =========================
+
+const map = document.querySelector(".map-card");
+
+if (map) {
+    map.style.opacity = "0";
+    map.style.transform = "translateY(30px)";
+    map.style.transition = "0.8s ease";
+
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = "1";
+                e.target.style.transform = "translateY(0)";
             }
         });
     });
 
-    mapCard.style.opacity = "0";
-    mapCard.style.transform = "translateY(30px)";
-    mapCard.style.transition = "0.8s ease";
-
-    observer.observe(mapCard);
+    obs.observe(map);
 }
