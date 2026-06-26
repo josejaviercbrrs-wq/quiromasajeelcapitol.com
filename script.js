@@ -1,112 +1,95 @@
+// =====================
+// SCROLL REVEAL APPLE
+// =====================
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+reveals.forEach(el => {
+if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+el.classList.add("active");
+}
+});
+});
+
+// =====================
+// BOTÓN TOP
+// =====================
+const topBtn = document.getElementById("scrollTop");
+
+window.addEventListener("scroll", () => {
+topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+topBtn.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
+
+// =====================
+// RESERVA WHATSAPP + CALENDARIO
+// =====================
+document.getElementById("whatsappBtn").onclick = () => {
+const name = document.getElementById("name").value;
+const date = document.getElementById("date").value;
+const msg = document.getElementById("msg").value;
+
+const text = `Hola, soy ${name}. Quiero reservar para el ${date}. ${msg}`;
+window.open(`https://wa.me/34675752500?text=${encodeURIComponent(text)}`);
+};
+
+// =====================
+// RESEÑAS PRO + FECHA + LIKES
+// =====================
 let selectedRating = 0;
+
 const stars = document.querySelectorAll("#starRating i");
 
-if (stars.length > 0) {
+stars.forEach((star, i) => {
+star.onclick = () => {
+selectedRating = i + 1;
+stars.forEach((s, j) => s.classList.toggle("active", j < selectedRating));
+};
+});
 
-    stars.forEach((star, index) => {
-
-        star.addEventListener("mouseover", () => {
-            resetStars();
-            for (let i = 0; i <= index; i++) {
-                stars[i].classList.add("hovered");
-            }
-        });
-
-        star.addEventListener("mouseout", () => {
-            resetStars();
-            for (let i = 0; i < selectedRating; i++) {
-                stars[i].classList.add("active");
-            }
-        });
-
-        star.addEventListener("click", () => {
-            selectedRating = index + 1;
-            resetStars();
-
-            for (let i = 0; i < selectedRating; i++) {
-                stars[i].classList.add("active");
-            }
-        });
-    });
-}
-
-function resetStars() {
-    stars.forEach(s => {
-        s.classList.remove("hovered");
-        s.classList.remove("active");
-    });
-}
-
-// GUARDAR RESEÑA
 function addReview() {
-    const name = document.getElementById("reviewName");
-    const text = document.getElementById("reviewText");
+const name = document.getElementById("reviewName").value;
+const text = document.getElementById("reviewText").value;
 
-    if (!name || !text) return;
+if(!name || !text || !selectedRating) return;
 
-    if (!name.value || !text.value || selectedRating === 0) {
-        alert("Completa todo");
-        return;
-    }
+let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
 
-    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+reviews.unshift({
+name,
+text,
+rating:selectedRating,
+date:new Date().toLocaleDateString(),
+likes:0
+});
 
-    reviews.push({
-        name: name.value,
-        text: text.value,
-        rating: selectedRating,
-        time: Date.now()
-    });
-
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-
-    name.value = "";
-    text.value = "";
-    selectedRating = 0;
-    resetStars();
-
-    loadReviews();
+localStorage.setItem("reviews", JSON.stringify(reviews));
+renderReviews();
 }
 
-// CARGAR RESEÑAS
-function loadReviews() {
-    const container = document.getElementById("reviewsContainer");
-    if (!container) return;
-
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    container.innerHTML = "";
-
-    reviews.forEach(r => {
-        container.innerHTML += `
-        <div class="review-card">
-            <h4>${r.name}</h4>
-            <div>${"⭐".repeat(r.rating)}</div>
-            <p>${r.text}</p>
-        </div>
-        `;
-    });
+function likeReview(i){
+let reviews = JSON.parse(localStorage.getItem("reviews"));
+reviews[i].likes++;
+localStorage.setItem("reviews", JSON.stringify(reviews));
+renderReviews();
 }
 
-// MAPA ANIMACIÓN
-const map = document.querySelector(".map-card");
+function renderReviews(){
+const box = document.getElementById("reviewsContainer");
+let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
 
-if (map) {
-    map.style.opacity = "0";
-    map.style.transform = "translateY(30px)";
-    map.style.transition = "0.8s ease";
+box.innerHTML = "";
 
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.style.opacity = "1";
-                e.target.style.transform = "translateY(0)";
-            }
-        });
-    });
-
-    obs.observe(map);
+reviews.forEach((r,i)=>{
+box.innerHTML += `
+<div class="review-card">
+<b>${r.name}</b> · ${r.date}<br>
+${"⭐".repeat(r.rating)}
+<p>${r.text}</p>
+<button onclick="likeReview(${i})">👍 ${r.likes}</button>
+</div>`;
+});
 }
 
-// INIT
-loadReviews();
+renderReviews();
