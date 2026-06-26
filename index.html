@@ -19,112 +19,87 @@
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content reveal">
         <h1>Recupera tu bienestar</h1>
         <p>Relaja tu cuerpo. Libera tu mente.</p>
     </div>
 </section>
 
-<!-- GALERÍA -->
+<!-- TRATAMIENTOS -->
 <section class="section">
-    <h2>Tratamientos</h2>
+<h2 class="reveal">Tratamientos</h2>
 
-    <div class="treatments">
-        <div class="treatment"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1"></div>
-        <div class="treatment"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef"></div>
-        <div class="treatment"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35"></div>
-        <div class="treatment"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15"></div>
-    </div>
+<div class="treatments">
+    <div class="treatment"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1"></div>
+    <div class="treatment"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef"></div>
+    <div class="treatment"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35"></div>
+    <div class="treatment"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15"></div>
+</div>
 </section>
 
-<!-- CTA -->
-<section class="section cta">
-    <h2>Reserva tu sesión</h2>
+<!-- RESERVAS PRO -->
+<section class="section reveal">
+<h2>Reserva tu sesión</h2>
 
-    <a class="btn" href="https://wa.me/34675752500">Reservar por WhatsApp</a>
+<div class="booking-card">
+    <input type="text" id="name" placeholder="Tu nombre">
+    <input type="date" id="date">
+    <textarea id="msg" placeholder="Mensaje (opcional)"></textarea>
+
+    <a id="whatsappBtn" class="btn">Reservar por WhatsApp</a>
+</div>
 </section>
 
-<!-- 📍 MAPA PRO -->
-<section class="section location-section">
+<!-- MAPA -->
+<section class="section location-section reveal">
 
 <h2>Ubicación</h2>
 
 <div class="map-card">
+<iframe class="map-frame"
+src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma%20de%20Mallorca&z=18&output=embed">
+</iframe>
 
-    <iframe class="map-frame"
-        src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma%20de%20Mallorca&z=18&output=embed"
-        loading="lazy">
-    </iframe>
-
-    <div class="map-info">
-        <p>📍 Plaça d'Alexander Fleming, 12 - Palma</p>
-
-        <a class="map-btn"
-           href="https://www.google.com/maps/dir/?api=1&destination=Pla%C3%A7a+d%27Alexander+Fleming+12+Palma"
-           target="_blank">
-           🧭 Cómo llegar
-        </a>
-    </div>
-
+<div class="map-info">
+<p>📍 Palma de Mallorca</p>
+<a class="map-btn" target="_blank"
+href="https://www.google.com/maps/dir/?api=1&destination=Pla%C3%A7a+d%27Alexander+Fleming+12">
+Cómo llegar
+</a>
 </div>
-
+</div>
 </section>
 
-<!-- ⭐ RESEÑAS -->
-<section class="section">
-
+<!-- RESEÑAS PRO -->
+<section class="section reveal">
 <h2>Reseñas</h2>
-
-<select id="reviewFilter" onchange="loadReviews()">
-    <option value="newest">Más recientes</option>
-    <option value="highest">Mejor valoradas</option>
-    <option value="lowest">Peor valoradas</option>
-</select>
 
 <div class="review-box">
 
-    <input id="reviewName" class="review-input" type="text" placeholder="Tu nombre">
+<input id="reviewName" placeholder="Tu nombre">
+<textarea id="reviewText" placeholder="Escribe tu reseña..."></textarea>
 
-    <div class="stars" id="starRating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-    </div>
-
-    <textarea id="reviewText" class="review-text" placeholder="Escribe tu reseña..."></textarea>
-
-    <button onclick="addReview()">Enviar reseña</button>
-    <button onclick="clearReviews()">Borrar todo</button>
-
+<div class="stars" id="starRating">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
 </div>
 
-<div class="reviews" id="reviewsContainer"></div>
+<button onclick="addReview()" class="btn">Enviar reseña</button>
+</div>
 
+<div id="reviewsContainer" class="reviews"></div>
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/34675752500" class="whatsapp-float">
+<a class="whatsapp-float" href="https://wa.me/34675752500">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- REDES -->
-<div class="social-float">
-
-<a href="https://www.facebook.com" class="social-float-btn facebook" target="_blank">
-<i class="fab fa-facebook-f"></i>
-</a>
-
-<a href="https://www.instagram.com/el_capitol_bienestar/" class="social-float-btn instagram" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://www.tiktok.com" class="social-float-btn tiktok" target="_blank">
-<i class="fab fa-tiktok"></i>
-</a>
-
-</div>
+<!-- SCROLL TOP -->
+<div id="scrollTop">↑</div>
 
 <script src="script.js"></script>
 
