@@ -1,4 +1,6 @@
+// =========================
 // Scroll reveal tipo Apple
+// =========================
 const reveals = document.querySelectorAll('.reveal');
 
 function revealOnScroll() {
@@ -14,8 +16,86 @@ function revealOnScroll() {
 
 window.addEventListener('scroll', revealOnScroll);
 
+// =========================
 // Parallax suave HERO
+// =========================
 window.addEventListener("scroll", () => {
     const hero = document.querySelector(".hero");
-    hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
+    if (hero) {
+        hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
+    }
 });
+
+// =========================
+// ⭐ RESEÑAS FUNCIONALES
+// =========================
+
+let selectedRating = 0;
+
+// selección de estrellas
+document.querySelectorAll("#starRating i").forEach(star => {
+    star.addEventListener("click", () => {
+        selectedRating = star.dataset.value;
+
+        document.querySelectorAll("#starRating i").forEach(s => {
+            s.classList.remove("active");
+        });
+
+        for (let i = 0; i < selectedRating; i++) {
+            document.querySelectorAll("#starRating i")[i].classList.add("active");
+        }
+    });
+});
+
+// guardar reseña
+function addReview() {
+    const name = document.getElementById("reviewName").value;
+    const text = document.getElementById("reviewText").value;
+
+    if (!name || !text || selectedRating == 0) {
+        alert("Completa todo y selecciona estrellas");
+        return;
+    }
+
+    const review = {
+        name,
+        text,
+        rating: selectedRating
+    };
+
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.push(review);
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    loadReviews();
+
+    // limpiar campos
+    document.getElementById("reviewName").value = "";
+    document.getElementById("reviewText").value = "";
+    selectedRating = 0;
+
+    document.querySelectorAll("#starRating i").forEach(s => {
+        s.classList.remove("active");
+    });
+}
+
+// cargar reseñas
+function loadReviews() {
+    const container = document.getElementById("reviewsContainer");
+    container.innerHTML = "";
+
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    reviews.forEach(r => {
+        container.innerHTML += `
+        <div class="review-card">
+            <h4>${r.name}</h4>
+            <div>${"⭐".repeat(r.rating)}</div>
+            <p>${r.text}</p>
+        </div>
+        `;
+    });
+}
+
+// inicializar
+loadReviews();
