@@ -1,7 +1,7 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #1a1a1a, #000000);
-    color: #eaeaea;
+    background: #f4f7f6;
+    color: #1b1f1e;
     margin: 0;
 }
 
@@ -10,30 +10,24 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .navbar a {
     margin-left: 15px;
     text-decoration: none;
-    color: #eaeaea;
-    transition: 0.3s;
-}
-
-.navbar a:hover {
-    color: #ffd36a;
+    color: #1b3b3a;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover;
     display: flex;
     align-items: center;
@@ -41,31 +35,22 @@ body {
 }
 
 .hero-content {
-    color: #ffffff;
+    color: white;
     text-align: center;
 }
 
 .hero h1 {
     font-size: 3rem;
-    letter-spacing: 1px;
 }
 
-/* BOTONES (AMARILLO PREMIUM) */
+/* BOTONES */
 .btn {
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    padding: 14px 28px;
-    border-radius: 40px;
-    color: #1a1a1a;
+    background: linear-gradient(135deg, #2fbf9f, #4aa3df);
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
     text-decoration: none;
     display: inline-block;
-    font-weight: 600;
-    box-shadow: 0 10px 25px rgba(255, 211, 106, 0.25);
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(255, 211, 106, 0.4);
 }
 
 /* SECCIONES */
@@ -76,10 +61,6 @@ body {
     text-align: center;
 }
 
-.section h2 {
-    color: #ffd36a;
-}
-
 /* CARDS */
 .cards {
     display: grid;
@@ -88,17 +69,10 @@ body {
 }
 
 .card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: white;
     padding: 25px;
-    border-radius: 18px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(255, 211, 106, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* GALERÍA */
@@ -113,8 +87,8 @@ body {
     height: 220px;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
@@ -123,10 +97,9 @@ body {
 
 /* CTA */
 .cta {
-    background: linear-gradient(135deg, #111, #000);
-    color: #ffd36a;
+    background: linear-gradient(135deg, #2fbf9f, #4aa3df);
+    color: white;
     border-radius: 20px;
-    border: 1px solid rgba(255, 211, 106, 0.2);
 }
 
 /* FORM */
@@ -139,21 +112,17 @@ form {
 }
 
 input, textarea {
-    padding: 12px;
+    padding: 10px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-    color: white;
+    border: 1px solid #ddd;
 }
 
 button {
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: #1a1a1a;
+    background: #2fbf9f;
+    color: white;
     padding: 12px;
     border: none;
     border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
 }
 
 /* WHATSAPP */
@@ -161,10 +130,83 @@ button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #25D366, #1ebe57);
+    background: #25D366;
     padding: 15px;
     border-radius: 50%;
     color: white;
     font-size: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
+
+/* ===================== */
+/* 🌐 REDES SOCIALES PRO */
+/* ===================== */
+
+.socials {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    transition: 0.3s;
+}
+
+/* efecto hover */
+.social:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* GLOBO (tooltip) */
+.social::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 60px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* flechita */
+.social::before {
+    content: "";
+    position: absolute;
+    bottom: 52px;
+    width: 10px;
+    height: 10px;
+    background: rgba(0,0,0,0.85);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* mostrar globo */
+.social:hover::after,
+.social:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* colores redes */
+.social.whatsapp { background: #25D366; color: white; }
+.social.instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: white; }
+.social.facebook { background: #1877F2; color: white; }
+.social.tiktok { background: black; color: white; }
+.social.mail { background: #4aa3df; color: white; }
