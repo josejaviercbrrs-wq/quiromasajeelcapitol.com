@@ -1,7 +1,7 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: #f4f7f6;
-    color: #1b1f1e;
+    background: #0b0b0b;
+    color: #eaeaea;
     margin: 0;
 }
 
@@ -10,7 +10,7 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(255,255,255,0.85);
+    background: rgba(10,10,10,0.75);
     backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
@@ -21,13 +21,18 @@ body {
 .navbar a {
     margin-left: 15px;
     text-decoration: none;
-    color: #1b3b3a;
+    color: #eaeaea;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffd36a;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
     url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover;
     display: flex;
     align-items: center;
@@ -45,12 +50,18 @@ body {
 
 /* BOTONES */
 .btn {
-    background: linear-gradient(135deg, #2fbf9f, #4aa3df);
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
     padding: 12px 25px;
     border-radius: 30px;
-    color: white;
+    color: #1a1a1a;
     text-decoration: none;
     display: inline-block;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
 }
 
 /* SECCIONES */
@@ -61,6 +72,10 @@ body {
     text-align: center;
 }
 
+.section h2 {
+    color: #ffd36a;
+}
+
 /* CARDS */
 .cards {
     display: grid;
@@ -69,10 +84,16 @@ body {
 }
 
 .card {
-    background: white;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
 }
 
 /* GALERÍA */
@@ -87,19 +108,33 @@ body {
     height: 220px;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
-    transition: transform 0.3s ease;
+    transition: 0.3s;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
 }
 
-/* CTA */
+/* CTA (LOGO DE FONDO) */
 .cta {
-    background: linear-gradient(135deg, #2fbf9f, #4aa3df);
-    color: white;
+    position: relative;
+    background: url("https://i.ibb.co/spLQkHvZ/Whats-App-Image-2026-06-25-at-21-54-18.jpg") center/250px no-repeat;
+    background-color: #0a0a0a;
+    color: #ffd36a;
     border-radius: 20px;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.cta * {
+    position: relative;
+    z-index: 2;
 }
 
 /* FORM */
@@ -112,17 +147,20 @@ form {
 }
 
 input, textarea {
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
 }
 
 button {
-    background: #2fbf9f;
-    color: white;
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: #1a1a1a;
     padding: 12px;
     border: none;
     border-radius: 10px;
+    font-weight: 600;
 }
 
 /* WHATSAPP */
@@ -130,17 +168,14 @@ button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366, #1ebe57);
     padding: 15px;
     border-radius: 50%;
     color: white;
     font-size: 20px;
 }
 
-/* ===================== */
-/* 🌐 REDES SOCIALES PRO */
-/* ===================== */
-
+/* REDES SOCIALES */
 .socials {
     display: flex;
     gap: 12px;
@@ -162,12 +197,11 @@ button {
     transition: 0.3s;
 }
 
-/* efecto hover */
 .social:hover {
     transform: translateY(-5px) scale(1.1);
 }
 
-/* GLOBO (tooltip) */
+/* tooltip */
 .social::after {
     content: attr(data-text);
     position: absolute;
@@ -180,11 +214,9 @@ button {
     opacity: 0;
     transform: translateY(5px);
     transition: 0.3s;
-    pointer-events: none;
     white-space: nowrap;
 }
 
-/* flechita */
 .social::before {
     content: "";
     position: absolute;
@@ -197,7 +229,6 @@ button {
     transition: 0.3s;
 }
 
-/* mostrar globo */
 .social:hover::after,
 .social:hover::before {
     opacity: 1;
