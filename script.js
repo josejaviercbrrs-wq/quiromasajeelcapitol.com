@@ -1,95 +1,98 @@
-// =====================
-// SCROLL REVEAL APPLE
-// =====================
-const reveals = document.querySelectorAll(".reveal");
+// SCROLL ANIMATION
+const reveals=document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
-reveals.forEach(el => {
-if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-el.classList.add("active");
+window.addEventListener("scroll",()=>{
+reveals.forEach(e=>{
+if(e.getBoundingClientRect().top<window.innerHeight-100){
+e.style.opacity="1";
+e.style.transform="translateY(0)";
 }
 });
 });
 
-// =====================
-// BOTÓN TOP
-// =====================
-const topBtn = document.getElementById("scrollTop");
+// SCROLL TOP
+function scrollTopSmooth(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
 
-window.addEventListener("scroll", () => {
-topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
+// STARS
+let selectedRating=0;
+const stars=document.querySelectorAll("#starRating i");
 
-topBtn.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
-
-// =====================
-// RESERVA WHATSAPP + CALENDARIO
-// =====================
-document.getElementById("whatsappBtn").onclick = () => {
-const name = document.getElementById("name").value;
-const date = document.getElementById("date").value;
-const msg = document.getElementById("msg").value;
-
-const text = `Hola, soy ${name}. Quiero reservar para el ${date}. ${msg}`;
-window.open(`https://wa.me/34675752500?text=${encodeURIComponent(text)}`);
-};
-
-// =====================
-// RESEÑAS PRO + FECHA + LIKES
-// =====================
-let selectedRating = 0;
-
-const stars = document.querySelectorAll("#starRating i");
-
-stars.forEach((star, i) => {
-star.onclick = () => {
-selectedRating = i + 1;
-stars.forEach((s, j) => s.classList.toggle("active", j < selectedRating));
+stars.forEach((star,i)=>{
+star.onclick=()=>{
+selectedRating=i+1;
+stars.forEach(s=>s.classList.remove("active"));
+for(let x=0;x<selectedRating;x++){
+stars[x].classList.add("active");
+}
 };
 });
 
-function addReview() {
-const name = document.getElementById("reviewName").value;
-const text = document.getElementById("reviewText").value;
+// REVIEWS
+function addReview(){
+const n=document.getElementById("reviewName").value;
+const t=document.getElementById("reviewText").value;
 
-if(!name || !text || !selectedRating) return;
+if(!n||!t||!selectedRating)return;
 
-let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+let r=JSON.parse(localStorage.getItem("reviews")||"[]");
 
-reviews.unshift({
-name,
-text,
+r.unshift({
+name:n,
+text:t,
 rating:selectedRating,
-date:new Date().toLocaleDateString(),
-likes:0
+date:new Date().toLocaleDateString()
 });
 
-localStorage.setItem("reviews", JSON.stringify(reviews));
-renderReviews();
+localStorage.setItem("reviews",JSON.stringify(r));
+loadReviews();
 }
 
-function likeReview(i){
-let reviews = JSON.parse(localStorage.getItem("reviews"));
-reviews[i].likes++;
-localStorage.setItem("reviews", JSON.stringify(reviews));
-renderReviews();
-}
+function loadReviews(){
+let r=JSON.parse(localStorage.getItem("reviews")||"[]");
+let c=document.getElementById("reviewsContainer");
+c.innerHTML="";
 
-function renderReviews(){
-const box = document.getElementById("reviewsContainer");
-let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-
-box.innerHTML = "";
-
-reviews.forEach((r,i)=>{
-box.innerHTML += `
-<div class="review-card">
-<b>${r.name}</b> · ${r.date}<br>
-${"⭐".repeat(r.rating)}
-<p>${r.text}</p>
-<button onclick="likeReview(${i})">👍 ${r.likes}</button>
+r.forEach(x=>{
+c.innerHTML+=`
+<div>
+<h4>${x.name} ⭐${x.rating}</h4>
+<small>${x.date}</small>
+<p>${x.text}</p>
 </div>`;
 });
 }
 
-renderReviews();
+loadReviews();
+
+// MAP ANIMATION
+const map=document.querySelector(".map-card");
+if(map){
+map.style.opacity=0;
+map.style.transform="translateY(40px)";
+map.style.transition="1s";
+new IntersectionObserver(e=>{
+e.forEach(i=>{
+if(i.isIntersecting){
+map.style.opacity=1;
+map.style.transform="translateY(0)";
+}
+});
+}).observe(map);
+}
+
+// LANGUAGE SWITCH
+let lang="es";
+
+function toggleLang(){
+lang=lang==="es"?"ca":"es";
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.innerText=el.getAttribute("data-"+lang);
+});
+
+document.getElementById("flag").src=
+lang==="es"
+?"https://flagcdn.com/es.svg"
+:"https://flagcdn.com/ad.svg";
+}
