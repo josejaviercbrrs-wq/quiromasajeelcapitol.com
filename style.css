@@ -1,251 +1,26 @@
-body {
-    font-family: 'Inter', sans-serif;
-    background: #0b0b0b;
-    color: #eaeaea;
-    margin: 0;
-}
+/* ========================= */
+/* RESERVA EMAIL + ICONOS PRO */
+/* ========================= */
 
-/* NAV */
-.navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(10,10,10,0.75);
-    backdrop-filter: blur(12px);
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 30px;
-    z-index: 1000;
-}
-
-.navbar a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #eaeaea;
-    transition: 0.3s;
-}
-
-.navbar a:hover {
-    color: #ffd36a;
-}
-
-/* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-    url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    color: white;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-}
-
-/* BOTONES */
-.btn {
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    padding: 12px 25px;
-    border-radius: 30px;
-    color: #1a1a1a;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-/* SECCIONES */
-.section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
-}
-
-.section h2 {
-    color: #ffd36a;
-}
-
-/* CARDS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 25px;
-    border-radius: 18px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-}
-
-/* GALERÍA */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 18px;
-    transition: 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* CTA (LOGO DE FONDO) */
-.cta {
-    position: relative;
-    background: url("https://i.ibb.co/spLQkHvZ/Whats-App-Image-2026-06-25-at-21-54-18.jpg") center/250px no-repeat;
-    background-color: #0a0a0a;
-    color: #ffd36a;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.cta::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-}
-
-.cta * {
-    position: relative;
-    z-index: 2;
-}
-
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
-}
-
-input, textarea {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-    color: white;
-}
-
-button {
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: #1a1a1a;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-}
-
-/* WHATSAPP */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #25D366, #1ebe57);
-    padding: 15px;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-}
-
-/* REDES SOCIALES */
-.socials {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
+.reserve-options {
     margin-top: 20px;
 }
 
-.social {
-    position: relative;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+.email-options {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     justify-content: center;
-    text-decoration: none;
-    color: #1a1a1a;
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    transition: 0.3s;
+    margin-top: 15px;
 }
 
-.social:hover {
-    transform: translateY(-5px) scale(1.1);
+/* botón más fino para emails */
+.email-options .btn {
+    font-size: 14px;
+    padding: 10px 18px;
 }
 
-/* tooltip */
-.social::after {
-    content: attr(data-text);
-    position: absolute;
-    bottom: 60px;
-    background: rgba(0,0,0,0.85);
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-.social::before {
-    content: "";
-    position: absolute;
-    bottom: 52px;
-    width: 10px;
-    height: 10px;
-    background: rgba(0,0,0,0.85);
-    transform: rotate(45deg);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.social:hover::after,
-.social:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* colores redes */
-.social.whatsapp { background: #25D366; color: white; }
-.social.instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: white; }
-.social.facebook { background: #1877F2; color: white; }
-.social.tiktok { background: black; color: white; }
-.social.mail { background: #4aa3df; color: white; }
-
-/* ========================= */
-/* RESERVA SOLO ICONOS PRO */
-/* ========================= */
-
+/* versión SOLO ICONOS (opcional si luego quieres mejorar más) */
 .reserve-icons {
     display: flex;
     justify-content: center;
@@ -277,4 +52,13 @@ button {
 
 .reserve-icon.mail {
     background: #4aa3df;
+}
+
+/* Gmail / Outlook estilos opcionales (si usas iconos directos) */
+.reserve-icon.gmail {
+    background: #EA4335;
+}
+
+.reserve-icon.outlook {
+    background: #0078D4;
 }
