@@ -1,36 +1,34 @@
-// =========================
-// ⭐ RESEÑAS + ESTRELLAS
-// =========================
-
 let selectedRating = 0;
 const stars = document.querySelectorAll("#starRating i");
 
-// hover + click
-stars.forEach((star, index) => {
+if (stars.length > 0) {
 
-    star.addEventListener("mouseover", () => {
-        resetStars();
-        for (let i = 0; i <= index; i++) {
-            stars[i].classList.add("hovered");
-        }
+    stars.forEach((star, index) => {
+
+        star.addEventListener("mouseover", () => {
+            resetStars();
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add("hovered");
+            }
+        });
+
+        star.addEventListener("mouseout", () => {
+            resetStars();
+            for (let i = 0; i < selectedRating; i++) {
+                stars[i].classList.add("active");
+            }
+        });
+
+        star.addEventListener("click", () => {
+            selectedRating = index + 1;
+            resetStars();
+
+            for (let i = 0; i < selectedRating; i++) {
+                stars[i].classList.add("active");
+            }
+        });
     });
-
-    star.addEventListener("mouseout", () => {
-        resetStars();
-        for (let i = 0; i < selectedRating; i++) {
-            stars[i].classList.add("active");
-        }
-    });
-
-    star.addEventListener("click", () => {
-        selectedRating = index + 1;
-        resetStars();
-
-        for (let i = 0; i < selectedRating; i++) {
-            stars[i].classList.add("active");
-        }
-    });
-});
+}
 
 function resetStars() {
     stars.forEach(s => {
@@ -39,15 +37,14 @@ function resetStars() {
     });
 }
 
-// =========================
-// 💾 GUARDAR RESEÑA
-// =========================
-
+// GUARDAR RESEÑA
 function addReview() {
-    const name = document.getElementById("reviewName").value;
-    const text = document.getElementById("reviewText").value;
+    const name = document.getElementById("reviewName");
+    const text = document.getElementById("reviewText");
 
-    if (!name || !text || selectedRating === 0) {
+    if (!name || !text) return;
+
+    if (!name.value || !text.value || selectedRating === 0) {
         alert("Completa todo");
         return;
     }
@@ -55,43 +52,28 @@ function addReview() {
     const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
     reviews.push({
-        name,
-        text,
+        name: name.value,
+        text: text.value,
         rating: selectedRating,
         time: Date.now()
     });
 
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
-    loadReviews();
-
-    document.getElementById("reviewName").value = "";
-    document.getElementById("reviewText").value = "";
+    name.value = "";
+    text.value = "";
     selectedRating = 0;
     resetStars();
+
+    loadReviews();
 }
 
-// =========================
-// 📥 CARGAR RESEÑAS + FILTRO
-// =========================
-
+// CARGAR RESEÑAS
 function loadReviews() {
     const container = document.getElementById("reviewsContainer");
-    const filter = document.getElementById("reviewFilter")?.value || "newest";
+    if (!container) return;
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    if (filter === "newest") {
-        reviews.sort((a,b) => b.time - a.time);
-    }
-
-    if (filter === "highest") {
-        reviews.sort((a,b) => b.rating - a.rating);
-    }
-
-    if (filter === "lowest") {
-        reviews.sort((a,b) => a.rating - b.rating);
-    }
 
     container.innerHTML = "";
 
@@ -106,19 +88,7 @@ function loadReviews() {
     });
 }
 
-// =========================
-// 🧹 BORRAR TODO
-// =========================
-
-function clearReviews() {
-    localStorage.removeItem("reviews");
-    loadReviews();
-}
-
-// =========================
-// 📍 MAPA ANIMACIÓN
-// =========================
-
+// MAPA ANIMACIÓN
 const map = document.querySelector(".map-card");
 
 if (map) {
@@ -137,3 +107,6 @@ if (map) {
 
     obs.observe(map);
 }
+
+// INIT
+loadReviews();
