@@ -1,127 +1,148 @@
-body {
-margin:0;
+body{
 font-family:Inter;
-background:#0b0b0b;
-color:white;
+background:#000;
+color:#ffd84d;
+margin:0;
 overflow-x:hidden;
 }
 
-/* HERO */
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover;
+background:#000;
 }
 
-.hero-content{text-align:center}
-
-/* SECCIONES */
-.section{padding:80px 20px;text-align:center}
-
-/* REVEAL APPLE */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
+.hero h1{
+font-size:3rem;
+color:#ffd84d;
+text-shadow:0 0 20px #ffcc00;
 }
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
+.btn{
+background:#ffd84d;
+color:#000;
+padding:12px 25px;
+border-radius:30px;
+font-weight:600;
 }
 
-/* TRATAMIENTOS */
 .treatments{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.treatment{
+height:250px;
+border-radius:18px;
+overflow:hidden;
 }
 
 .treatment img{
 width:100%;
-height:220px;
+height:100%;
 object-fit:cover;
-border-radius:15px;
-transition:.4s;
+transition:.5s;
 }
 
-.treatment:hover img{transform:scale(1.05)}
+.treatment:hover img{
+transform:scale(1.1);
+filter:brightness(.7);
+}
 
-/* MAPA */
-.map-card{border-radius:15px;overflow:hidden}
-.map-frame{width:100%;height:320px;border:0}
-
-/* RESERVA */
-.booking-card{
-max-width:400px;
+.map-card{
+max-width:800px;
 margin:auto;
+border-radius:18px;
+overflow:hidden;
+}
+
+.map-frame{
+width:100%;
+height:300px;
+border:0;
+}
+
+.review-box{
+max-width:500px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:5px 0;
+background:#111;
+color:#ffd84d;
+border:1px solid #333;
+}
+
+.stars i{
+color:#555;
+cursor:pointer;
+}
+
+.stars i.active{
+color:#ffd84d;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+font-size:25px;
+background:#ffd84d;
+color:#000;
+padding:15px;
+border-radius:50%;
+}
+
+.social-float{
+position:fixed;
+bottom:90px;
+right:20px;
 display:flex;
 flex-direction:column;
 gap:10px;
 }
 
-input,textarea{
-padding:10px;
-border-radius:10px;
-border:none;
+.social-float-btn{
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:#000;
+background:#ffd84d;
 }
 
-/* BOTONES */
-.btn{
-background:linear-gradient(135deg,#ffd36a,#ffb347);
-padding:12px;
-border-radius:10px;
-color:black;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* ESTRELLAS */
-.stars i{
-color:#555;
-cursor:pointer;
-font-size:22px;
-}
-
-.stars i.active{color:#ffd36a}
-
-/* RESEÑAS */
-.reviews{
-margin-top:20px;
-display:grid;
-gap:10px;
-}
-
-.review-card{
-background:#1a1a1a;
-padding:10px;
-border-radius:10px;
-}
-
-/* WHATSAPP */
-.whatsapp-float{
+.top-btn{
 position:fixed;
 bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-color:white;
-}
-
-/* TOP BUTTON */
-#scrollTop{
-position:fixed;
-bottom:90px;
-right:20px;
-background:#ffd36a;
-color:black;
-padding:10px 12px;
+left:20px;
+background:#ffd84d;
+border:none;
+padding:12px;
 border-radius:50%;
 cursor:pointer;
-display:none;
+}
+
+.lang-switch{
+position:fixed;
+top:15px;
+right:15px;
+cursor:pointer;
+}
+
+.lang-switch img{
+width:30px;
+border-radius:50%;
 }
