@@ -415,8 +415,3 @@ button {
     cursor: pointer;
     transition: 0.3s;
 }
-
-.delete-reviews:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(255,0,0,0.3);
-}
