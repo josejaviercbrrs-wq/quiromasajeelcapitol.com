@@ -110,14 +110,27 @@ body {
 /* ===== TRATAMIENTOS ===== */
 .treatments {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    align-items: stretch;
 }
 
 .treatment {
     height: 260px;
     border-radius: 20px;
     overflow: hidden;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔥 ESTO ES LO IMPORTANTE */
+.treatment img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* clave: no estira, muestra completa */
+    padding: 10px;       /* aire alrededor para que respire */
 }
 
 /* ===== RESERVA ===== */
