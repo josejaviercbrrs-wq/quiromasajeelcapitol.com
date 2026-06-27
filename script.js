@@ -79,47 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    window.sendWhatsAppBooking = function () {
-
-        const date = document.getElementById("date").value;
-        const time = document.getElementById("time").value;
-
-        if (!date || !time) return alert("Completa fecha y hora");
-
-        const today = new Date();
-        today.setHours(0,0,0,0);
-
-        const selected = new Date(date);
-
-        if (selected < today) return alert("Fecha inválida");
-
-        let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-
-        const full = `${date} ${time}`;
-
-        if (bookings.find(b => b.datetime === full)) {
-            return alert("Hora ocupada");
-        }
-
-        bookings.push({ datetime: full });
-        localStorage.setItem("bookings", JSON.stringify(bookings));
-
-        const msg = `Hola quiero reservar:%0A📅 ${date}%0A⏰ ${time}`;
-
-        window.open(`https://wa.me/34675752500?text=${msg}`, "_blank");
-    };
-
-    const topBtn = document.getElementById("topBtn");
-
-    window.scrollTopSmooth = () => window.scrollTo({top:0,behavior:"smooth"});
+    window.scrollTopSmooth = () =>
+        window.scrollTo({top:0,behavior:"smooth"});
 
     window.addEventListener("scroll", () => {
-        topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+        document.getElementById("topBtn").style.display =
+            window.scrollY > 300 ? "flex" : "none";
     });
-
-    const date = document.getElementById("date");
-    const d = new Date();
-    date.min = d.toISOString().split("T")[0];
 
     loadReviews();
 });
