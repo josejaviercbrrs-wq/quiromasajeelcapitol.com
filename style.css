@@ -28,7 +28,7 @@ body {
     background-color: #0b0b0b;
 }
 
-/* 🔥 fondo blur */
+/* fondo blur */
 .hero::before {
     content: "";
     position: absolute;
@@ -53,22 +53,25 @@ body {
     z-index: 2;
 }
 
-/* 🔥 imagen centrada encima */
+/* ===== IMAGEN CENTRADA GRANDE (MEJORADA) ===== */
 .hero-image {
     position: absolute;
     z-index: 3;
 
-    width: min(420px, 75%);
+    width: min(650px, 92vw);
+    max-height: 85vh;
     height: auto;
 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+    object-fit: contain;
+
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.7));
 }
 
-/* texto encima */
+/* ===== TEXTO ===== */
 .hero-content {
     position: relative;
     z-index: 4;
@@ -141,19 +144,35 @@ body {
     border-radius: 10px;
 }
 
+/* estrellas */
 .stars {
     display: flex;
     justify-content: center;
     gap: 10px;
     font-size: 26px;
+    cursor: pointer;
 }
 
 .stars i {
     color: #444;
 }
 
-.stars i.active {
+.stars i.active,
+.stars i.hovered {
     color: #ffd36a;
+}
+
+/* reviews */
+#reviewsContainer {
+    margin-top: 20px;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 500px;
+    border-radius: 15px;
 }
 
 /* ===== BOTÓN SUBIR ===== */
