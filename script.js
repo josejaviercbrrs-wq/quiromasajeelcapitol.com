@@ -100,25 +100,41 @@ window.sendWhatsAppBooking = function () {
     window.open(`https://wa.me/34675752500?text=${message}`, "_blank");
 };
 
-/* ⬆️ TOP BUTTON */
-const topBtn = document.getElementById("topBtn");
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    left: 25px;   /* 👈 ahora a la izquierda */
+    right: auto;
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-});
+    width: 55px;
+    height: 55px;
 
-window.scrollTopSmooth = function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-};
+    border-radius: 50%; /* totalmente redondo */
+
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 0 12px rgba(255, 211, 106, 0.4);
+    transition: all 0.3s ease;
+}
 
 /* INIT */
 loadReviews();
 
 });
+#topBtn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(255, 211, 106, 0.7);
+}
