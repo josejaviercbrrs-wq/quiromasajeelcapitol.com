@@ -89,3 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadReviews();
 });
+document.querySelector('a[href="#reserva"]').addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = document.getElementById("reserva");
+
+    const top = target.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({
+        top: top,
+        behavior: "smooth"
+    });
+});
