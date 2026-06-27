@@ -28,7 +28,7 @@ body {
     background-color: #0b0b0b;
 }
 
-/* 🔥 FONDO BLUR REAL (más profundo) */
+/* fondo blur */
 .hero::before {
     content: "";
     position: absolute;
@@ -38,7 +38,7 @@ body {
     background-size: cover;
     background-position: center;
 
-    transform: scale(1.6); /* MÁS GRANDE = más profundidad */
+    transform: scale(1.6);
     filter: blur(28px) brightness(0.4);
 
     z-index: 1;
@@ -53,26 +53,25 @@ body {
     z-index: 2;
 }
 
-/* ===== IMAGEN PRINCIPAL (ARREGLADA DE VERDAD) ===== */
+/* ===== IMAGEN PRINCIPAL (CORREGIDA) ===== */
 .hero-image {
     position: absolute;
     z-index: 3;
 
-    /* 🔥 MÁS GRANDE REAL */
-    width: min(750px, 95vw);
-    max-height: 88vh;
-
+    /* 🔥 clave: ajusta sin deformar ni recortar */
+    width: min(70vw, 600px);
     height: auto;
 
-    /* centrado perfecto */
+    max-height: 80vh;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     object-fit: contain;
 
-    /* efecto premium */
-    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8));
+    /* hace que no “flote raro” sobre el blur */
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.75));
 }
 
 /* ===== TEXTO ===== */
@@ -87,7 +86,6 @@ body {
     justify-content: center;
 }
 
-/* 🔥 MÁS CONTRASTE EN TEXTO */
 .hero-content h1,
 .hero-content p {
     text-shadow: 0 3px 12px rgba(0,0,0,0.9);
@@ -179,7 +177,6 @@ body {
 
     width: 65px;
     height: 65px;
-
     border-radius: 50%;
     border: none;
 
