@@ -3,6 +3,7 @@ let selectedRating = 0;
 document.addEventListener("DOMContentLoaded", () => {
 
     const stars = document.querySelectorAll("#starRating i");
+    const topBtn = document.getElementById("topBtn");
 
     function resetStars() {
         stars.forEach(s => s.classList.remove("active", "hovered"));
@@ -18,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         star.addEventListener("mouseover", () => {
             resetStars();
-            for (let j = 0; j <= i; j++) stars[j].classList.add("hovered");
+            for (let j = 0; j <= i; j++) {
+                stars[j].classList.add("hovered");
+            }
         });
 
         star.addEventListener("mouseout", () => {
@@ -56,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.value = "";
         text.value = "";
         selectedRating = 0;
+
         resetStars();
         loadReviews();
     };
@@ -66,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-        reviews.sort((a,b)=>b.time-a.time);
+        reviews.sort((a, b) => b.time - a.time);
 
         reviews.forEach(r => {
             container.innerHTML += `
@@ -79,12 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    window.scrollTopSmooth = () =>
-        window.scrollTo({top:0,behavior:"smooth"});
+    window.scrollTopSmooth = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 
     window.addEventListener("scroll", () => {
-        document.getElementById("topBtn").style.display =
-            window.scrollY > 300 ? "flex" : "none";
+        if (!topBtn) return;
+        topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
     });
 
     loadReviews();
