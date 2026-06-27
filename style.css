@@ -104,17 +104,40 @@ body {
 /* BOTÓN SUBIR */
 #topBtn {
     display: none;
+
     position: fixed;
     bottom: 25px;
     left: 25px;
-    width: 60px;
-    height: 60px;
+
+    width: 65px;
+    height: 65px;
+
     border-radius: 50%;
-    background: linear-gradient(135deg,#ffd36a,#ffb347);
     border: none;
-    font-size: 22px;
+
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+
     cursor: pointer;
     z-index: 999;
+
+    /* CENTRAR FLECHA PERFECTA */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    box-shadow: 0 0 15px rgba(255, 211, 106, 0.6);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER MÁS BONITO */
+#topBtn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(255, 211, 106, 0.9);
 }
 
 /* FLOTANTES */
