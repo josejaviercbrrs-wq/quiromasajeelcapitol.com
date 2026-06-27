@@ -5,7 +5,6 @@ body {
     color: #ffd36a;
 }
 
-/* NAV */
 .navbar {
     position: fixed;
     top: 0;
@@ -16,7 +15,6 @@ body {
     z-index: 999;
 }
 
-/* HERO */
 .hero {
     height: 100vh;
     display: flex;
@@ -25,46 +23,23 @@ body {
     background: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover no-repeat;
 }
 
-.hero-content {
-    text-align: center;
-}
+.hero-content { text-align: center; }
 
-.hero h1 {
-    font-size: 3rem;
-    color: #ffd36a;
-}
-
-/* BOTÓN */
 .btn {
     background: linear-gradient(135deg, #ffd36a, #ffb347);
     color: black;
     padding: 12px 25px;
     border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
-/* ======================= */
-/* TITULOS PRO CENTRADOS */
-/* ======================= */
-
-.section h2 {
+.section {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-
-    font-family: 'Playfair Display', serif;
-
-    background: linear-gradient(180deg, #ffd36a, #ffb347);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow: 0 0 20px rgba(255, 211, 106, 0.2);
+    padding: 60px 20px;
 }
 
-/* TRATAMIENTOS */
 .treatments {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -81,347 +56,89 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.4s ease;
 }
 
-.treatment:hover img {
-    transform: scale(1.08);
-}
-
-/* MAPA */
-.map-card {
-    max-width: 800px;
-    margin: auto;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.map-frame {
-    width: 100%;
-    height: 300px;
-    border: 0;
-}
-
-/* RESERVA */
-.booking {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.booking input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-}
-
-/* RESEÑAS */
 .review-box {
     max-width: 500px;
     margin: auto;
-    text-align: center;
     padding: 20px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 18px;
 }
 
 .review-box input,
 .review-box textarea {
     width: 100%;
-    text-align: center;
-    padding: 10px;
     margin: 5px 0;
+    padding: 10px;
     border-radius: 10px;
-    background: rgba(255,255,255,0.05);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ESTRELLAS */
 .stars {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 26px;
     cursor: pointer;
 }
 
 .stars i {
     color: #444;
-    transition: 0.2s;
 }
 
-.stars i.hovered,
-.stars i.active {
+.stars i.active,
+.stars i.hovered {
     color: #ffd36a;
 }
 
-/* RESEÑAS LISTA */
 #reviewsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
     margin-top: 20px;
 }
 
 .review-card {
-    width: 90%;
-    max-width: 500px;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.05);
     padding: 15px;
+    margin: 10px auto;
+    max-width: 500px;
     border-radius: 15px;
-    text-align: center;
 }
 
-/* BOTÓN ARRIBA */
-#topBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ffd36a;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* ======================= */
-/* BOTONES FLOTANTES */
-/* ======================= */
-
-.floating {
-    position: fixed;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 999;
-}
-
-.floating a {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-}
-
-/* WhatsApp */
-.whatsapp {
-    background: #25D366;
-}
-
-/* Instagram */
-.instagram {
-    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-}
-
-/* Facebook */
-.facebook {
-    background: #1877f2;
-}
-
-/* TikTok */
-.tiktok {
-    background: #000;
-}
-/* TITULOS MODO LUJO */
-.section h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 600;
-    margin-bottom: 30px;
-
-    color: #ffd36a;
-
-    text-shadow:
-        0 0 5px rgba(255, 211, 106, 0.4),
-        0 0 10px rgba(255, 211, 106, 0.3),
-        0 0 20px rgba(255, 211, 106, 0.2);
-
-    letter-spacing: 1px;
-}
-
-/* LINEA DECORATIVA COMO LA FOTO */
-.section h2::after {
-    content: "✦";
-    display: block;
-    margin-top: 10px;
-    font-size: 18px;
-    opacity: 0.6;
-}
-
-/* TEXTO GENERAL CENTRADO */
-.section {
-    text-align: center;
-    padding: 60px 20px;
-}
-
-/* SUBTEXTO */
-.section p {
-    text-align: center;
-    font-size: 1.1rem;
-    opacity: 0.85;
-}
-
-/* TARJETAS MÁS PREMIUM */
-.treatment {
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* EFECTO HOVER PRO */
-.treatment img {
-    transition: transform 0.5s ease, filter 0.5s ease;
-    filter: brightness(0.85);
-}
-
-.treatment:hover img {
-    transform: scale(1.08);
-    filter: brightness(1);
-}
-
-/* RESEÑAS MÁS BONITAS */
-.review-card {
-    width: 90%;
-    max-width: 520px;
-    background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(0,0,0,0.4));
-    padding: 18px;
-    border-radius: 18px;
-    text-align: center;
-
-    box-shadow: 0 0 15px rgba(255, 211, 106, 0.08);
-}
-
-/* NOMBRE RESEÑA */
-.review-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: #ffd36a;
-}
-
-/* TEXTO RESEÑA */
-.review-card p {
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-/* BOTÓN MÁS LUJO */
-.btn {
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: black;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-
-    box-shadow: 0 0 10px rgba(255, 211, 106, 0.4);
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
-}
-/* EFECTO LUZ EN TITULOS */
-.section h2 {
-    position: relative;
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 600;
-    margin-bottom: 30px;
-
-    background: linear-gradient(
-        120deg,
-        #ffd36a 20%,
-        #fff3c4 40%,
-        #ffd36a 60%
-    );
-
-    background-size: 200% auto;
-
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    animation: shine 4s linear infinite;
-}
-
-/* ANIMACIÓN */
-@keyframes shine {
-    0% {
-        background-position: 200% center;
-    }
-    100% {
-        background-position: -200% center;
-    }
-}
-.section h2 {
-    text-shadow: 0 0 10px rgba(255, 211, 106, 0.4);
-}
-/* FIX + MEJORA BOTONES FLOTANTES */
-.floating {
-    bottom: 90px; /* ESTO TE FALTABA */
-}
-
-/* MEJORA PRO */
-.floating a {
-    width: 55px;
-    height: 55px;
-    font-size: 24px;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* COLORES MÁS PRO */
-.instagram {
-    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
-}
-
-/* HOVER LUJO */
-.floating a:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
-}
-/* BOTÓN ARRIBA */
+/* BOTÓN SUBIR */
 #topBtn {
     display: none;
     position: fixed;
     bottom: 25px;
     left: 25px;
-
-    width: 58px;
-    height: 58px;
-
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: black;
-
+    background: linear-gradient(135deg,#ffd36a,#ffb347);
     border: none;
+    font-size: 22px;
     cursor: pointer;
     z-index: 999;
+}
 
-    font-size: 22px;
-    font-weight: bold;
+/* FLOTANTES */
+.floating {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
+.floating a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    box-shadow: 0 0 15px rgba(255, 211, 106, 0.5);
-    transition: all 0.3s ease;
+    color: white;
+    font-size: 22px;
 }
 
-#topBtn:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 30px rgba(255, 211, 106, 0.8);
-}
+.whatsapp { background:#25D366; }
+.instagram { background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
+.facebook { background:#1877f2; }
+.tiktok { background:#000; }
