@@ -331,3 +331,39 @@ body {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
 }
+/* EFECTO LUZ EN TITULOS */
+.section h2 {
+    position: relative;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+
+    background: linear-gradient(
+        120deg,
+        #ffd36a 20%,
+        #fff3c4 40%,
+        #ffd36a 60%
+    );
+
+    background-size: 200% auto;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: shine 4s linear infinite;
+}
+
+/* ANIMACIÓN */
+@keyframes shine {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+.section h2 {
+    text-shadow: 0 0 10px rgba(255, 211, 106, 0.4);
+}
