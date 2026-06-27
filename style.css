@@ -231,3 +231,103 @@ body {
 .tiktok {
     background: #000;
 }
+/* TITULOS MODO LUJO */
+.section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+
+    color: #ffd36a;
+
+    text-shadow:
+        0 0 5px rgba(255, 211, 106, 0.4),
+        0 0 10px rgba(255, 211, 106, 0.3),
+        0 0 20px rgba(255, 211, 106, 0.2);
+
+    letter-spacing: 1px;
+}
+
+/* LINEA DECORATIVA COMO LA FOTO */
+.section h2::after {
+    content: "✦";
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+/* TEXTO GENERAL CENTRADO */
+.section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* SUBTEXTO */
+.section p {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+/* TARJETAS MÁS PREMIUM */
+.treatment {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* EFECTO HOVER PRO */
+.treatment img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.85);
+}
+
+.treatment:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+/* RESEÑAS MÁS BONITAS */
+.review-card {
+    width: 90%;
+    max-width: 520px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(0,0,0,0.4));
+    padding: 18px;
+    border-radius: 18px;
+    text-align: center;
+
+    box-shadow: 0 0 15px rgba(255, 211, 106, 0.08);
+}
+
+/* NOMBRE RESEÑA */
+.review-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #ffd36a;
+}
+
+/* TEXTO RESEÑA */
+.review-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* BOTÓN MÁS LUJO */
+.btn {
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+
+    box-shadow: 0 0 10px rgba(255, 211, 106, 0.4);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
+}
