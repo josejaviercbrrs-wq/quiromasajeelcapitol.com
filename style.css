@@ -165,3 +165,26 @@ body {
 .instagram { background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
 .facebook { background:#1877f2; }
 .tiktok { background:#000; }
+.phone-btn {
+    display: inline-block;
+    margin-top: 15px;
+
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+
+    padding: 14px 28px;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    text-decoration: none;
+
+    box-shadow: 0 0 15px rgba(255, 211, 106, 0.5);
+    transition: all 0.3s ease;
+}
+
+.phone-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255, 211, 106, 0.8);
+}
