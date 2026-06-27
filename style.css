@@ -367,3 +367,27 @@ body {
 .section h2 {
     text-shadow: 0 0 10px rgba(255, 211, 106, 0.4);
 }
+/* FIX + MEJORA BOTONES FLOTANTES */
+.floating {
+    bottom: 90px; /* ESTO TE FALTABA */
+}
+
+/* MEJORA PRO */
+.floating a {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* COLORES MÁS PRO */
+.instagram {
+    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+}
+
+/* HOVER LUJO */
+.floating a:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
+}
