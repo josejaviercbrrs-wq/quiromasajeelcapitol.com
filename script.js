@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 let selectedRating = 0;
 const stars = document.querySelectorAll("#starRating i");
 
@@ -47,8 +49,7 @@ function addReview() {
         name: name.value,
         text: text.value,
         rating: selectedRating,
-        time: Date.now(),
-        likes: 0
+        time: Date.now()
     });
 
     localStorage.setItem("reviews", JSON.stringify(reviews));
@@ -61,7 +62,7 @@ function addReview() {
     loadReviews();
 }
 
-/* 📥 CARGAR RESEÑAS */
+/* 📥 RESEÑAS */
 function loadReviews() {
     const container = document.getElementById("reviewsContainer");
     container.innerHTML = "";
@@ -81,8 +82,8 @@ function loadReviews() {
     });
 }
 
-/* 📲 RESERVA WHATSAPP */
-function sendWhatsAppBooking() {
+/* 📲 WHATSAPP */
+window.sendWhatsAppBooking = function () {
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
 
@@ -97,21 +98,27 @@ function sendWhatsAppBooking() {
         `⏰ Hora: ${time}`;
 
     window.open(`https://wa.me/34675752500?text=${message}`, "_blank");
-}
+};
 
-/* ⬆️ TOP */
-function scrollTopSmooth() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
+/* ⬆️ TOP BUTTON */
+const topBtn = document.getElementById("topBtn");
 
-/* INIT */
-loadReviews();
-window.addEventListener("scroll", function () {
-    const topBtn = document.getElementById("topBtn");
-
+window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
         topBtn.style.display = "block";
     } else {
         topBtn.style.display = "none";
     }
+});
+
+window.scrollTopSmooth = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+
+/* INIT */
+loadReviews();
+
 });
