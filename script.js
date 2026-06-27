@@ -169,3 +169,15 @@ loadReviews();
     transform: scale(1.15);
     box-shadow: 0 0 25px rgba(255, 211, 106, 0.7);
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("date");
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+
+    const minDate = `${yyyy}-${mm}-${dd}`;
+
+    dateInput.min = minDate;
+});
