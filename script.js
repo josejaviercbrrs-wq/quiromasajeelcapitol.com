@@ -84,6 +84,7 @@ function loadReviews() {
 
 /* 📲 WHATSAPP */
 window.sendWhatsAppBooking = function () {
+
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
 
@@ -92,6 +93,37 @@ window.sendWhatsAppBooking = function () {
         return;
     }
 
+    // 📅 FECHA ACTUAL
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const selectedDate = new Date(date);
+
+    // ❌ NO FECHAS PASADAS
+    if (selectedDate < today) {
+        alert("No puedes reservar días pasados");
+        return;
+    }
+
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    const fullDateTime = `${date} ${time}`;
+
+    // ❌ BLOQUEAR HORA YA RESERVADA
+    const exists = bookings.find(b => b.datetime === fullDateTime);
+
+    if (exists) {
+        alert("Esta hora ya está reservada");
+        return;
+    }
+
+    // 💾 GUARDAR RESERVA
+    bookings.push({
+        datetime: fullDateTime
+    });
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
     const message =
         `Hola quiero reservar:%0A` +
         `📅 Fecha: ${date}%0A` +
@@ -99,7 +131,6 @@ window.sendWhatsAppBooking = function () {
 
     window.open(`https://wa.me/34675752500?text=${message}`, "_blank");
 };
-
 #topBtn {
     display: none;
     position: fixed;
