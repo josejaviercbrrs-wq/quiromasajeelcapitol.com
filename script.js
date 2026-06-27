@@ -82,7 +82,7 @@ function loadReviews() {
     });
 }
 
-/* 📲 WHATSAPP */
+/* 📲 WHATSAPP (ARREGLADO 100%) */
 window.sendWhatsAppBooking = function () {
 
     const date = document.getElementById("date").value;
@@ -93,13 +93,11 @@ window.sendWhatsAppBooking = function () {
         return;
     }
 
-    // 📅 FECHA ACTUAL
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     const selectedDate = new Date(date);
 
-    // ❌ NO FECHAS PASADAS
     if (selectedDate < today) {
         alert("No puedes reservar días pasados");
         return;
@@ -109,7 +107,6 @@ window.sendWhatsAppBooking = function () {
 
     const fullDateTime = `${date} ${time}`;
 
-    // ❌ BLOQUEAR HORA YA RESERVADA
     const exists = bookings.find(b => b.datetime === fullDateTime);
 
     if (exists) {
@@ -117,11 +114,7 @@ window.sendWhatsAppBooking = function () {
         return;
     }
 
-    // 💾 GUARDAR RESERVA
-    bookings.push({
-        datetime: fullDateTime
-    });
-
+    bookings.push({ datetime: fullDateTime });
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
     const message =
@@ -131,53 +124,26 @@ window.sendWhatsAppBooking = function () {
 
     window.open(`https://wa.me/34675752500?text=${message}`, "_blank");
 };
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 25px;
-    left: 25px;   /* 👈 ahora a la izquierda */
-    right: auto;
 
-    width: 55px;
-    height: 55px;
+/* ⬆️ BOTÓN ARRIBA */
+window.scrollTopSmooth = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
 
-    border-radius: 50%; /* totalmente redondo */
+const topBtn = document.getElementById("topBtn");
 
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: black;
-
-    border: none;
-    cursor: pointer;
-    z-index: 999;
-
-    font-size: 20px;
-    font-weight: bold;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow: 0 0 12px rgba(255, 211, 106, 0.4);
-    transition: all 0.3s ease;
-}
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        topBtn.style.display = "flex";
+    } else {
+        topBtn.style.display = "none";
+    }
+});
 
 /* INIT */
 loadReviews();
 
-});
-#topBtn:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 25px rgba(255, 211, 106, 0.7);
-}
-document.addEventListener("DOMContentLoaded", () => {
-    const dateInput = document.getElementById("date");
-
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const dd = String(today.getDate()).padStart(2, "0");
-
-    const minDate = `${yyyy}-${mm}-${dd}`;
-
-    dateInput.min = minDate;
 });
