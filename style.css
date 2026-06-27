@@ -395,20 +395,33 @@ body {
 #topBtn {
     display: none;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ffd36a;
-    border: none;
-    padding: 12px;
+    bottom: 25px;
+    left: 25px;
+
+    width: 58px;
+    height: 58px;
+
     border-radius: 50%;
+
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+
+    border: none;
     cursor: pointer;
     z-index: 999;
 
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    transition: 0.3s;
+    font-size: 22px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 0 15px rgba(255, 211, 106, 0.5);
+    transition: all 0.3s ease;
 }
 
 #topBtn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(255, 211, 106, 0.8);
 }
