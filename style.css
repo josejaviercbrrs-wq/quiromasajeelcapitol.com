@@ -5,6 +5,7 @@ body {
     color: #ffd36a;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 0;
@@ -15,6 +16,7 @@ body {
     z-index: 999;
 }
 
+/* ===== HERO ===== */
 .hero {
     height: 100vh;
     display: flex;
@@ -23,14 +25,16 @@ body {
 
     background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
     background-repeat: no-repeat;
-
     background-position: center;
     background-size: contain;
-    background-color: #0b0b0b; /* relleno elegante */
+    background-color: #0b0b0b;
 }
 
-.hero-content { text-align: center; }
+.hero-content {
+    text-align: center;
+}
 
+/* ===== BOTONES ===== */
 .btn {
     background: linear-gradient(135deg, #ffd36a, #ffb347);
     color: black;
@@ -41,29 +45,88 @@ body {
     font-weight: bold;
 }
 
+/* ===== SECCIONES ===== */
 .section {
     text-align: center;
     padding: 60px 20px;
 }
 
+/* ===== TRATAMIENTOS ===== */
 .treatments {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
 }
 
+/* tarjeta */
 .treatment {
-    height: 250px;
+    height: 260px;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* imagen */
 .treatment img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
+/* hover moderno */
+.treatment:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+.treatment:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+/* brillo suave */
+.treatment::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 211, 106, 0.15),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* ===== RESERVA ===== */
+.phone-btn {
+    display: inline-block;
+    margin-top: 15px;
+
+    background: linear-gradient(135deg, #ffd36a, #ffb347);
+    color: black;
+
+    padding: 14px 28px;
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    text-decoration: none;
+
+    box-shadow: 0 0 15px rgba(255, 211, 106, 0.5);
+    transition: all 0.3s ease;
+}
+
+.phone-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255, 211, 106, 0.8);
+}
+
+/* ===== RESEÑAS ===== */
 .review-box {
     max-width: 500px;
     margin: auto;
@@ -78,6 +141,7 @@ body {
     border-radius: 10px;
 }
 
+/* estrellas */
 .stars {
     display: flex;
     justify-content: center;
@@ -95,6 +159,7 @@ body {
     color: #ffd36a;
 }
 
+/* reviews */
 #reviewsContainer {
     margin-top: 20px;
 }
@@ -107,7 +172,7 @@ body {
     border-radius: 15px;
 }
 
-/* BOTÓN SUBIR */
+/* ===== BOTÓN SUBIR ===== */
 #topBtn {
     display: none;
 
@@ -127,7 +192,6 @@ body {
     cursor: pointer;
     z-index: 999;
 
-    /* CENTRAR FLECHA PERFECTA */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,17 +200,15 @@ body {
     font-weight: bold;
 
     box-shadow: 0 0 15px rgba(255, 211, 106, 0.6);
-
     transition: all 0.3s ease;
 }
 
-/* HOVER MÁS BONITO */
 #topBtn:hover {
     transform: scale(1.15);
     box-shadow: 0 0 30px rgba(255, 211, 106, 0.9);
 }
 
-/* FLOTANTES */
+/* ===== ICONOS FLOTANTES ===== */
 .floating {
     position: fixed;
     right: 20px;
@@ -171,69 +233,9 @@ body {
 .instagram { background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
 .facebook { background:#1877f2; }
 .tiktok { background:#000; }
-.phone-btn {
-    display: inline-block;
-    margin-top: 15px;
 
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: black;
-
-    padding: 14px 28px;
-    border-radius: 30px;
-
-    font-weight: bold;
-    font-size: 18px;
-
-    text-decoration: none;
-
-    box-shadow: 0 0 15px rgba(255, 211, 106, 0.5);
-    transition: all 0.3s ease;
-}
-
-.phone-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(255, 211, 106, 0.8);
-}
-.treatment {
-    height: 260px;
-    overflow: hidden;
-    border-radius: 20px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* efecto zoom suave */
-.treatment img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-}
-
-/* hover moderno tipo “premium” */
-.treatment:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-}
-
-.treatment:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.1) contrast(1.05);
-}
-.treatment::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 211, 106, 0.15),
-        transparent
-    );
-    pointer-events: none;
-}
+/* ===== SCROLL SUAVE ===== */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* evita que el header fijo tape el título */
+    scroll-padding-top: 80px;
 }
