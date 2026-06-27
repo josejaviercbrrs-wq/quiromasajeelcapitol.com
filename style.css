@@ -16,21 +16,47 @@ body {
     z-index: 999;
 }
 
-/* ===== HERO ===== */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    position: relative;
+    overflow: hidden;
+
     background-color: #0b0b0b;
 }
 
+/* fondo difuminado (blur + zoom) */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.2);
+    filter: blur(18px) brightness(0.6);
+
+    z-index: 1;
+}
+
+/* capa oscura suave para contraste */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 2;
+}
+
+/* contenido encima de todo */
 .hero-content {
+    position: relative;
+    z-index: 3;
     text-align: center;
 }
 
