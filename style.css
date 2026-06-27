@@ -391,3 +391,24 @@ body {
     transform: scale(1.15);
     box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
 }
+/* BOTÓN ARRIBA */
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffd36a;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+#topBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 211, 106, 0.6);
+}
