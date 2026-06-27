@@ -28,23 +28,27 @@ body {
     background-color: #0b0b0b;
 }
 
-/* fondo blur */
+/* 🔥 FONDO BLUR CORREGIDO */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
 
     background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
-    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
 
-    transform: scale(1.6);
-    filter: blur(28px) brightness(0.4);
+    /* 🔥 clave: mejor equilibrio */
+    background-size: 120% auto;
+
+    filter: blur(22px) brightness(0.45);
+
+    transform: scale(1.05);
 
     z-index: 1;
 }
 
-/* capa oscura */
+/* capa oscura suave */
 .hero::after {
     content: "";
     position: absolute;
@@ -53,16 +57,13 @@ body {
     z-index: 2;
 }
 
-/* ===== IMAGEN PRINCIPAL (CORREGIDA) ===== */
+/* ===== IMAGEN PRINCIPAL (CORREGIDA REAL) ===== */
 .hero-image {
     position: absolute;
     z-index: 3;
 
-    /* 🔥 clave: ajusta sin deformar ni recortar */
-    width: min(70vw, 600px);
-    height: auto;
-
-    max-height: 80vh;
+    width: min(75vw, 650px);
+    max-height: 85vh;
 
     top: 50%;
     left: 50%;
@@ -70,8 +71,7 @@ body {
 
     object-fit: contain;
 
-    /* hace que no “flote raro” sobre el blur */
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.75));
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.75));
 }
 
 /* ===== TEXTO ===== */
