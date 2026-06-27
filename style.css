@@ -20,7 +20,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover no-repeat;
+    background: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg") center/cover no-repeat;
+}
 }
 
 .hero-content { text-align: center; }
