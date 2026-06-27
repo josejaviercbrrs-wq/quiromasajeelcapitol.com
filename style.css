@@ -233,3 +233,7 @@ body {
     );
     pointer-events: none;
 }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* evita que el header fijo tape el título */
+}
