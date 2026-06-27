@@ -82,7 +82,7 @@ function loadReviews() {
     });
 }
 
-/* 📲 WHATSAPP (ARREGLADO 100%) */
+/* 📲 WHATSAPP RESERVA */
 window.sendWhatsAppBooking = function () {
 
     const date = document.getElementById("date").value;
@@ -93,6 +93,7 @@ window.sendWhatsAppBooking = function () {
         return;
     }
 
+    // ❌ FECHAS PASADAS NO
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -107,6 +108,7 @@ window.sendWhatsAppBooking = function () {
 
     const fullDateTime = `${date} ${time}`;
 
+    // ❌ BLOQUEAR HORAS REPETIDAS
     const exists = bookings.find(b => b.datetime === fullDateTime);
 
     if (exists) {
@@ -141,6 +143,18 @@ window.addEventListener("scroll", () => {
     } else {
         topBtn.style.display = "none";
     }
+});
+
+/* 📅 BLOQUEAR FECHAS PASADAS EN INPUT */
+document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("date");
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
 });
 
 /* INIT */
