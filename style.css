@@ -57,15 +57,31 @@ z-index: 4;
 position: relative;
 }
 
-/* TITULO */
+/* ✨ TEXTO HERO CON CONTORNO FINO */
 .hero-content h1 {
+color: #ffd36a;
 font-size: 42px;
-text-shadow: 0 5px 15px rgba(0,0,0,0.9);
+letter-spacing: 0.5px;
+
+/* contorno negro fino */
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000;
 }
 
 .hero-content p {
+color: #ffe08a;
 font-size: 18px;
-text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+letter-spacing: 0.3px;
+
+/* contorno negro fino */
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000;
 }
 
 /* BOTÓN */
@@ -78,6 +94,12 @@ font-weight: bold;
 text-decoration: none;
 display: inline-block;
 margin-top: 10px;
+}
+
+/* SECCIONES */
+.section {
+text-align: center;
+padding: 70px 20px;
 }
 
 /* TRATAMIENTOS */
@@ -105,6 +127,7 @@ height: 100%;
 object-fit: cover;
 }
 
+/* INFO */
 .info {
 position: absolute;
 bottom: 0;
@@ -114,10 +137,53 @@ background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
 text-align: center;
 }
 
+.info h3 {
+margin: 0;
+font-size: 18px;
+}
+
+.info p {
+margin: 5px 0;
+font-size: 14px;
+opacity: 0.9;
+}
+
+.info strong {
+display: inline-block;
+margin-top: 5px;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
+color: black;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 18px;
+}
+
+/* RESERVA */
+.phone-btn {
+display: inline-block;
+margin-top: 15px;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
+color: black;
+padding: 14px 28px;
+border-radius: 30px;
+font-weight: bold;
+font-size: 18px;
+text-decoration: none;
+}
+
 /* RESEÑAS */
 .review-box {
 max-width: 500px;
 margin: auto;
+}
+
+.review-box input,
+.review-box textarea {
+width: 100%;
+margin: 6px 0;
+padding: 10px;
+border-radius: 10px;
+border: none;
 }
 
 .review-card {
@@ -128,12 +194,21 @@ border-radius: 10px;
 }
 
 /* ESTRELLAS */
+.stars {
+display: flex;
+justify-content: center;
+gap: 10px;
+font-size: 26px;
+margin: 10px 0;
+}
+
 .stars i {
 color: #444;
 cursor: pointer;
 }
 
-.stars i.active {
+.stars i.active,
+.stars i.hovered {
 color: #ffd36a;
 }
 
