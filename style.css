@@ -5,7 +5,7 @@ background: #0b0b0b;
 color: #ffd36a;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 .navbar {
 position: fixed;
 top: 0;
@@ -14,9 +14,10 @@ padding: 15px;
 background: rgba(0,0,0,0.75);
 backdrop-filter: blur(10px);
 z-index: 999;
+text-align: center;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
 height: 100vh;
 display: flex;
@@ -24,56 +25,38 @@ justify-content: center;
 align-items: center;
 position: relative;
 overflow: hidden;
-background-color: #0b0b0b;
+text-align: center;
 }
 
-/* FONDO BLUR (ARREGLADO) */
 .hero::before {
 content: "";
 position: absolute;
 inset: 0;
 background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
-background-repeat: no-repeat;
-background-position: center;
-background-size: contain;
-filter: blur(25px) brightness(0.45);
+background-size: cover;
+filter: blur(25px) brightness(0.4);
 transform: scale(1.2);
-z-index: 1;
 }
 
 .hero::after {
 content: "";
 position: absolute;
 inset: 0;
-background: rgba(0,0,0,0.35);
-z-index: 2;
+background: rgba(0,0,0,0.4);
 }
 
-/* IMAGEN PRINCIPAL */
 .hero-image {
 position: absolute;
 z-index: 3;
-width: min(90vw, 800px);
-height: auto;
-max-height: 90vh;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-object-fit: contain;
-filter: drop-shadow(0 25px 50px rgba(0,0,0,0.75));
+width: min(85vw, 750px);
+filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
 }
 
-/* TEXTO */
 .hero-content {
-position: relative;
 z-index: 4;
-text-align: center;
-display: flex;
-flex-direction: column;
-align-items: center;
+position: relative;
 }
 
-/* BOTÓN */
 .btn {
 background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
@@ -81,92 +64,73 @@ padding: 12px 25px;
 border-radius: 30px;
 font-weight: bold;
 text-decoration: none;
+display: inline-block;
+margin-top: 10px;
 }
 
 /* SECCIONES */
 .section {
 text-align: center;
-padding: 60px 20px;
+padding: 70px 20px;
 }
 
-/* ===== TRATAMIENTOS (FINAL LIMPIO) ===== */
+/* TRATAMIENTOS */
 .treatments {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 18px;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 20px;
 }
 
 .treatment {
-height: 300px;
 border-radius: 20px;
 overflow: hidden;
-background: #111;
 position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.3s ease;
+height: 320px;
+transition: 0.3s;
 }
 
 .treatment:hover {
-transform: scale(1.03);
+transform: scale(1.04);
 }
 
-/* IMAGEN */
 .treatment img {
 width: 100%;
 height: 100%;
 object-fit: cover;
 }
 
-/* INFO SIEMPRE VISIBLE (ELEGANTE) */
+/* INFO */
 .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
-    color: #ffd36a;
-
-    padding: 15px;
-    text-align: center;
-
-    backdrop-filter: blur(5px);
+position: absolute;
+bottom: 0;
+width: 100%;
+padding: 15px;
+background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+text-align: center;
 }
 
-/* TITULO */
 .info h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+margin: 0;
+font-size: 18px;
 }
 
-/* DURACIÓN */
 .info p {
-    margin: 5px 0;
-    font-size: 14px;
-    opacity: 0.9;
+margin: 5px 0;
+font-size: 14px;
+opacity: 0.9;
 }
 
-/* 💰 PRECIO FIJO DESTACADO */
 .info strong {
-    display: inline-block;
-    margin-top: 5px;
-
-    font-size: 20px;
-    font-weight: bold;
-
-    padding: 6px 14px;
-    border-radius: 20px;
-
-    background: linear-gradient(135deg, #ffd36a, #ffb347);
-    color: black;
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+display: inline-block;
+margin-top: 5px;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
+color: black;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 18px;
 }
 
-/* ===== RESERVA ===== */
+/* RESERVA */
 .phone-btn {
 display: inline-block;
 margin-top: 15px;
@@ -179,19 +143,19 @@ font-size: 18px;
 text-decoration: none;
 }
 
-/* ===== RESEÑAS ===== */
+/* RESEÑAS */
 .review-box {
 max-width: 500px;
 margin: auto;
-padding: 20px;
 }
 
 .review-box input,
 .review-box textarea {
 width: 100%;
-margin: 5px 0;
+margin: 6px 0;
 padding: 10px;
 border-radius: 10px;
+border: none;
 }
 
 .stars {
@@ -199,6 +163,7 @@ display: flex;
 justify-content: center;
 gap: 10px;
 font-size: 26px;
+margin: 10px 0;
 }
 
 .stars i {
@@ -210,25 +175,22 @@ color: #444;
 color: #ffd36a;
 }
 
-/* BOTÓN SUBIR */
+/* TOP BUTTON */
 #topBtn {
 display: none;
 position: fixed;
 bottom: 25px;
 left: 25px;
-width: 65px;
-height: 65px;
+width: 60px;
+height: 60px;
 border-radius: 50%;
 border: none;
 background: linear-gradient(135deg, #ffd36a, #ffb347);
+font-size: 22px;
 cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 28px;
 }
 
-/* ICONOS */
+/* FLOATING */
 .floating {
 position: fixed;
 right: 20px;
@@ -253,7 +215,6 @@ color: white;
 .facebook { background:#1877f2; }
 .tiktok { background:#000; }
 
-/* SCROLL */
 html {
 scroll-behavior: smooth;
 }
