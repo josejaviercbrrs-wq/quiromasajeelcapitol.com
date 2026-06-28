@@ -15,14 +15,17 @@ function paint(n) {
     }
 }
 
+/* ⭐ ESTRELLAS */
 stars.forEach((star, i) => {
 
-    star.addEventListener("mouseover", () => {
+    star.addEventListener("mouseenter", () => {
         resetStars();
-        for (let j = 0; j <= i; j++) stars[j].classList.add("hovered");
+        for (let j = 0; j <= i; j++) {
+            stars[j].classList.add("hovered");
+        }
     });
 
-    star.addEventListener("mouseout", () => {
+    star.addEventListener("mouseleave", () => {
         resetStars();
         paint(selectedRating);
     });
@@ -34,6 +37,23 @@ stars.forEach((star, i) => {
     });
 });
 
+/* 🔝 BOTÓN SUBIR */
+function updateTopButton() {
+    if (!topBtn) return;
+
+    topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+}
+
+window.addEventListener("scroll", updateTopButton);
+
+window.scrollTopSmooth = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+
+/* 📝 RESEÑAS */
 window.addReview = function () {
     const name = document.getElementById("reviewName");
     const text = document.getElementById("reviewText");
@@ -80,15 +100,8 @@ window.loadReviews = function () {
     });
 };
 
-window.scrollTopSmooth = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-window.addEventListener("scroll", () => {
-    if (!topBtn) return;
-    topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
-});
-
+/* INIT */
 loadReviews();
+updateTopButton();
 
 });
