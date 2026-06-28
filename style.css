@@ -27,7 +27,7 @@ overflow: hidden;
 background-color: #0b0b0b;
 }
 
-/* FONDO BLUR */
+/* FONDO BLUR (ARREGLADO) */
 .hero::before {
 content: "";
 position: absolute;
@@ -35,9 +35,9 @@ inset: 0;
 background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
 background-repeat: no-repeat;
 background-position: center;
-background-size: cover;
-filter: blur(22px) brightness(0.45);
-transform: scale(1.1);
+background-size: contain;
+filter: blur(25px) brightness(0.45);
+transform: scale(1.2);
 z-index: 1;
 }
 
@@ -53,12 +53,13 @@ z-index: 2;
 .hero-image {
 position: absolute;
 z-index: 3;
-width: min(85vw, 700px);
+width: min(90vw, 800px);
 height: auto;
+max-height: 90vh;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-object-fit: cover;
+object-fit: contain;
 filter: drop-shadow(0 25px 50px rgba(0,0,0,0.75));
 }
 
@@ -88,7 +89,7 @@ text-align: center;
 padding: 60px 20px;
 }
 
-/* ===== TRATAMIENTOS ===== */
+/* ===== TRATAMIENTOS (FINAL LIMPIO) ===== */
 .treatments {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -96,12 +97,14 @@ gap: 18px;
 }
 
 .treatment {
-height: 260px;
+height: 300px;
 border-radius: 20px;
 overflow: hidden;
 background: #111;
 position: relative;
-cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
 transition: transform 0.3s ease;
 }
 
@@ -109,26 +112,24 @@ transition: transform 0.3s ease;
 transform: scale(1.03);
 }
 
+/* IMAGEN */
 .treatment img {
 width: 100%;
 height: 100%;
 object-fit: cover;
 }
 
-/* INFO DESLIZANTE */
+/* INFO SIEMPRE VISIBLE (ELEGANTE) */
 .info {
 position: absolute;
-bottom: -100%;
+bottom: 0;
 left: 0;
 width: 100%;
-background: rgba(0,0,0,0.9);
-padding: 20px;
+background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3));
+color: #ffd36a;
+padding: 15px;
 text-align: center;
-transition: bottom 0.4s ease;
-}
-
-.treatment.active .info {
-bottom: 0;
+backdrop-filter: blur(4px);
 }
 
 /* ===== RESERVA ===== */
@@ -175,7 +176,7 @@ color: #444;
 color: #ffd36a;
 }
 
-/* ===== BOTÓN SUBIR ===== */
+/* BOTÓN SUBIR */
 #topBtn {
 display: none;
 position: fixed;
@@ -193,7 +194,7 @@ justify-content: center;
 font-size: 28px;
 }
 
-/* ===== ICONOS ===== */
+/* ICONOS */
 .floating {
 position: fixed;
 right: 20px;
@@ -221,49 +222,4 @@ color: white;
 /* SCROLL */
 html {
 scroll-behavior: smooth;
-}
-.treatments {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-}
-
-.treatment {
-    height: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #111;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: transform 0.3s ease;
-}
-
-.treatment:hover {
-    transform: scale(1.03);
-}
-
-.treatment img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* INFO SIEMPRE VISIBLE PERO ELEGANTE */
-.info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3));
-    color: #ffd36a;
-
-    padding: 15px;
-    text-align: center;
-
-    backdrop-filter: blur(4px);
 }
