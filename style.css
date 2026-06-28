@@ -168,6 +168,7 @@ margin: 10px 0;
 
 .stars i {
 color: #444;
+cursor: pointer;
 }
 
 .stars i.active,
@@ -188,6 +189,8 @@ border: none;
 background: linear-gradient(135deg, #ffd36a, #ffb347);
 font-size: 22px;
 cursor: pointer;
+align-items: center;
+justify-content: center;
 }
 
 /* FLOATING */
