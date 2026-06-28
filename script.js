@@ -10,9 +10,9 @@ function resetStars() {
 }
 
 function paint(n) {
-    for (let i = 0; i < n; i++) {
-        stars[i].classList.add("active");
-    }
+    stars.forEach((s, i) => {
+        s.classList.toggle("active", i < n);
+    });
 }
 
 /* ⭐ ESTRELLAS */
@@ -25,11 +25,6 @@ stars.forEach((star, i) => {
         }
     });
 
-    star.addEventListener("mouseleave", () => {
-        resetStars();
-        paint(selectedRating);
-    });
-
     star.addEventListener("click", () => {
         selectedRating = i + 1;
         resetStars();
@@ -37,10 +32,19 @@ stars.forEach((star, i) => {
     });
 });
 
+/* FIX: hover estable para TODAS las estrellas */
+const starContainer = document.getElementById("starRating");
+
+if (starContainer) {
+    starContainer.addEventListener("mouseleave", () => {
+        resetStars();
+        paint(selectedRating);
+    });
+}
+
 /* 🔝 BOTÓN SUBIR */
 function updateTopButton() {
     if (!topBtn) return;
-
     topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
 }
 
@@ -84,6 +88,8 @@ window.addReview = function () {
 
 window.loadReviews = function () {
     const container = document.getElementById("reviewsContainer");
+    if (!container) return;
+
     container.innerHTML = "";
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
@@ -101,7 +107,7 @@ window.loadReviews = function () {
 };
 
 /* INIT */
-loadReviews();
+if (typeof loadReviews === "function") loadReviews();
 updateTopButton();
 
 });
