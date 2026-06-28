@@ -57,6 +57,28 @@ z-index: 4;
 position: relative;
 }
 
+/* 🔥 TEXTO HERO ARREGLADO (AQUÍ ESTÁ LA MEJORA) */
+.hero-content h1 {
+color: #ffd36a;
+font-size: 42px;
+text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000,
+    0 6px 15px rgba(0,0,0,0.9);
+}
+
+.hero-content p {
+color: #ffe08a;
+font-size: 18px;
+text-shadow:
+    0 3px 10px rgba(0,0,0,0.9),
+    2px 2px 0 #000,
+    -2px -2px 0 #000;
+}
+
+/* BOTÓN */
 .btn {
 background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
