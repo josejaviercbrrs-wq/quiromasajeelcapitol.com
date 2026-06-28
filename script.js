@@ -2,7 +2,6 @@ let selectedRating = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-```
 const stars = document.querySelectorAll("#starRating i");
 const topBtn = document.getElementById("topBtn");
 
@@ -20,9 +19,7 @@ stars.forEach((star, i) => {
 
     star.addEventListener("mouseover", () => {
         resetStars();
-        for (let j = 0; j <= i; j++) {
-            stars[j].classList.add("hovered");
-        }
+        for (let j = 0; j <= i; j++) stars[j].classList.add("hovered");
     });
 
     star.addEventListener("mouseout", () => {
@@ -75,35 +72,16 @@ window.loadReviews = function () {
 
     reviews.forEach(r => {
         container.innerHTML += `
-            <div class="review-card">
-                <h4>${r.name}</h4>
-                <div>${"⭐".repeat(r.rating)}</div>
-                <p>${r.text}</p>
-            </div>
-        `;
+        <div class="review-card">
+            <h4>${r.name}</h4>
+            <div>${"⭐".repeat(r.rating)}</div>
+            <p>${r.text}</p>
+        </div>`;
     });
 };
 
-/* ===== TRATAMIENTOS CLICK (MEJORADO) ===== */
-window.toggleInfo = function(el) {
-
-    const all = document.querySelectorAll(".treatment");
-
-    // cerrar todos
-    all.forEach(t => {
-        if (t !== el) t.classList.remove("active");
-    });
-
-    // toggle del actual
-    el.classList.toggle("active");
-};
-
-/* ===== SCROLL TOP ===== */
 window.scrollTopSmooth = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 window.addEventListener("scroll", () => {
@@ -112,6 +90,5 @@ window.addEventListener("scroll", () => {
 });
 
 loadReviews();
-```
 
 });
