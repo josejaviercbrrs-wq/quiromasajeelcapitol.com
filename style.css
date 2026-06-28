@@ -10,11 +10,13 @@ color: #ffd36a;
 position: fixed;
 top: 0;
 width: 100%;
-padding: 15px;
+padding: 14px;
 background: rgba(0,0,0,0.75);
 backdrop-filter: blur(10px);
 z-index: 999;
 text-align: center;
+font-weight: 600;
+letter-spacing: 1px;
 }
 
 /* HERO */
@@ -42,40 +44,36 @@ transform: scale(1.2);
 content: "";
 position: absolute;
 inset: 0;
-background: rgba(0,0,0,0.4);
+background: rgba(0,0,0,0.5);
 }
 
 .hero-image {
 position: absolute;
 z-index: 3;
 width: min(85vw, 750px);
-filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
 }
 
+/* HERO TEXT 10/10 */
 .hero-content {
 z-index: 4;
 position: relative;
+padding: 25px 35px;
+border-radius: 20px;
+background: rgba(0,0,0,0.45);
+backdrop-filter: blur(8px);
 }
 
-/* 🔥 TEXTO HERO ARREGLADO (AQUÍ ESTÁ LA MEJORA) */
 .hero-content h1 {
+font-size: 44px;
 color: #ffd36a;
-font-size: 42px;
-text-shadow:
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0 6px 15px rgba(0,0,0,0.9);
+text-shadow: 0 5px 15px rgba(0,0,0,0.9);
 }
 
 .hero-content p {
-color: #ffe08a;
 font-size: 18px;
-text-shadow:
-    0 3px 10px rgba(0,0,0,0.9),
-    2px 2px 0 #000,
-    -2px -2px 0 #000;
+color: #ffe08a;
+text-shadow: 0 3px 10px rgba(0,0,0,0.9);
 }
 
 /* BOTÓN */
@@ -87,13 +85,12 @@ border-radius: 30px;
 font-weight: bold;
 text-decoration: none;
 display: inline-block;
-margin-top: 10px;
+margin-top: 12px;
+transition: 0.3s;
 }
 
-/* SECCIONES */
-.section {
-text-align: center;
-padding: 70px 20px;
+.btn:hover {
+transform: scale(1.05);
 }
 
 /* TRATAMIENTOS */
@@ -101,10 +98,11 @@ padding: 70px 20px;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 gap: 20px;
+padding: 40px 20px;
 }
 
 .treatment {
-border-radius: 20px;
+border-radius: 18px;
 overflow: hidden;
 position: relative;
 height: 320px;
@@ -112,7 +110,7 @@ transition: 0.3s;
 }
 
 .treatment:hover {
-transform: scale(1.04);
+transform: scale(1.05);
 }
 
 .treatment img {
@@ -131,103 +129,58 @@ background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
 text-align: center;
 }
 
-.info h3 {
-margin: 0;
-font-size: 18px;
-}
-
-.info p {
-margin: 5px 0;
-font-size: 14px;
-opacity: 0.9;
-}
-
-.info strong {
-display: inline-block;
-margin-top: 5px;
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-padding: 6px 14px;
-border-radius: 20px;
-font-size: 18px;
-}
-
-/* RESERVA */
-.phone-btn {
-display: inline-block;
-margin-top: 15px;
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-padding: 14px 28px;
-border-radius: 30px;
-font-weight: bold;
-font-size: 18px;
-text-decoration: none;
-}
-
 /* RESEÑAS */
 .review-box {
 max-width: 500px;
 margin: auto;
 }
 
-.review-box input,
-.review-box textarea {
-width: 100%;
-margin: 6px 0;
-padding: 10px;
-border-radius: 10px;
-border: none;
+.review-card {
+background: #111;
+padding: 15px;
+margin: 10px auto;
+border-radius: 12px;
+width: 90%;
 }
 
-.stars {
-display: flex;
-justify-content: center;
-gap: 10px;
-font-size: 26px;
-margin: 10px 0;
-}
-
+/* STARS */
 .stars i {
-color: #444;
 cursor: pointer;
+color: #444;
 }
 
-.stars i.active,
-.stars i.hovered {
+.stars i.active {
 color: #ffd36a;
 }
 
-/* TOP BUTTON */
+/* BOTÓN ARRIBA */
 #topBtn {
 display: none;
 position: fixed;
 bottom: 25px;
 left: 25px;
-width: 60px;
-height: 60px;
+width: 55px;
+height: 55px;
 border-radius: 50%;
 border: none;
 background: linear-gradient(135deg, #ffd36a, #ffb347);
-font-size: 22px;
+font-size: 20px;
 cursor: pointer;
-align-items: center;
-justify-content: center;
 }
 
 /* FLOATING */
 .floating {
 position: fixed;
-right: 20px;
-bottom: 90px;
+right: 18px;
+bottom: 80px;
 display: flex;
 flex-direction: column;
 gap: 12px;
 }
 
 .floating a {
-width: 55px;
-height: 55px;
+width: 52px;
+height: 52px;
 border-radius: 50%;
 display: flex;
 align-items: center;
