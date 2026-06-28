@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -20,14 +21,15 @@
 
 <section class="hero">
 
-    <!-- IMAGEN CENTRADA ENCIMA -->
-    <img class="hero-image" src="https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg" alt="hero">
+```
+<img class="hero-image" src="https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg" alt="hero">
 
-    <div class="hero-content">
-        <h1>Recupera tu bienestar</h1>
-        <p>Relaja tu cuerpo. Libera tu mente.</p>
-        <a href="#reserva" class="btn">Reservar ahora</a>
-    </div>
+<div class="hero-content">
+    <h1>Recupera tu bienestar</h1>
+    <p>Relaja tu cuerpo. Libera tu mente.</p>
+    <a href="#reserva" class="btn">Reservar ahora</a>
+</div>
+```
 
 </section>
 
@@ -36,17 +38,37 @@
 
 <div class="treatments">
 
-    <div class="treatment">
-        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80">
+```
+<!-- RELAJANTE -->
+<div class="treatment" onclick="toggleInfo(this)">
+    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80">
+    <div class="info">
+        <h3>Relajante</h3>
+        <p>Duración: 30 minutos</p>
+        <strong>30€</strong>
     </div>
+</div>
 
-    <div class="treatment">
-        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=800&q=80">
+<!-- DEPORTIVO -->
+<div class="treatment" onclick="toggleInfo(this)">
+    <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=800&q=80">
+    <div class="info">
+        <h3>Deportivo</h3>
+        <p>Duración: 1 hora</p>
+        <strong>60€</strong>
     </div>
+</div>
 
-    <div class="treatment">
-        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80">
+<!-- DESCONTRACTURANTE -->
+<div class="treatment" onclick="toggleInfo(this)">
+    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80">
+    <div class="info">
+        <h3>Descontracturante</h3>
+        <p>Duración: 1h 30 min</p>
+        <strong>90€</strong>
     </div>
+</div>
+```
 
 </div>
 </section>
@@ -57,10 +79,10 @@
 <p>Horario: 10:00 - 20:00</p>
 
 <a href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
-   target="_blank"
-   class="phone-btn">
+target="_blank"
+class="phone-btn">
 
-   📞 675 75 25 00
+📞 675 75 25 00
 
 </a>
 </section>
@@ -70,18 +92,21 @@
 
 <div class="review-box">
 
-    <input id="reviewName" placeholder="Tu nombre">
-    <textarea id="reviewText" placeholder="Escribe tu reseña"></textarea>
+```
+<input id="reviewName" placeholder="Tu nombre">
+<textarea id="reviewText" placeholder="Escribe tu reseña"></textarea>
 
-    <div class="stars" id="starRating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-    </div>
+<div class="stars" id="starRating">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+</div>
 
-    <button class="btn" onclick="addReview()">Enviar reseña</button>
+<button class="btn" onclick="addReview()">Enviar reseña</button>
+```
+
 </div>
 
 <div id="reviewsContainer"></div>
@@ -92,9 +117,15 @@
 <div class="floating">
     <a href="https://wa.me/34675752500" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
     <a href="https://www.instagram.com/el_capitol_bienestar/" class="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/?notif_id=1782596347111490&notif_t=follow_profile" class="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/" class="facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.tiktok.com/@miguel.villalonga21" class="tiktok"><i class="fab fa-tiktok"></i></a>
 </div>
+
+<script>
+function toggleInfo(el) {
+    el.classList.toggle("active");
+}
+</script>
 
 <script src="script.js"></script>
 
