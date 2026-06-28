@@ -5,21 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const stars = document.querySelectorAll("#starRating i");
 const topBtn = document.getElementById("topBtn");
 
-/* =========================
-   ⭐ ESTRELLAS PRO
-========================= */
-
+/* ⭐ ESTRELLAS */
 function resetStars() {
-    stars.forEach(s => {
-        s.classList.remove("active", "hovered");
-    });
+    stars.forEach(s => s.classList.remove("active", "hovered"));
 }
 
 function paint(n) {
     stars.forEach((s, i) => {
-        if (i < n) {
-            s.classList.add("active");
-        }
+        s.classList.toggle("active", i < n);
     });
 }
 
@@ -48,61 +41,37 @@ if (starContainer) {
     });
 }
 
-/* =========================
-   🔝 BOTÓN SUBIR PRO
-========================= */
-
+/* 🔝 BOTÓN SUBIR */
 function updateTopButton() {
     if (!topBtn) return;
-
-    if (window.scrollY > 300) {
-        topBtn.style.display = "flex";
-        topBtn.style.opacity = "1";
-        topBtn.style.transform = "scale(1)";
-    } else {
-        topBtn.style.opacity = "0";
-        topBtn.style.transform = "scale(0.8)";
-        setTimeout(() => {
-            if (window.scrollY <= 300) {
-                topBtn.style.display = "none";
-            }
-        }, 150);
-    }
+    topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
 }
 
 window.addEventListener("scroll", updateTopButton);
 
 window.scrollTopSmooth = function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-/* =========================
-   📝 RESEÑAS PRO
-========================= */
-
+/* 📝 RESEÑAS */
 window.addReview = function () {
 
     const name = document.getElementById("reviewName");
     const text = document.getElementById("reviewText");
 
-    if (!name.value.trim() || !text.value.trim() || selectedRating === 0) {
-        alert("Completa nombre, reseña y valoración");
+    if (!name.value || !text.value || selectedRating === 0) {
+        alert("Completa todo");
         return;
     }
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-    const newReview = {
-        name: name.value.trim(),
-        text: text.value.trim(),
+    reviews.unshift({
+        name: name.value,
+        text: text.value,
         rating: selectedRating,
         time: Date.now()
-    };
-
-    reviews.unshift(newReview);
+    });
 
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
@@ -114,10 +83,6 @@ window.addReview = function () {
     loadReviews();
 };
 
-/* =========================
-   📦 CARGAR RESEÑAS PRO
-========================= */
-
 window.loadReviews = function () {
 
     const container = document.getElementById("reviewsContainer");
@@ -127,41 +92,17 @@ window.loadReviews = function () {
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-    if (reviews.length === 0) {
-        container.innerHTML = `<p style="opacity:0.6">Todavía no hay reseñas</p>`;
-        return;
-    }
-
     reviews.forEach(r => {
-
-        const stars = "⭐".repeat(r.rating);
-
         container.innerHTML += `
         <div class="review-card">
-            <h4>${escapeHtml(r.name)}</h4>
-            <div>${stars}</div>
-            <p>${escapeHtml(r.text)}</p>
+            <h4>${r.name}</h4>
+            <div>${"⭐".repeat(r.rating)}</div>
+            <p>${r.text}</p>
         </div>`;
     });
 };
 
-/* =========================
-   🛡️ SEGURIDAD BÁSICA
-========================= */
-
-function escapeHtml(text) {
-    return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
-/* =========================
-   🚀 INIT
-========================= */
-
+/* INIT */
 loadReviews();
 updateTopButton();
 
