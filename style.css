@@ -11,7 +11,7 @@ position: fixed;
 top: 0;
 width: 100%;
 padding: 15px;
-background: rgba(0,0,0,0.85);
+background: rgba(0,0,0,0.75);
 backdrop-filter: blur(10px);
 z-index: 999;
 text-align: center;
@@ -32,38 +32,31 @@ text-align: center;
 content: "";
 position: absolute;
 inset: 0;
-background: url("https://i.ibb.co/gLGR0gjw/capitol.png") center/cover;
-filter: brightness(0.35);
-transform: scale(1.1);
+background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
+background-size: cover;
+filter: blur(25px) brightness(0.4);
+transform: scale(1.2);
+}
+
+.hero::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.4);
 }
 
 .hero-image {
 position: absolute;
+z-index: 3;
 width: min(85vw, 750px);
-z-index: 2;
-filter: drop-shadow(0 10px 25px rgba(0,0,0,0.8));
+filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
 }
 
 .hero-content {
-z-index: 3;
+z-index: 4;
 position: relative;
-padding: 20px;
 }
 
-/* TEXTO PROFESIONAL */
-.hero-content h1 {
-font-size: 44px;
-color: #ffd36a;
-text-shadow: 2px 2px 0 #000;
-}
-
-.hero-content p {
-font-size: 18px;
-color: #ffe08a;
-text-shadow: 1px 1px 0 #000;
-}
-
-/* BOTÓN */
 .btn {
 background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
@@ -72,33 +65,32 @@ border-radius: 30px;
 font-weight: bold;
 text-decoration: none;
 display: inline-block;
-margin-top: 15px;
+margin-top: 10px;
 }
 
 /* SECCIONES */
 .section {
 text-align: center;
-padding: 80px 20px;
+padding: 70px 20px;
 }
 
 /* TRATAMIENTOS */
 .treatments {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 25px;
-margin-top: 20px;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 20px;
 }
 
 .treatment {
 border-radius: 20px;
 overflow: hidden;
-height: 320px;
 position: relative;
+height: 320px;
 transition: 0.3s;
 }
 
 .treatment:hover {
-transform: scale(1.03);
+transform: scale(1.04);
 }
 
 .treatment img {
@@ -107,6 +99,7 @@ height: 100%;
 object-fit: cover;
 }
 
+/* INFO */
 .info {
 position: absolute;
 bottom: 0;
@@ -114,6 +107,27 @@ width: 100%;
 padding: 15px;
 background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
 text-align: center;
+}
+
+.info h3 {
+margin: 0;
+font-size: 18px;
+}
+
+.info p {
+margin: 5px 0;
+font-size: 14px;
+opacity: 0.9;
+}
+
+.info strong {
+display: inline-block;
+margin-top: 5px;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
+color: black;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 18px;
 }
 
 /* RESERVA */
@@ -125,6 +139,7 @@ color: black;
 padding: 14px 28px;
 border-radius: 30px;
 font-weight: bold;
+font-size: 18px;
 text-decoration: none;
 }
 
@@ -137,8 +152,8 @@ margin: auto;
 .review-box input,
 .review-box textarea {
 width: 100%;
-margin: 8px 0;
-padding: 12px;
+margin: 6px 0;
+padding: 10px;
 border-radius: 10px;
 border: none;
 }
@@ -148,56 +163,57 @@ display: flex;
 justify-content: center;
 gap: 10px;
 font-size: 26px;
-cursor: pointer;
+margin: 10px 0;
 }
 
 .stars i {
 color: #444;
 }
 
-.stars i.active {
+.stars i.active,
+.stars i.hovered {
 color: #ffd36a;
 }
 
-/* BOTÓN ARRIBA */
+/* TOP BUTTON */
 #topBtn {
 display: none;
 position: fixed;
 bottom: 25px;
 left: 25px;
-width: 55px;
-height: 55px;
+width: 60px;
+height: 60px;
 border-radius: 50%;
 border: none;
-background: #ffd36a;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
+font-size: 22px;
 cursor: pointer;
-font-size: 20px;
 }
 
-/* REDES */
+/* FLOATING */
 .floating {
 position: fixed;
 right: 20px;
-bottom: 80px;
+bottom: 90px;
 display: flex;
 flex-direction: column;
 gap: 12px;
 }
 
 .floating a {
-width: 50px;
-height: 50px;
+width: 55px;
+height: 55px;
+border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
-border-radius: 50%;
 color: white;
 }
 
-.whatsapp { background: #25D366; }
-.instagram { background: #E1306C; }
-.facebook { background: #1877f2; }
-.tiktok { background: #000; }
+.whatsapp { background:#25D366; }
+.instagram { background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
+.facebook { background:#1877f2; }
+.tiktok { background:#000; }
 
 html {
 scroll-behavior: smooth;
