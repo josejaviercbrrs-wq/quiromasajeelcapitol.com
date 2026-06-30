@@ -17,28 +17,23 @@ text-align: center;
 z-index: 999;
 }
 
-/* HERO */
 .hero {
 height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
+overflow: hidden;
 }
 
-.hero::before {
+.hero::after {
 content: "";
 position: absolute;
 inset: 0;
-background: url("https://i.ibb.co/gLGR0gjw/capitol.png") center/cover;
-filter: brightness(0.7);
-}
 
-.hero-content {
-position: relative;
-z-index: 2;
+/* LUZ SUAVE TIPO SPA */
+background: radial-gradient(circle at center, rgba(255,211,106,0.15), transparent 70%);
 }
-
 /* BOTÓN */
 .btn {
 background: linear-gradient(135deg,#ffd36a,#ffb347);
