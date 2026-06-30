@@ -17,6 +17,7 @@ text-align: center;
 z-index: 999;
 }
 
+/* HERO MEJORADO (MÁS LUZ, SIN SOMBRA NEGRA) */
 .hero {
 height: 100vh;
 display: flex;
@@ -24,6 +25,12 @@ justify-content: center;
 align-items: center;
 position: relative;
 overflow: hidden;
+
+/* 👉 AQUÍ puedes poner tu imagen de fondo */
+background: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover no-repeat;
+
+/* MÁS LUZ */
+filter: brightness(1.25) contrast(1.05);
 }
 
 .hero::after {
@@ -31,9 +38,10 @@ content: "";
 position: absolute;
 inset: 0;
 
-/* LUZ SUAVE TIPO SPA */
-background: radial-gradient(circle at center, rgba(255,211,106,0.15), transparent 70%);
+/* solo luz suave, SIN oscurecer */
+background: radial-gradient(circle at center, rgba(255,211,106,0.12), transparent 60%);
 }
+
 /* BOTÓN */
 .btn {
 background: linear-gradient(135deg,#ffd36a,#ffb347);
@@ -126,6 +134,15 @@ cursor: pointer;
 
 .stars i.active {
 color: #ffd36a;
+}
+
+/* RESEÑA CARD */
+.review-card {
+margin: 15px auto;
+max-width: 500px;
+background: rgba(255,255,255,0.05);
+padding: 15px;
+border-radius: 15px;
 }
 
 /* BOTÓN SUBIR */
