@@ -28,23 +28,27 @@ overflow: hidden;
 text-align: center;
 }
 
+/* 🔥 FONDO HERO SIN BLUR (CORREGIDO) */
 .hero::before {
 content: "";
 position: absolute;
 inset: 0;
 background-image: url("https://i.ibb.co/JjZ2MMjt/Whats-App-Image-2026-06-25-at-21-54-18.jpg");
 background-size: cover;
-filter: blur(25px) brightness(0.4);
-transform: scale(1.2);
+background-position: center;
+transform: scale(1.05);
+filter: brightness(0.4); /* 👈 sin blur */
 }
 
+/* capa oscura encima */
 .hero::after {
 content: "";
 position: absolute;
 inset: 0;
-background: rgba(0,0,0,0.4);
+background: rgba(0,0,0,0.35);
 }
 
+/* IMAGEN PRINCIPAL */
 .hero-image {
 position: absolute;
 z-index: 3;
@@ -52,11 +56,32 @@ width: min(85vw, 750px);
 filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
 }
 
+/* TEXTO HERO */
 .hero-content {
 z-index: 4;
 position: relative;
 }
 
+/* TITULO CON CONTORNO (SIN BLUR) */
+.hero-content h1 {
+font-size: 42px;
+color: #ffd36a;
+text-shadow:
+1px 1px 0 #000,
+-1px 1px 0 #000,
+1px -1px 0 #000,
+-1px -1px 0 #000;
+}
+
+.hero-content p {
+font-size: 18px;
+color: #ffe08a;
+text-shadow:
+1px 1px 0 #000,
+-1px -1px 0 #000;
+}
+
+/* BOTÓN */
 .btn {
 background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
@@ -84,8 +109,8 @@ gap: 20px;
 .treatment {
 border-radius: 20px;
 overflow: hidden;
-position: relative;
 height: 320px;
+position: relative;
 transition: 0.3s;
 }
 
@@ -105,7 +130,7 @@ position: absolute;
 bottom: 0;
 width: 100%;
 padding: 15px;
-background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 text-align: center;
 }
 
@@ -168,6 +193,7 @@ margin: 10px 0;
 
 .stars i {
 color: #444;
+cursor: pointer;
 }
 
 .stars i.active,
