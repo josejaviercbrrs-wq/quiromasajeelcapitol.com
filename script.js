@@ -27,9 +27,8 @@ document.getElementById("starRating").addEventListener("mouseleave", () => {
     }
 });
 
-/* 🔝 BOTÓN SUBIR */
+/* BOTÓN ARRIBA */
 window.addEventListener("scroll", () => {
-    if (!topBtn) return;
     topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
 
@@ -37,7 +36,7 @@ window.scrollTopSmooth = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-/* 📝 RESEÑAS */
+/* RESEÑAS */
 window.addReview = () => {
 
     const name = document.getElementById("reviewName");
@@ -79,11 +78,9 @@ window.loadReviews = () => {
             <h4>${r.name}</h4>
             <div>${"⭐".repeat(r.rating)}</div>
             <p>${r.text}</p>
-        </div>
-        `;
+        </div>`;
     });
 };
 
 loadReviews();
-
 });
