@@ -5,40 +5,36 @@ document.addEventListener("DOMContentLoaded", () => {
 const stars = document.querySelectorAll("#starRating i");
 const topBtn = document.getElementById("topBtn");
 
-/* ⭐ ESTRELLAS */
+function resetStars() {
+    stars.forEach(s => s.classList.remove("active", "hovered"));
+}
+
+function paint(n) {
+    for (let i = 0; i < n; i++) {
+        stars[i].classList.add("active");
+    }
+}
+
 stars.forEach((star, i) => {
 
     star.addEventListener("mouseover", () => {
-        stars.forEach(s => s.classList.remove("active"));
-        for (let j = 0; j <= i; j++) {
-            stars[j].classList.add("active");
-        }
+        resetStars();
+        for (let j = 0; j <= i; j++) stars[j].classList.add("hovered");
+    });
+
+    star.addEventListener("mouseout", () => {
+        resetStars();
+        paint(selectedRating);
     });
 
     star.addEventListener("click", () => {
         selectedRating = i + 1;
+        resetStars();
+        paint(selectedRating);
     });
 });
 
-document.getElementById("starRating").addEventListener("mouseleave", () => {
-    stars.forEach(s => s.classList.remove("active"));
-    for (let i = 0; i < selectedRating; i++) {
-        stars[i].classList.add("active");
-    }
-});
-
-/* BOTÓN ARRIBA */
-window.addEventListener("scroll", () => {
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-
-window.scrollTopSmooth = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-/* RESEÑAS */
-window.addReview = () => {
-
+window.addReview = function () {
     const name = document.getElementById("reviewName");
     const text = document.getElementById("reviewText");
 
@@ -52,7 +48,8 @@ window.addReview = () => {
     reviews.push({
         name: name.value,
         text: text.value,
-        rating: selectedRating
+        rating: selectedRating,
+        time: Date.now()
     });
 
     localStorage.setItem("reviews", JSON.stringify(reviews));
@@ -61,16 +58,17 @@ window.addReview = () => {
     text.value = "";
     selectedRating = 0;
 
+    resetStars();
     loadReviews();
 };
 
-/* CARGAR RESEÑAS */
-window.loadReviews = () => {
-
+window.loadReviews = function () {
     const container = document.getElementById("reviewsContainer");
     container.innerHTML = "";
 
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    reviews.sort((a, b) => b.time - a.time);
 
     reviews.forEach(r => {
         container.innerHTML += `
@@ -82,5 +80,15 @@ window.loadReviews = () => {
     });
 };
 
+window.scrollTopSmooth = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+window.addEventListener("scroll", () => {
+    if (!topBtn) return;
+    topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+});
+
 loadReviews();
+
 });
