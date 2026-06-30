@@ -11,7 +11,7 @@ position: fixed;
 top: 0;
 width: 100%;
 padding: 15px;
-background: rgba(0,0,0,0.8);
+background: rgba(0,0,0,0.85);
 backdrop-filter: blur(10px);
 z-index: 999;
 text-align: center;
@@ -32,41 +32,35 @@ text-align: center;
 content: "";
 position: absolute;
 inset: 0;
-background-image: url("https://i.ibb.co/gLGR0gjw/capitol.png");
-background-size: cover;
+background: url("https://i.ibb.co/gLGR0gjw/capitol.png") center/cover;
 filter: brightness(0.35);
-transform: scale(1.2);
+transform: scale(1.1);
 }
 
 .hero-image {
 position: absolute;
+width: min(85vw, 750px);
 z-index: 2;
-width: min(80vw, 700px);
-filter: drop-shadow(0 10px 30px rgba(0,0,0,0.7));
+filter: drop-shadow(0 10px 25px rgba(0,0,0,0.8));
 }
 
 .hero-content {
 z-index: 3;
 position: relative;
+padding: 20px;
 }
 
-/* TEXTO CON CONTORNO (SIN BLUR) */
+/* TEXTO PROFESIONAL */
 .hero-content h1 {
-font-size: 42px;
+font-size: 44px;
 color: #ffd36a;
-text-shadow:
-1px 1px 0 #000,
--1px 1px 0 #000,
-1px -1px 0 #000,
--1px -1px 0 #000;
+text-shadow: 2px 2px 0 #000;
 }
 
 .hero-content p {
 font-size: 18px;
 color: #ffe08a;
-text-shadow:
-1px 1px 0 #000,
--1px -1px 0 #000;
+text-shadow: 1px 1px 0 #000;
 }
 
 /* BOTÓN */
@@ -78,20 +72,21 @@ border-radius: 30px;
 font-weight: bold;
 text-decoration: none;
 display: inline-block;
-margin-top: 10px;
+margin-top: 15px;
 }
 
 /* SECCIONES */
 .section {
 text-align: center;
-padding: 70px 20px;
+padding: 80px 20px;
 }
 
 /* TRATAMIENTOS */
 .treatments {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-gap: 20px;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+margin-top: 20px;
 }
 
 .treatment {
@@ -99,6 +94,11 @@ border-radius: 20px;
 overflow: hidden;
 height: 320px;
 position: relative;
+transition: 0.3s;
+}
+
+.treatment:hover {
+transform: scale(1.03);
 }
 
 .treatment img {
@@ -112,7 +112,7 @@ position: absolute;
 bottom: 0;
 width: 100%;
 padding: 15px;
-background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
 text-align: center;
 }
 
@@ -125,14 +125,20 @@ color: black;
 padding: 14px 28px;
 border-radius: 30px;
 font-weight: bold;
+text-decoration: none;
 }
 
 /* RESEÑAS */
+.review-box {
+max-width: 500px;
+margin: auto;
+}
+
 .review-box input,
 .review-box textarea {
 width: 100%;
-margin: 6px 0;
-padding: 10px;
+margin: 8px 0;
+padding: 12px;
 border-radius: 10px;
 border: none;
 }
@@ -142,11 +148,11 @@ display: flex;
 justify-content: center;
 gap: 10px;
 font-size: 26px;
+cursor: pointer;
 }
 
 .stars i {
 color: #444;
-cursor: pointer;
 }
 
 .stars i.active {
@@ -175,7 +181,7 @@ right: 20px;
 bottom: 80px;
 display: flex;
 flex-direction: column;
-gap: 10px;
+gap: 12px;
 }
 
 .floating a {
