@@ -11,13 +11,13 @@ position: fixed;
 top: 0;
 width: 100%;
 padding: 15px;
-background: rgba(0,0,0,0.75);
+background: rgba(0,0,0,0.8);
 backdrop-filter: blur(10px);
-text-align: center;
 z-index: 999;
+text-align: center;
 }
 
-/* HERO MEJORADO (MÁS LUZ, SIN SOMBRA NEGRA) */
+/* HERO */
 .hero {
 height: 100vh;
 display: flex;
@@ -25,26 +25,53 @@ justify-content: center;
 align-items: center;
 position: relative;
 overflow: hidden;
-
-/* 👉 AQUÍ puedes poner tu imagen de fondo */
-background: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef") center/cover no-repeat;
-
-/* MÁS LUZ */
-filter: brightness(1.25) contrast(1.05);
+text-align: center;
 }
 
-.hero::after {
+.hero::before {
 content: "";
 position: absolute;
 inset: 0;
+background-image: url("https://i.ibb.co/gLGR0gjw/capitol.png");
+background-size: cover;
+filter: brightness(0.35);
+transform: scale(1.2);
+}
 
-/* solo luz suave, SIN oscurecer */
-background: radial-gradient(circle at center, rgba(255,211,106,0.12), transparent 60%);
+.hero-image {
+position: absolute;
+z-index: 2;
+width: min(80vw, 700px);
+filter: drop-shadow(0 10px 30px rgba(0,0,0,0.7));
+}
+
+.hero-content {
+z-index: 3;
+position: relative;
+}
+
+/* TEXTO CON CONTORNO (SIN BLUR) */
+.hero-content h1 {
+font-size: 42px;
+color: #ffd36a;
+text-shadow:
+1px 1px 0 #000,
+-1px 1px 0 #000,
+1px -1px 0 #000,
+-1px -1px 0 #000;
+}
+
+.hero-content p {
+font-size: 18px;
+color: #ffe08a;
+text-shadow:
+1px 1px 0 #000,
+-1px -1px 0 #000;
 }
 
 /* BOTÓN */
 .btn {
-background: linear-gradient(135deg,#ffd36a,#ffb347);
+background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
 padding: 12px 25px;
 border-radius: 30px;
@@ -63,7 +90,7 @@ padding: 70px 20px;
 /* TRATAMIENTOS */
 .treatments {
 display: grid;
-grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 gap: 20px;
 }
 
@@ -72,11 +99,6 @@ border-radius: 20px;
 overflow: hidden;
 height: 320px;
 position: relative;
-transition: 0.3s;
-}
-
-.treatment:hover {
-transform: scale(1.04);
 }
 
 .treatment img {
@@ -85,36 +107,31 @@ height: 100%;
 object-fit: cover;
 }
 
-/* INFO */
 .info {
 position: absolute;
 bottom: 0;
 width: 100%;
 padding: 15px;
-background: linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 text-align: center;
 }
 
 /* RESERVA */
 .phone-btn {
-background: linear-gradient(135deg,#ffd36a,#ffb347);
+display: inline-block;
+margin-top: 15px;
+background: linear-gradient(135deg, #ffd36a, #ffb347);
 color: black;
 padding: 14px 28px;
 border-radius: 30px;
-text-decoration: none;
 font-weight: bold;
 }
 
 /* RESEÑAS */
-.review-box {
-max-width: 500px;
-margin: auto;
-}
-
 .review-box input,
 .review-box textarea {
 width: 100%;
-margin: 5px 0;
+margin: 6px 0;
 padding: 10px;
 border-radius: 10px;
 border: none;
@@ -136,16 +153,7 @@ cursor: pointer;
 color: #ffd36a;
 }
 
-/* RESEÑA CARD */
-.review-card {
-margin: 15px auto;
-max-width: 500px;
-background: rgba(255,255,255,0.05);
-padding: 15px;
-border-radius: 15px;
-}
-
-/* BOTÓN SUBIR */
+/* BOTÓN ARRIBA */
 #topBtn {
 display: none;
 position: fixed;
@@ -154,20 +162,20 @@ left: 25px;
 width: 55px;
 height: 55px;
 border-radius: 50%;
-background: #ffd36a;
 border: none;
-font-size: 20px;
+background: #ffd36a;
 cursor: pointer;
+font-size: 20px;
 }
 
-/* FLOATING */
+/* REDES */
 .floating {
 position: fixed;
 right: 20px;
-bottom: 90px;
+bottom: 80px;
 display: flex;
 flex-direction: column;
-gap: 12px;
+gap: 10px;
 }
 
 .floating a {
@@ -180,10 +188,10 @@ border-radius: 50%;
 color: white;
 }
 
-.whatsapp { background:#25D366; }
-.instagram { background:#E1306C; }
-.facebook { background:#1877f2; }
-.tiktok { background:#000; }
+.whatsapp { background: #25D366; }
+.instagram { background: #E1306C; }
+.facebook { background: #1877f2; }
+.tiktok { background: #000; }
 
 html {
 scroll-behavior: smooth;
