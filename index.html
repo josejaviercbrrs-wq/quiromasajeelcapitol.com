@@ -8,7 +8,86 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- ✨ NUEVA FUENTE ELEGANTE -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* 🔥 MEJORA TRATAMIENTOS */
+.treatments {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.treatment {
+    position: relative;
+    width: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.treatment:hover {
+    transform: scale(1.03);
+}
+
+.treatment img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay oscuro elegante */
+.treatment::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.1));
+}
+
+/* Texto encima */
+.info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 2;
+}
+
+/* Nombre */
+.info h3 {
+    margin: 0;
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+/* Duración */
+.info p {
+    margin: 5px 0;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.9;
+}
+
+/* Precio */
+.info strong {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    .treatments {
+        justify-content: center;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -17,7 +96,6 @@
     <div class="logo">EL CAPITOL BIENESTAR</div>
 </header>
 
-<!-- 🔥 NUEVO TEXTO INAUGURACIÓN -->
 <div class="inauguracion">
     🎉 DÍA DE INAUGURACIÓN · 29 DE JULIO 2026 🎉
 </div>
@@ -36,6 +114,7 @@
     <div class="treatment">
         <img src="https://i.ibb.co/CKCWc521/relax.png">
         <div class="info">
+            <h3>Relajante</h3>
             <p>30 minutos</p>
             <strong>30€</strong>
         </div>
@@ -44,6 +123,7 @@
     <div class="treatment">
         <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png">
         <div class="info">
+            <h3>Deportivo</h3>
             <p>50 minutos</p>
             <strong>55€</strong>
         </div>
@@ -52,6 +132,7 @@
     <div class="treatment">
         <img src="https://i.ibb.co/V45Pn14/el-ultimo.png">
         <div class="info">
+            <h3>Descontracturante</h3>
             <p>90 minutos</p>
             <strong>75€</strong>
         </div>
