@@ -378,3 +378,68 @@ scroll-behavior: smooth;
         padding: 10px;
     }
 }
+
+/* 🔥🔥🔥 BANNER NEÓN ULTRA VISIBLE */
+.inauguracion {
+    position: fixed;
+    top: 70px; /* 🔥 ajustado para no chocar con navbar */
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.95);
+    color: #ffd36a;
+
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 2px;
+
+    padding: 14px 10px;
+
+    z-index: 10000; /* 🔥 MUY IMPORTANTE */
+
+    text-transform: uppercase;
+
+    border-top: 1px solid #ffb347;
+    border-bottom: 1px solid #ffb347;
+
+    /* ✨ EFECTO NEÓN */
+    text-shadow:
+        0 0 5px #ffd36a,
+        0 0 10px #ffd36a,
+        0 0 20px #ffb347,
+        0 0 40px #ffb347;
+
+    animation: neonFlash 1s infinite alternate;
+}
+
+/* 🔥 PARPADEO */
+@keyframes neonFlash {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 📱 MÓVIL */
+@media (max-width: 768px) {
+    .inauguracion {
+        font-size: 15px;
+        padding: 10px;
+        top: 65px;
+    }
+}
+
+/* 🔥 EVITA QUE EL HERO LO TAPE */
+.hero {
+    margin-top: 120px;
+}
