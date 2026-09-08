@@ -1,878 +1,495 @@
-```javascript
-/* =====================================================
-   EL CAPITOL BIENESTAR
-   PREMIUM WEBSITE SCRIPT
-===================================================== */
-
-let selectedRating = 0;
-
-
-/* =====================================================
-   DOM
-===================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    const body = document.body;
+  /* ==========================================
+     MENÚ MÓVIL
+  ========================================== */
 
-    const navbar =
-        document.getElementById("navbar");
+  const menuButton = document.getElementById("menuButton");
+  const nav = document.getElementById("nav");
 
-    const menuButton =
-        document.getElementById("menuButton");
+  if (menuButton && nav) {
 
-    const mobileNavigation =
-        document.getElementById("mobileNavigation");
+    menuButton.addEventListener("click", () => {
 
-    const topBtn =
-        document.getElementById("topBtn");
+      nav.classList.toggle("open");
+      menuButton.classList.toggle("active");
 
-    const pageLoader =
-        document.getElementById("pageLoader");
+      const expanded = menuButton.classList.contains("active");
 
-    const stars =
-        document.querySelectorAll("#starRating i");
-
-    const reviewName =
-        document.getElementById("reviewName");
-
-    const reviewText =
-        document.getElementById("reviewText");
-
-    const reviewsCount =
-        document.getElementById("reviewsCount");
-
-    const emptyReviews =
-        document.getElementById("emptyReviews");
-
-
-    /* =================================================
-       PAGE LOADER
-    ================================================= */
-
-    window.addEventListener("load", () => {
-
-        setTimeout(() => {
-
-            if (pageLoader) {
-
-                pageLoader.classList.add("loaded");
-
-            }
-
-            body.classList.remove("loading");
-
-        }, 550);
+      menuButton.setAttribute("aria-expanded", expanded);
 
     });
 
+    nav.querySelectorAll("a").forEach(link => {
 
-    /* =================================================
-       NAVBAR
-    ================================================= */
+      link.addEventListener("click", () => {
 
-    function updateNavbar() {
+        nav.classList.remove("open");
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
 
-        if (!navbar) return;
-
-        if (window.scrollY > 70) {
-
-            navbar.classList.add("navbar-scrolled");
-
-        } else {
-
-            navbar.classList.remove("navbar-scrolled");
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar,
-        { passive: true }
-    );
-
-
-    updateNavbar();
-
-
-    /* =================================================
-       MOBILE MENU
-    ================================================= */
-
-    if (menuButton && mobileNavigation) {
-
-        menuButton.addEventListener("click", () => {
-
-            const isOpen =
-                menuButton.classList.toggle("active");
-
-            mobileNavigation.classList.toggle(
-                "active",
-                isOpen
-            );
-
-            body.classList.toggle(
-                "menu-open",
-                isOpen
-            );
-
-        });
-
-    }
-
-
-    /* CLOSE MOBILE MENU */
-
-    document
-        .querySelectorAll(".mobile-navigation a")
-        .forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                menuButton?.classList.remove("active");
-
-                mobileNavigation?.classList.remove(
-                    "active"
-                );
-
-                body.classList.remove(
-                    "menu-open"
-                );
-
-            });
-
-        });
-
-
-    /* =================================================
-       STAR RATING
-    ================================================= */
-
-    function resetStars() {
-
-        stars.forEach(star => {
-
-            star.classList.remove(
-                "active",
-                "hovered"
-            );
-
-        });
-
-    }
-
-
-    function paintStars(number) {
-
-        stars.forEach((star, index) => {
-
-            if (index < number) {
-
-                star.classList.add("active");
-
-            }
-
-        });
-
-    }
-
-
-    stars.forEach((star, index) => {
-
-
-        star.addEventListener(
-            "mouseenter",
-            () => {
-
-                resetStars();
-
-                for (
-                    let i = 0;
-                    i <= index;
-                    i++
-                ) {
-
-                    stars[i].classList.add(
-                        "hovered"
-                    );
-
-                }
-
-            }
-        );
-
-
-        star.addEventListener(
-            "mouseleave",
-            () => {
-
-                resetStars();
-
-                paintStars(
-                    selectedRating
-                );
-
-            }
-        );
-
-
-        star.addEventListener(
-            "click",
-            () => {
-
-                selectedRating =
-                    index + 1;
-
-                resetStars();
-
-                paintStars(
-                    selectedRating
-                );
-
-            }
-        );
+      });
 
     });
+  }
 
 
-    /* =================================================
-       ADD REVIEW
-    ================================================= */
+  /* ==========================================
+     HEADER AL HACER SCROLL
+  ========================================== */
 
-    window.addReview = function () {
+  const header = document.getElementById("header");
 
-        const name =
-            reviewName?.value.trim();
+  function updateHeader() {
 
-        const text =
-            reviewText?.value.trim();
+    if (!header) return;
 
-
-        if (
-            !name ||
-            !text ||
-            selectedRating === 0
-        ) {
-
-            showToast(
-                "Completa todos los campos y selecciona una valoración."
-            );
-
-            return;
-
-        }
-
-
-        let reviews =
-            JSON.parse(
-                localStorage.getItem("reviews")
-            ) || [];
-
-
-        reviews.push({
-
-            name: name,
-
-            text: text,
-
-            rating: selectedRating,
-
-            time: Date.now()
-
-        });
-
-
-        localStorage.setItem(
-            "reviews",
-            JSON.stringify(reviews)
-        );
-
-
-        reviewName.value = "";
-
-        reviewText.value = "";
-
-        selectedRating = 0;
-
-        resetStars();
-
-        loadReviews();
-
-
-        showToast(
-            "Gracias por compartir tu experiencia."
-        );
-
-    };
-
-
-    /* =================================================
-       LOAD REVIEWS
-    ================================================= */
-
-    window.loadReviews = function () {
-
-        const container =
-            document.getElementById(
-                "reviewsContainer"
-            );
-
-
-        if (!container) return;
-
-
-        let reviews =
-            JSON.parse(
-                localStorage.getItem("reviews")
-            ) || [];
-
-
-        reviews.sort(
-            (a, b) => b.time - a.time
-        );
-
-
-        container.innerHTML = "";
-
-
-        if (reviewsCount) {
-
-            reviewsCount.textContent =
-                reviews.length;
-
-        }
-
-
-        if (emptyReviews) {
-
-            emptyReviews.style.display =
-                reviews.length === 0
-                    ? "flex"
-                    : "none";
-
-        }
-
-
-        reviews.forEach(review => {
-
-            const card =
-                document.createElement("article");
-
-            card.className =
-                "review-card";
-
-
-            const header =
-                document.createElement("div");
-
-            header.className =
-                "review-card-header";
-
-
-            const name =
-                document.createElement("h4");
-
-            name.textContent =
-                review.name;
-
-
-            const starsWrapper =
-                document.createElement("div");
-
-            starsWrapper.className =
-                "review-stars";
-
-
-            for (
-                let i = 0;
-                i < 5;
-                i++
-            ) {
-
-                const star =
-                    document.createElement("i");
-
-
-                if (i < review.rating) {
-
-                    star.className =
-                        "fa-solid fa-star";
-
-                } else {
-
-                    star.className =
-                        "fa-regular fa-star";
-
-                }
-
-
-                starsWrapper.appendChild(
-                    star
-                );
-
-            }
-
-
-            header.appendChild(name);
-
-            header.appendChild(
-                starsWrapper
-            );
-
-
-            const paragraph =
-                document.createElement("p");
-
-            paragraph.textContent =
-                review.text;
-
-
-            const date =
-                document.createElement("span");
-
-            date.className =
-                "review-date";
-
-            date.textContent =
-                formatDate(review.time);
-
-
-            card.appendChild(header);
-
-            card.appendChild(paragraph);
-
-            card.appendChild(date);
-
-
-            container.appendChild(card);
-
-        });
-
-    };
-
-
-    /* =================================================
-       DATE
-    ================================================= */
-
-    function formatDate(timestamp) {
-
-        return new Date(
-            timestamp
-        ).toLocaleDateString(
-            "es-ES",
-            {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric"
-            }
-        );
-
-    }
-
-
-    /* =================================================
-       TOAST
-    ================================================= */
-
-    function showToast(message) {
-
-        const oldToast =
-            document.querySelector(
-                ".site-toast"
-            );
-
-
-        if (oldToast) {
-
-            oldToast.remove();
-
-        }
-
-
-        const toast =
-            document.createElement("div");
-
-
-        toast.className =
-            "site-toast";
-
-
-        toast.innerHTML = `
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <span></span>
-
-        `;
-
-
-        toast.querySelector(
-            "span"
-        ).textContent = message;
-
-
-        document.body.appendChild(
-            toast
-        );
-
-
-        requestAnimationFrame(() => {
-
-            toast.classList.add("visible");
-
-        });
-
-
-        setTimeout(() => {
-
-            toast.classList.remove(
-                "visible"
-            );
-
-
-            setTimeout(() => {
-
-                toast.remove();
-
-            }, 350);
-
-        }, 3000);
-
-    }
-
-
-    /* =================================================
-       BACK TO TOP
-    ================================================= */
-
-    window.scrollTopSmooth = function () {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    };
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!topBtn) return;
-
-
-            if (window.scrollY > 600) {
-
-                topBtn.classList.add(
-                    "visible"
-                );
-
-            } else {
-
-                topBtn.classList.remove(
-                    "visible"
-                );
-
-            }
-
-        },
-        { passive: true }
-    );
-
-
-    /* =================================================
-       REVEAL ANIMATIONS
-    ================================================= */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".statement-main, " +
-            ".statement-description, " +
-            ".treatment, " +
-            ".section-top, " +
-            ".price, " +
-            ".booking-copy, " +
-            ".booking-visual, " +
-            ".review-form, " +
-            ".review-list, " +
-            ".location-header, " +
-            ".map-wrapper"
-        );
-
-
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-
-        const observer =
-            new IntersectionObserver(
-                (entries, observer) => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "revealed"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-
-        revealElements.forEach(
-            (element, index) => {
-
-                element.style.setProperty(
-                    "--reveal-delay",
-                    `${Math.min(index * 0.06, 0.3)}s`
-                );
-
-                element.classList.add(
-                    "reveal"
-                );
-
-                observer.observe(
-                    element
-                );
-
-            }
-        );
-
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
     } else {
+      header.classList.remove("scrolled");
+    }
 
-        revealElements.forEach(
-            element => {
+  }
 
-                element.classList.add(
-                    "revealed"
-                );
+  window.addEventListener("scroll", updateHeader);
+  updateHeader();
 
-            }
-        );
+
+  /* ==========================================
+     BOTÓN SUBIR
+  ========================================== */
+
+  const topButton = document.getElementById("topButton");
+
+  if (topButton) {
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+        topButton.classList.add("show");
+      } else {
+        topButton.classList.remove("show");
+      }
+
+    });
+
+    topButton.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+
+  /* ==========================================
+     ANIMACIONES AL APARECER
+  ========================================== */
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+  } else {
+
+    revealElements.forEach(element => {
+      element.classList.add("visible");
+    });
+
+  }
+
+
+  /* ==========================================
+     ESTRELLAS DE RESEÑAS
+  ========================================== */
+
+  const stars = document.querySelectorAll("#starRating button");
+
+  let selectedRating = 0;
+
+
+  function paintStars(rating) {
+
+    stars.forEach(star => {
+
+      const value = Number(star.dataset.rating);
+
+      if (value <= rating) {
+        star.classList.add("selected");
+      } else {
+        star.classList.remove("selected");
+      }
+
+    });
+
+  }
+
+
+  stars.forEach(star => {
+
+    star.addEventListener("mouseenter", () => {
+
+      paintStars(Number(star.dataset.rating));
+
+    });
+
+
+    star.addEventListener("click", () => {
+
+      selectedRating = Number(star.dataset.rating);
+
+      paintStars(selectedRating);
+
+    });
+
+  });
+
+
+  const starContainer = document.getElementById("starRating");
+
+  if (starContainer) {
+
+    starContainer.addEventListener("mouseleave", () => {
+      paintStars(selectedRating);
+    });
+
+  }
+
+
+  /* ==========================================
+     RESEÑAS
+  ========================================== */
+
+  const reviewName = document.getElementById("reviewName");
+  const reviewText = document.getElementById("reviewText");
+  const reviewSubmit = document.getElementById("reviewSubmit");
+  const reviewStatus = document.getElementById("reviewStatus");
+  const reviewsContainer = document.getElementById("reviewsContainer");
+
+
+  function getReviews() {
+
+    try {
+
+      const saved = localStorage.getItem("reviews");
+
+      if (!saved) return [];
+
+      const reviews = JSON.parse(saved);
+
+      if (!Array.isArray(reviews)) return [];
+
+      return reviews;
+
+    } catch (error) {
+
+      console.error("No se pudieron cargar las reseñas:", error);
+
+      return [];
+
+    }
+
+  }
+
+
+  function saveReviews(reviews) {
+
+    try {
+
+      localStorage.setItem(
+        "reviews",
+        JSON.stringify(reviews)
+      );
+
+      return true;
+
+    } catch (error) {
+
+      console.error("No se pudieron guardar las reseñas:", error);
+
+      return false;
+
+    }
+
+  }
+
+
+  function createStars(rating) {
+
+    let html = "";
+
+    for (let i = 1; i <= 5; i++) {
+
+      if (i <= rating) {
+        html += "★";
+      } else {
+        html += "☆";
+      }
+
+    }
+
+    return html;
+
+  }
+
+
+  function renderReviews() {
+
+    if (!reviewsContainer) return;
+
+    const reviews = getReviews();
+
+    reviewsContainer.innerHTML = "";
+
+
+    if (reviews.length === 0) {
+
+      reviewsContainer.innerHTML = `
+        <div class="no-reviews">
+          <i class="fa-regular fa-comment"></i>
+          <span>Aún no hay opiniones publicadas.</span>
+        </div>
+      `;
+
+      return;
 
     }
 
 
-    /* =================================================
-       ACTIVE NAVIGATION
-    ================================================= */
+    reviews
+      .sort((a, b) => b.date - a.date)
+      .forEach(review => {
 
-    const sections =
-        document.querySelectorAll(
-            "main section[id]"
+        const article = document.createElement("article");
+
+        article.className = "review-card";
+
+
+        const top = document.createElement("div");
+
+        top.className = "review-top";
+
+
+        const name = document.createElement("strong");
+
+        name.textContent = review.name;
+
+
+        const starsElement = document.createElement("span");
+
+        starsElement.className = "review-stars";
+
+        starsElement.textContent = createStars(review.rating);
+
+
+        top.appendChild(name);
+        top.appendChild(starsElement);
+
+
+        const text = document.createElement("p");
+
+        text.textContent = review.text;
+
+
+        const date = document.createElement("small");
+
+        date.textContent = new Date(review.date).toLocaleDateString(
+          "es-ES",
+          {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+          }
         );
 
-    const navLinks =
-        document.querySelectorAll(
-            ".main-nav a"
-        );
+
+        article.appendChild(top);
+        article.appendChild(text);
+        article.appendChild(date);
 
 
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
+        reviewsContainer.appendChild(article);
 
-        const navObserver =
-            new IntersectionObserver(
-                entries => {
+      });
 
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                navLinks.forEach(
-                                    link => {
-
-                                        link.classList.remove(
-                                            "current"
-                                        );
-
-                                    }
-                                );
+  }
 
 
-                                const active =
-                                    document.querySelector(
-                                        `.main-nav a[href="#${entry.target.id}"]`
-                                    );
+  function showStatus(message, type = "") {
+
+    if (!reviewStatus) return;
+
+    reviewStatus.textContent = message;
+    reviewStatus.className = "review-status " + type;
+
+  }
 
 
-                                active?.classList.add(
-                                    "current"
-                                );
+  function addReview() {
 
-                            }
+    const name = reviewName
+      ? reviewName.value.trim()
+      : "";
 
-                        }
-                    );
-
-                },
-                {
-                    rootMargin:
-                        "-35% 0px -55% 0px"
-                }
-            );
+    const text = reviewText
+      ? reviewText.value.trim()
+      : "";
 
 
-        sections.forEach(
-            section =>
-                navObserver.observe(section)
-        );
+    if (!name || !text || selectedRating === 0) {
+
+      showStatus(
+        "Completa tu nombre, opinión y valoración.",
+        "error"
+      );
+
+      return;
 
     }
 
 
-    /* =================================================
-       TREATMENT IMAGE MOUSE EFFECT
-    ================================================= */
-
-    if (
-        window.innerWidth > 900
-    ) {
-
-        document
-            .querySelectorAll(
-                ".treatment-image"
-            )
-            .forEach(image => {
-
-                image.addEventListener(
-                    "mousemove",
-                    event => {
-
-                        const rect =
-                            image.getBoundingClientRect();
+    const reviews = getReviews();
 
 
-                        const x =
-                            (
-                                event.clientX -
-                                rect.left
-                            ) /
-                            rect.width -
-                            0.5;
+    reviews.push({
+      name: name,
+      text: text,
+      rating: selectedRating,
+      date: Date.now()
+    });
 
 
-                        const y =
-                            (
-                                event.clientY -
-                                rect.top
-                            ) /
-                            rect.height -
-                            0.5;
+    const saved = saveReviews(reviews);
 
 
-                        image.style.setProperty(
-                            "--mouse-x",
-                            `${x * 8}px`
-                        );
+    if (!saved) {
 
+      showStatus(
+        "No se pudo guardar la opinión.",
+        "error"
+      );
 
-                        image.style.setProperty(
-                            "--mouse-y",
-                            `${y * 8}px`
-                        );
-
-                    }
-                );
-
-
-                image.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        image.style.setProperty(
-                            "--mouse-x",
-                            "0px"
-                        );
-
-                        image.style.setProperty(
-                            "--mouse-y",
-                            "0px"
-                        );
-
-                    }
-                );
-
-            });
+      return;
 
     }
 
 
-    /* =================================================
-       HERO PARALLAX
-    ================================================= */
+    if (reviewName) {
+      reviewName.value = "";
+    }
 
-    const heroImage =
-        document.querySelector(
-            ".hero-image"
-        );
-
-
-    if (
-        heroImage &&
-        window.innerWidth > 768
-    ) {
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                const scroll =
-                    window.scrollY;
-
-
-                if (
-                    scroll <
-                    window.innerHeight
-                ) {
-
-                    heroImage.style.transform =
-                        `translateY(${scroll * 0.10}px) scale(1.04)`;
-
-                }
-
-            },
-            { passive: true }
-        );
-
+    if (reviewText) {
+      reviewText.value = "";
     }
 
 
-    /* =================================================
-       INITIAL LOAD
-    ================================================= */
+    selectedRating = 0;
 
-    loadReviews();
+    paintStars(0);
+
+    renderReviews();
+
+
+    showStatus(
+      "Tu opinión se ha publicado correctamente.",
+      "success"
+    );
+
+  }
+
+
+  if (reviewSubmit) {
+
+    reviewSubmit.addEventListener("click", addReview);
+
+  }
+
+
+  /* Compatibilidad con tu código anterior */
+
+  window.addReview = addReview;
+  window.loadReviews = renderReviews;
+
+
+  renderReviews();
+
+
+  /* ==========================================
+     CERRAR MENÚ CON ESC
+  ========================================== */
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      if (nav) {
+        nav.classList.remove("open");
+      }
+
+      if (menuButton) {
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+
+    }
+
+  });
+
+
+  /* ==========================================
+     SCROLL SUAVE
+  ========================================== */
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", event => {
+
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+  });
 
 });
-```
