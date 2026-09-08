@@ -1,96 +1,164 @@
 ```javascript
 /* =====================================================
    EL CAPITOL BIENESTAR
-   SCRIPT PRINCIPAL
+   PREMIUM WEBSITE SCRIPT
 ===================================================== */
 
 let selectedRating = 0;
 
 
 /* =====================================================
-   DOM READY
+   DOM
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const stars = document.querySelectorAll("#starRating i");
-    const topBtn = document.getElementById("topBtn");
-    const navbar = document.getElementById("navbar");
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileLinks = document.querySelectorAll(".mobile-menu a");
+    const body = document.body;
 
-    const reviewName = document.getElementById("reviewName");
-    const reviewText = document.getElementById("reviewText");
-    const reviewsCount = document.getElementById("reviewsCount");
-    const emptyReviews = document.getElementById("emptyReviews");
+    const navbar =
+        document.getElementById("navbar");
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const mobileNavigation =
+        document.getElementById("mobileNavigation");
+
+    const topBtn =
+        document.getElementById("topBtn");
+
+    const pageLoader =
+        document.getElementById("pageLoader");
+
+    const stars =
+        document.querySelectorAll("#starRating i");
+
+    const reviewName =
+        document.getElementById("reviewName");
+
+    const reviewText =
+        document.getElementById("reviewText");
+
+    const reviewsCount =
+        document.getElementById("reviewsCount");
+
+    const emptyReviews =
+        document.getElementById("emptyReviews");
 
 
     /* =================================================
-       NAVBAR — CAMBIO AL HACER SCROLL
+       PAGE LOADER
+    ================================================= */
+
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            if (pageLoader) {
+
+                pageLoader.classList.add("loaded");
+
+            }
+
+            body.classList.remove("loading");
+
+        }, 550);
+
+    });
+
+
+    /* =================================================
+       NAVBAR
     ================================================= */
 
     function updateNavbar() {
 
         if (!navbar) return;
 
-        if (window.scrollY > 40) {
-            navbar.classList.add("scrolled");
+        if (window.scrollY > 70) {
+
+            navbar.classList.add("navbar-scrolled");
+
         } else {
-            navbar.classList.remove("scrolled");
+
+            navbar.classList.remove("navbar-scrolled");
+
         }
 
     }
 
-    window.addEventListener("scroll", updateNavbar);
+
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
+        { passive: true }
+    );
+
 
     updateNavbar();
 
 
     /* =================================================
-       MENÚ MOBILE
+       MOBILE MENU
     ================================================= */
 
-    if (menuToggle && mobileMenu) {
+    if (menuButton && mobileNavigation) {
 
-        menuToggle.addEventListener("click", () => {
+        menuButton.addEventListener("click", () => {
 
-            menuToggle.classList.toggle("active");
-            mobileMenu.classList.toggle("active");
+            const isOpen =
+                menuButton.classList.toggle("active");
 
-            document.body.classList.toggle("menu-open");
+            mobileNavigation.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            body.classList.toggle(
+                "menu-open",
+                isOpen
+            );
 
         });
 
     }
 
 
-    /* CERRAR MENÚ AL HACER CLICK */
+    /* CLOSE MOBILE MENU */
 
-    mobileLinks.forEach(link => {
+    document
+        .querySelectorAll(".mobile-navigation a")
+        .forEach(link => {
 
-        link.addEventListener("click", () => {
+            link.addEventListener("click", () => {
 
-            menuToggle?.classList.remove("active");
-            mobileMenu?.classList.remove("active");
+                menuButton?.classList.remove("active");
 
-            document.body.classList.remove("menu-open");
+                mobileNavigation?.classList.remove(
+                    "active"
+                );
+
+                body.classList.remove(
+                    "menu-open"
+                );
+
+            });
 
         });
 
-    });
-
 
     /* =================================================
-       ESTRELLAS
+       STAR RATING
     ================================================= */
 
     function resetStars() {
 
         stars.forEach(star => {
 
-            star.classList.remove("active");
-            star.classList.remove("hovered");
+            star.classList.remove(
+                "active",
+                "hovered"
+            );
 
         });
 
@@ -102,7 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
         stars.forEach((star, index) => {
 
             if (index < number) {
+
                 star.classList.add("active");
+
             }
 
         });
@@ -112,51 +182,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
     stars.forEach((star, index) => {
 
-        star.addEventListener("mouseenter", () => {
 
-            resetStars();
+        star.addEventListener(
+            "mouseenter",
+            () => {
 
-            for (let i = 0; i <= index; i++) {
-                stars[i].classList.add("hovered");
+                resetStars();
+
+                for (
+                    let i = 0;
+                    i <= index;
+                    i++
+                ) {
+
+                    stars[i].classList.add(
+                        "hovered"
+                    );
+
+                }
+
             }
-
-        });
-
-
-        star.addEventListener("mouseleave", () => {
-
-            resetStars();
-            paintStars(selectedRating);
-
-        });
+        );
 
 
-        star.addEventListener("click", () => {
+        star.addEventListener(
+            "mouseleave",
+            () => {
 
-            selectedRating = index + 1;
+                resetStars();
 
-            resetStars();
-            paintStars(selectedRating);
+                paintStars(
+                    selectedRating
+                );
 
-        });
+            }
+        );
+
+
+        star.addEventListener(
+            "click",
+            () => {
+
+                selectedRating =
+                    index + 1;
+
+                resetStars();
+
+                paintStars(
+                    selectedRating
+                );
+
+            }
+        );
 
     });
 
 
     /* =================================================
-       AÑADIR RESEÑA
+       ADD REVIEW
     ================================================= */
 
     window.addReview = function () {
 
-        const name = reviewName?.value.trim();
-        const text = reviewText?.value.trim();
+        const name =
+            reviewName?.value.trim();
+
+        const text =
+            reviewText?.value.trim();
 
 
-        if (!name || !text || selectedRating === 0) {
+        if (
+            !name ||
+            !text ||
+            selectedRating === 0
+        ) {
 
-            showNotification(
-                "Completa tu nombre, valoración y opinión."
+            showToast(
+                "Completa todos los campos y selecciona una valoración."
             );
 
             return;
@@ -165,14 +267,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         let reviews =
-            JSON.parse(localStorage.getItem("reviews")) || [];
+            JSON.parse(
+                localStorage.getItem("reviews")
+            ) || [];
 
 
         reviews.push({
 
             name: name,
+
             text: text,
+
             rating: selectedRating,
+
             time: Date.now()
 
         });
@@ -185,6 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         reviewName.value = "";
+
         reviewText.value = "";
 
         selectedRating = 0;
@@ -194,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadReviews();
 
 
-        showNotification(
+        showToast(
             "Gracias por compartir tu experiencia."
         );
 
@@ -202,30 +310,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       CARGAR RESEÑAS
+       LOAD REVIEWS
     ================================================= */
 
     window.loadReviews = function () {
 
         const container =
-            document.getElementById("reviewsContainer");
+            document.getElementById(
+                "reviewsContainer"
+            );
 
 
         if (!container) return;
 
 
         let reviews =
-            JSON.parse(localStorage.getItem("reviews")) || [];
+            JSON.parse(
+                localStorage.getItem("reviews")
+            ) || [];
 
 
-        reviews.sort((a, b) => b.time - a.time);
+        reviews.sort(
+            (a, b) => b.time - a.time
+        );
 
 
         container.innerHTML = "";
 
 
         if (reviewsCount) {
-            reviewsCount.textContent = reviews.length;
+
+            reviewsCount.textContent =
+                reviews.length;
+
         }
 
 
@@ -244,63 +361,89 @@ document.addEventListener("DOMContentLoaded", () => {
             const card =
                 document.createElement("article");
 
-            card.className = "review-card";
+            card.className =
+                "review-card";
 
 
             const header =
                 document.createElement("div");
 
-            header.className = "review-card-header";
+            header.className =
+                "review-card-header";
 
 
             const name =
                 document.createElement("h4");
 
-            name.textContent = review.name;
+            name.textContent =
+                review.name;
 
 
-            const starsContainer =
+            const starsWrapper =
                 document.createElement("div");
 
-            starsContainer.className =
+            starsWrapper.className =
                 "review-stars";
 
 
-            for (let i = 0; i < 5; i++) {
+            for (
+                let i = 0;
+                i < 5;
+                i++
+            ) {
 
                 const star =
                     document.createElement("i");
 
-                star.className =
-                    i < review.rating
-                        ? "fa-solid fa-star"
-                        : "fa-regular fa-star";
 
-                starsContainer.appendChild(star);
+                if (i < review.rating) {
+
+                    star.className =
+                        "fa-solid fa-star";
+
+                } else {
+
+                    star.className =
+                        "fa-regular fa-star";
+
+                }
+
+
+                starsWrapper.appendChild(
+                    star
+                );
 
             }
 
 
             header.appendChild(name);
-            header.appendChild(starsContainer);
+
+            header.appendChild(
+                starsWrapper
+            );
 
 
             const paragraph =
                 document.createElement("p");
 
-            paragraph.textContent = review.text;
+            paragraph.textContent =
+                review.text;
 
 
             const date =
                 document.createElement("span");
 
-            date.className = "review-date";
+            date.className =
+                "review-date";
 
-            date.textContent = formatDate(review.time);
+            date.textContent =
+                formatDate(review.time);
 
 
             card.appendChild(header);
+
             card.appendChild(paragraph);
+
             card.appendChild(date);
 
 
@@ -312,14 +455,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       FORMATO DE FECHA
+       DATE
     ================================================= */
 
     function formatDate(timestamp) {
 
-        const date = new Date(timestamp);
-
-        return date.toLocaleDateString(
+        return new Date(
+            timestamp
+        ).toLocaleDateString(
             "es-ES",
             {
                 day: "2-digit",
@@ -332,49 +475,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       NOTIFICACIÓN
+       TOAST
     ================================================= */
 
-    function showNotification(message) {
+    function showToast(message) {
 
-        const existing =
-            document.querySelector(".site-notification");
+        const oldToast =
+            document.querySelector(
+                ".site-toast"
+            );
 
-        if (existing) {
-            existing.remove();
+
+        if (oldToast) {
+
+            oldToast.remove();
+
         }
 
 
-        const notification =
+        const toast =
             document.createElement("div");
 
-        notification.className =
-            "site-notification";
+
+        toast.className =
+            "site-toast";
 
 
-        notification.innerHTML = `
+        toast.innerHTML = `
+
             <i class="fa-solid fa-circle-check"></i>
-            <span>${escapeHTML(message)}</span>
+
+            <span></span>
+
         `;
 
 
-        document.body.appendChild(notification);
+        toast.querySelector(
+            "span"
+        ).textContent = message;
+
+
+        document.body.appendChild(
+            toast
+        );
+
+
+        requestAnimationFrame(() => {
+
+            toast.classList.add("visible");
+
+        });
 
 
         setTimeout(() => {
 
-            notification.classList.add("show");
+            toast.classList.remove(
+                "visible"
+            );
 
-        }, 20);
-
-
-        setTimeout(() => {
-
-            notification.classList.remove("show");
 
             setTimeout(() => {
-                notification.remove();
-            }, 400);
+
+                toast.remove();
+
+            }, 350);
 
         }, 3000);
 
@@ -382,22 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       PROTECCIÓN DE TEXTO
-    ================================================= */
-
-    function escapeHTML(text) {
-
-        const div = document.createElement("div");
-
-        div.textContent = text;
-
-        return div.innerHTML;
-
-    }
-
-
-    /* =================================================
-       BOTÓN VOLVER ARRIBA
+       BACK TO TOP
     ================================================= */
 
     window.scrollTopSmooth = function () {
@@ -405,6 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({
 
             top: 0,
+
             behavior: "smooth"
 
         });
@@ -412,55 +562,80 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener(
+        "scroll",
+        () => {
 
-        if (!topBtn) return;
+            if (!topBtn) return;
 
 
-        if (window.scrollY > 500) {
+            if (window.scrollY > 600) {
 
-            topBtn.classList.add("visible");
+                topBtn.classList.add(
+                    "visible"
+                );
 
-        } else {
+            } else {
 
-            topBtn.classList.remove("visible");
+                topBtn.classList.remove(
+                    "visible"
+                );
 
-        }
+            }
 
-    });
+        },
+        { passive: true }
+    );
 
 
     /* =================================================
-       ANIMACIONES AL ENTRAR EN PANTALLA
+       REVEAL ANIMATIONS
     ================================================= */
 
-    const animatedElements =
+    const revealElements =
         document.querySelectorAll(
-            ".treatment-card, .price-card, .intro-copy, .booking-content, .booking-card, .review-form-card, .location-heading"
+            ".statement-main, " +
+            ".statement-description, " +
+            ".treatment, " +
+            ".section-top, " +
+            ".price, " +
+            ".booking-copy, " +
+            ".booking-visual, " +
+            ".review-form, " +
+            ".review-list, " +
+            ".location-header, " +
+            ".map-wrapper"
         );
 
 
-    if ("IntersectionObserver" in window) {
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
 
         const observer =
             new IntersectionObserver(
-                (entries, observerInstance) => {
+                (entries, observer) => {
 
-                    entries.forEach(entry => {
+                    entries.forEach(
+                        entry => {
 
-                        if (entry.isIntersecting) {
+                            if (
+                                entry.isIntersecting
+                            ) {
 
-                            entry.target.classList.add(
-                                "in-view"
-                            );
+                                entry.target.classList.add(
+                                    "revealed"
+                                );
 
-                            observerInstance.unobserve(
-                                entry.target
-                            );
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
 
                         }
-
-                    });
+                    );
 
                 },
                 {
@@ -469,34 +644,204 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-        animatedElements.forEach(element => {
+        revealElements.forEach(
+            (element, index) => {
 
-            element.classList.add("reveal");
+                element.style.setProperty(
+                    "--reveal-delay",
+                    `${Math.min(index * 0.06, 0.3)}s`
+                );
 
-            observer.observe(element);
+                element.classList.add(
+                    "reveal"
+                );
 
-        });
+                observer.observe(
+                    element
+                );
+
+            }
+        );
 
     } else {
 
-        animatedElements.forEach(element => {
+        revealElements.forEach(
+            element => {
 
-            element.classList.add("in-view");
+                element.classList.add(
+                    "revealed"
+                );
 
-        });
+            }
+        );
 
     }
 
 
     /* =================================================
-       EFECTO PARALLAX MUY SUAVE EN HERO
+       ACTIVE NAVIGATION
     ================================================= */
 
-    const hero =
-        document.querySelector(".hero");
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            ".main-nav a"
+        );
 
 
-    if (hero && window.innerWidth > 768) {
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const navObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                navLinks.forEach(
+                                    link => {
+
+                                        link.classList.remove(
+                                            "current"
+                                        );
+
+                                    }
+                                );
+
+
+                                const active =
+                                    document.querySelector(
+                                        `.main-nav a[href="#${entry.target.id}"]`
+                                    );
+
+
+                                active?.classList.add(
+                                    "current"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    rootMargin:
+                        "-35% 0px -55% 0px"
+                }
+            );
+
+
+        sections.forEach(
+            section =>
+                navObserver.observe(section)
+        );
+
+    }
+
+
+    /* =================================================
+       TREATMENT IMAGE MOUSE EFFECT
+    ================================================= */
+
+    if (
+        window.innerWidth > 900
+    ) {
+
+        document
+            .querySelectorAll(
+                ".treatment-image"
+            )
+            .forEach(image => {
+
+                image.addEventListener(
+                    "mousemove",
+                    event => {
+
+                        const rect =
+                            image.getBoundingClientRect();
+
+
+                        const x =
+                            (
+                                event.clientX -
+                                rect.left
+                            ) /
+                            rect.width -
+                            0.5;
+
+
+                        const y =
+                            (
+                                event.clientY -
+                                rect.top
+                            ) /
+                            rect.height -
+                            0.5;
+
+
+                        image.style.setProperty(
+                            "--mouse-x",
+                            `${x * 8}px`
+                        );
+
+
+                        image.style.setProperty(
+                            "--mouse-y",
+                            `${y * 8}px`
+                        );
+
+                    }
+                );
+
+
+                image.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        image.style.setProperty(
+                            "--mouse-x",
+                            "0px"
+                        );
+
+                        image.style.setProperty(
+                            "--mouse-y",
+                            "0px"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =================================================
+       HERO PARALLAX
+    ================================================= */
+
+    const heroImage =
+        document.querySelector(
+            ".hero-image"
+        );
+
+
+    if (
+        heroImage &&
+        window.innerWidth > 768
+    ) {
 
         window.addEventListener(
             "scroll",
@@ -505,12 +850,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const scroll =
                     window.scrollY;
 
-                if (scroll < window.innerHeight) {
 
-                    hero.style.setProperty(
-                        "--hero-offset",
-                        `${scroll * 0.18}px`
-                    );
+                if (
+                    scroll <
+                    window.innerHeight
+                ) {
+
+                    heroImage.style.transform =
+                        `translateY(${scroll * 0.10}px) scale(1.04)`;
 
                 }
 
@@ -522,7 +869,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       CARGA INICIAL
+       INITIAL LOAD
     ================================================= */
 
     loadReviews();
