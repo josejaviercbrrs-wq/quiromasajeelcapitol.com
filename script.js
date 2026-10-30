@@ -1,20 +1,52 @@
 ```javascript
+"use strict";
+
 let selectedRating = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
-    const stars = document.querySelectorAll("#starRating i");
+    const stars = document.querySelectorAll("#starRating .star");
     const topBtn = document.getElementById("topBtn");
     const currentYear = document.getElementById("currentYear");
+    const reviewForm = document.getElementById("reviewForm");
     const nameInput = document.getElementById("reviewName");
     const textInput = document.getElementById("reviewText");
     const reviewsContainer = document.getElementById("reviewsContainer");
+    const reviewMessage = document.getElementById("reviewMessage");
 
+    const STORAGE_KEY = "reviews";
+
+    // Año actualizado automáticamente
     if (currentYear) {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    // Gestionar la valoración por estrellas
-    function paintStars(rating, className = "active") {
+    // Animaciones al aparecer los elementos en pantalla
+    const revealElements = document.querySelectorAll(".reveal");
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        revealElements.forEach(element => observer.observe(element));
+    } else {
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+    // Valoración por estrellas
+    function paintStars(rating, className) {
         stars.forEach((star, index) => {
             star.classList.toggle(className, index < rating);
         });
@@ -29,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function selectRating(rating) {
         selectedRating = rating;
         resetStars();
-        paintStars(selectedRating);
+        paintStars(rating, "active");
     }
 
     stars.forEach((star, index) => {
@@ -47,12 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         star.addEventListener("mouseleave", () => {
             resetStars();
-            paintStars(selectedRating);
+            paintStars(selectedRating, "active");
         });
 
         star.addEventListener("blur", () => {
             resetStars();
-            paintStars(selectedRating);
+            paintStars(selectedRating, "active");
         });
 
         star.addEventListener("click", () => {
@@ -67,10 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Leer las reseñas guardadas en este navegador
+    // Leer reseñas del almacenamiento local
     function getReviews() {
         try {
-            const saved = localStorage.getItem("reviews");
+            const saved = localStorage.getItem(STORAGE_KEY);
 
             if (!saved) {
                 return [];
@@ -82,22 +114,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 return [];
             }
 
-            return reviews.filter(review =>
-                review &&
-                typeof review.name === "string" &&
-                typeof review.text === "string" &&
-                Number.isFinite(Number(review.rating)) &&
-                Number(review.rating) >= 1 &&
-                Number(review.rating) <= 5
-            );
+            return reviews.filter(review => {
+                if (!review || typeof review !== "object") {
+                    return false;
+                }
+
+                const rating = Number(review.rating);
+
+                return (
+                    typeof review.name === "string" &&
+                    typeof review.text === "string" &&
+                    Number.isInteger(rating) &&
+                    rating >= 1 &&
+                    rating <= 5
+                );
+            });
         } catch (error) {
             console.error("No se pudieron leer las reseñas:", error);
             return [];
         }
     }
 
-    // Mostrar las reseñas
-    window.loadReviews = function () {
+    // Mostrar las reseñas de forma segura
+    function loadReviews() {
         if (!reviewsContainer) {
             return;
         }
@@ -107,6 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const reviews = getReviews().sort(
             (a, b) => (Number(b.time) || 0) - (Number(a.time) || 0)
         );
+
+        if (reviews.length === 0) {
+            const emptyMessage = document.createElement("p");
+            emptyMessage.className = "empty-reviews";
+            emptyMessage.textContent =
+                "Todavía no hay opiniones guardadas en este navegador.";
+            reviewsContainer.appendChild(emptyMessage);
+            return;
+        }
 
         reviews.forEach(review => {
             const card = document.createElement("article");
@@ -129,60 +177,74 @@ document.addEventListener("DOMContentLoaded", () => {
             card.append(title, rating, paragraph);
             reviewsContainer.appendChild(card);
         });
-    };
+    }
 
-    // Añadir una reseña
-    window.addReview = function () {
-        if (!nameInput || !textInput) {
-            alert("No se ha encontrado el formulario de reseñas.");
-            return;
+    // Mensajes del formulario
+    function showMessage(message) {
+        if (reviewMessage) {
+            reviewMessage.textContent = message;
         }
+    }
 
-        const name = nameInput.value.trim();
-        const text = textInput.value.trim();
+    // Publicar una opinión
+    if (reviewForm) {
+        reviewForm.addEventListener("submit", event => {
+            event.preventDefault();
 
-        if (!name || !text) {
-            alert("Escribe tu nombre y tu opinión.");
-            return;
-        }
+            if (!nameInput || !textInput) {
+                showMessage("No se ha encontrado el formulario.");
+                return;
+            }
 
-        if (selectedRating < 1 || selectedRating > 5) {
-            alert("Selecciona una valoración de 1 a 5 estrellas.");
-            return;
-        }
+            const name = nameInput.value.trim();
+            const text = textInput.value.trim();
 
-        const reviews = getReviews();
+            if (!name || !text) {
+                showMessage("Completa tu nombre y tu opinión.");
+                return;
+            }
 
-        reviews.push({
-            name: name.slice(0, 60),
-            text: text.slice(0, 1000),
-            rating: selectedRating,
-            time: Date.now()
+            if (selectedRating < 1 || selectedRating > 5) {
+                showMessage("Selecciona una valoración de 1 a 5 estrellas.");
+                return;
+            }
+
+            const reviews = getReviews();
+
+            reviews.push({
+                name: name.slice(0, 60),
+                text: text.slice(0, 1000),
+                rating: selectedRating,
+                time: Date.now()
+            });
+
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+            } catch (error) {
+                console.error("No se pudo guardar la opinión:", error);
+                showMessage(
+                    "No se pudo guardar la opinión en este navegador."
+                );
+                return;
+            }
+
+            reviewForm.reset();
+            selectRating(0);
+            loadReviews();
+
+            showMessage(
+                "Opinión guardada en este navegador. No se ha publicado en Google."
+            );
         });
+    }
 
-        try {
-            localStorage.setItem("reviews", JSON.stringify(reviews));
-        } catch (error) {
-            console.error("No se pudo guardar la reseña:", error);
-            alert("No se ha podido guardar la opinión en este navegador.");
-            return;
-        }
-
-        nameInput.value = "";
-        textInput.value = "";
-        selectRating(0);
-
-        window.loadReviews();
-        alert("Tu opinión se ha guardado en este navegador.");
-    };
-
-    // Mostrar u ocultar el botón de volver arriba
+    // Botón para volver arriba
     function updateTopButton() {
         if (!topBtn) {
             return;
         }
 
-        topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+        topBtn.style.display = window.scrollY > 350 ? "flex" : "none";
     }
 
     window.addEventListener("scroll", updateTopButton, {
@@ -193,13 +255,13 @@ document.addEventListener("DOMContentLoaded", () => {
         topBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth"
+                behavior: reduceMotion ? "auto" : "smooth"
             });
         });
     }
 
     // Carga inicial
-    window.loadReviews();
+    loadReviews();
     updateTopButton();
 });
 ```
