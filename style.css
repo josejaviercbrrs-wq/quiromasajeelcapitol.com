@@ -1,407 +1,88 @@
-/* =========================
-   BASE
-   ========================= */
+
+/* CORRECCIONES Y AJUSTES RESPONSIVE */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-margin: 0;
-font-family: 'Inter', sans-serif;
-background: radial-gradient(circle at top, #111 0%, #050505 100%);
-color: #ffd36a;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
-.navbar {
-position: fixed;
-top: 0;
-width: 100%;
-padding: 15px;
-background: rgba(0,0,0,0.75);
-backdrop-filter: blur(12px);
-z-index: 999;
-text-align: center;
-border-bottom: 1px solid rgba(255,211,106,0.15);
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border: 0;
 }
 
-/* HERO */
-.hero {
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
-overflow: hidden;
-text-align: center;
-margin-top: 120px;
-}
-
-/* HERO BASE MEJORADO */
-.hero::before {
-content: "";
-position: absolute;
-inset: 0;
-background-image: url("https://i.ibb.co/9kYN91XN/capitol.png");
-background-size: cover;
-background-position: center;
-
-/* 👇 Imagen más visible y nítida */
-transform: scale(1.05);
-filter: brightness(0.75) contrast(1.1) saturate(1.05);
-}
-
-/* OVERLAY ELEGANTE (no tan oscuro) */
-.hero::after {
-content: "";
-position: absolute;
-inset: 0;
-
-/* 👇 Oscurece ligeramente pero deja ver la imagen */
-background: linear-gradient(
-to bottom,
-rgba(0,0,0,0.2),
-rgba(0,0,0,0.55)
-);
-
-/* ✨ GLOW DORADO SUAVE */
-box-shadow: inset 0 0 120px rgba(255, 211, 106, 0.15);
-}
-
-.hero::before,
-.hero::after {
-z-index: 1;
-}
-
-/* TEXTO ENCIMA */
-.hero * {
-position: relative;
-z-index: 2;
-}
-
-/* BOTÓN */
-.btn {
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-padding: 12px 25px;
-border-radius: 30px;
-font-weight: bold;
-text-decoration: none;
-display: inline-block;
-margin-top: 10px;
-box-shadow: 0 5px 20px rgba(255, 211, 106, 0.4);
-transition: 0.3s;
-}
-
-.btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 30px rgba(255, 211, 106, 0.6);
-}
-
-/* SECCIONES */
-.section {
-text-align: center;
-padding: 80px 20px;
-}
-
-/* =========================
-   TRATAMIENTOS
-   ========================= */
-.treatments {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-gap: 25px;
-}
-
-.treatment {
-border-radius: 20px;
-overflow: hidden;
-height: 320px;
-position: relative;
-transition: 0.4s;
-box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-.treatment:hover {
-transform: scale(1.05);
+.treatments-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .treatment img {
-width: 100%;
-height: 100%;
-object-fit: cover;
+    display: block;
 }
 
-.info {
-position: absolute;
-bottom: 0;
-width: 100%;
-padding: 18px;
-background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-text-align: center;
-}
-
-.info h3 {
-margin: 0;
-font-size: 18px;
-}
-
-/* =========================
-   💎 TARIFAS ULTRA LUXURY
-   ========================= */
-.pricing {
-text-align: center;
-}
-
-.pricing h2 {
-font-family: 'Playfair Display', serif;
-margin-bottom: 60px;
-font-size: 36px;
-letter-spacing: 1px;
-}
-
-/* CONTENEDOR */
-.pricing-container {
-display: flex;
-justify-content: center;
-align-items: stretch;
-gap: 35px;
-flex-wrap: wrap;
-}
-
-/* TARJETAS BASE */
-.price-card {
-background: linear-gradient(160deg, rgba(20,20,20,0.95), rgba(5,5,5,0.95));
-backdrop-filter: blur(14px);
-padding: 40px 25px;
-border-radius: 25px;
-width: 250px;
-position: relative;
-overflow: hidden;
-border: 1px solid rgba(255, 211, 106, 0.2);
-transition: all 0.5s ease;
-box-shadow: inset 0 0 20px rgba(255,211,106,0.05), 0 15px 40px rgba(0,0,0,0.8);
-}
-
-/* BORDE PREMIUM ANIMADO */
-.price-card::after {
-content: "";
-position: absolute;
-inset: 0;
-border-radius: 25px;
-padding: 1px;
-background: linear-gradient(120deg, transparent, #ffd36a, transparent);
--webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
--webkit-mask-composite: xor;
-mask-composite: exclude;
-opacity: 0.4;
-}
-
-/* EFECTO BRILLO */
-.price-card::before {
-content: "";
-position: absolute;
-top: 0;
-left: -150%;
-width: 100%;
-height: 100%;
-background: linear-gradient(120deg, transparent, rgba(255, 211, 106, 0.4), transparent);
-transition: 1s;
-}
-
-.price-card:hover::before {
-left: 150%;
-}
-
-.price-card:hover {
-transform: translateY(-12px) scale(1.02);
-box-shadow: 0 25px 70px rgba(0,0,0,0.9);
-}
-
-/* TEXTO */
-.price-card h3 {
-font-family: 'Playfair Display', serif;
-font-size: 20px;
-margin-bottom: 10px;
-letter-spacing: 0.5px;
-}
-
-.price {
-font-size: 42px;
-font-weight: 800;
-margin: 20px 0;
-background: linear-gradient(135deg, #fff2c0, #ffd36a, #ffb347);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-shadow: 0 0 15px rgba(255,211,106,0.3);
-}
-
-.price-card span {
-font-size: 14px;
-color: #bbb;
-}
-
-/* =========================
-   ⭐ PLAN DESTACADO
-   ========================= */
-.highlight {
-transform: scale(1.2);
-background: linear-gradient(160deg, #1a1a1a, #050505);
-border: 1px solid #ffd36a;
-box-shadow: 0 0 40px rgba(255, 211, 106, 0.4),
-            0 0 80px rgba(255, 211, 106, 0.15);
-z-index: 3;
-}
-
-/* GLOW PREMIUM */
-.highlight::after {
-content: "";
-position: absolute;
-inset: -3px;
-border-radius: 25px;
-background: linear-gradient(45deg, #ffd36a, transparent, #ffd36a);
-filter: blur(15px);
-opacity: 0.5;
-z-index: -1;
-}
-
-/* BADGE */
-.highlight .badge {
-position: absolute;
-top: -14px;
-left: 50%;
-transform: translateX(-50%);
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-padding: 7px 20px;
-border-radius: 30px;
-font-size: 12px;
-font-weight: bold;
-letter-spacing: 1px;
-box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-}
-
-/* =========================
-   RESERVA
-   ========================= */
-.phone-btn {
-display: inline-block;
-margin-top: 20px;
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-padding: 16px 30px;
-border-radius: 40px;
-font-weight: bold;
-font-size: 18px;
-text-decoration: none;
-box-shadow: 0 10px 30px rgba(255,211,106,0.4);
-}
-
-/* =========================
-   RESEÑAS
-   ========================= */
-.review-box {
-max-width: 500px;
-margin: auto;
-}
-
-.review-box input,
-.review-box textarea {
-width: 100%;
-margin: 6px 0;
-padding: 12px;
-border-radius: 12px;
-border: none;
-background: #111;
-color: #ffd36a;
-}
-
-/* =========================
-   BOTÓN SUBIR
-   ========================= */
-#topBtn {
-display: none;
-position: fixed;
-bottom: 25px;
-left: 25px;
-width: 60px;
-height: 60px;
-border-radius: 50%;
-border: none;
-background: linear-gradient(135deg, #ffd36a, #ffb347);
-color: black;
-cursor: pointer;
-z-index: 999;
-align-items: center;
-justify-content: center;
-font-size: 24px;
-box-shadow: 0 5px 20px rgba(255,211,106,0.5);
-}
-
-/* =========================
-   UBICACIÓN
-   ========================= */
-.map-container {
-width: 100%;
-max-width: 800px;
-margin: auto;
-border-radius: 20px;
-overflow: hidden;
-border: 2px solid rgba(255, 211, 106, 0.3);
-}
-
-/* =========================
-   FLOATING
-   ========================= */
 .floating {
-position: fixed;
-right: 20px;
-bottom: 90px;
-display: flex;
-flex-direction: column;
-gap: 12px;
+    z-index: 1000;
 }
 
 .floating a {
-width: 55px;
-height: 55px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    text-decoration: none;
+    font-size: 24px;
 }
 
-/* =========================
-   BANNER NEÓN
-   ========================= */
-.inauguracion {
-position: fixed;
-top: 70px;
-width: 100%;
-text-align: center;
-background: rgba(0,0,0,0.95);
-color: #ffd36a;
-font-weight: 900;
-padding: 14px;
-z-index: 10000;
-text-shadow: 0 0 15px #ffd36a;
-animation: neonFlash 1s infinite alternate;
-}
-
-@keyframes neonFlash {
-0% { opacity: 1; }
-50% { opacity: 0.5; }
-100% { opacity: 1; }
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
 @media (max-width: 768px) {
-.pricing-container {
-flex-direction: column;
-align-items: center;
-}
+    .navbar {
+        padding: 15px 10px;
+    }
 
-.highlight {
-transform: scale(1.08);
-}
+    .hero {
+        height: 80vh;
+        min-height: 450px;
+        margin-top: 80px;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .pricing h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+    .price-card {
+        max-width: 100%;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    .floating {
+        right: 12px;
+        bottom: 80px;
+        gap: 10px;
+    }
+
+    .floating a {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    #topBtn {
+        width: 48px;
+        height: 48px;
+        bottom: 20px;
+        left: 15px;
+    }
 }
