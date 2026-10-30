@@ -1,16 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>El Capitol Bienestar</title>
+    <title>El Capitol Bienestar</title>
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -26,104 +26,127 @@
 </section>
 
 <section class="section">
-<h2>Tratamientos</h2>
+    <h2>Tratamientos</h2>
 
-<div class="treatments-wrapper">
-<div class="treatments">
+    <div class="treatments-wrapper">
+        <div class="treatments">
 
-    <div class="treatment">
-        <img src="https://i.ibb.co/CKCWc521/relax.png">
-        <div class="info">
-            <h3>Relajante</h3>
+            <div class="treatment">
+                <img src="https://i.ibb.co/CKCWc521/relax.png" alt="Tratamiento relajante">
+                <div class="info">
+                    <h3>Relajante</h3>
+                </div>
+            </div>
+
+            <div class="treatment">
+                <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png" alt="Tratamiento deportivo">
+                <div class="info">
+                    <h3>Deportivo</h3>
+                </div>
+            </div>
+
+            <div class="treatment">
+                <img src="https://i.ibb.co/V45Pn14/el-ultimo.png" alt="Tratamiento descontracturante">
+                <div class="info">
+                    <h3>Descontracturante</h3>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <div class="treatment">
-        <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png">
-        <div class="info">
-            <h3>Deportivo</h3>
-        </div>
-    </div>
-
-    <div class="treatment">
-        <img src="https://i.ibb.co/V45Pn14/el-ultimo.png">
-        <div class="info">
-            <h3>Descontracturante</h3>
-        </div>
-    </div>
-
-</div>
-</div>
-
 </section>
 
-<!-- 🔥 SECCIÓN TARIFAS -->
+<!-- SECCIÓN TARIFAS -->
 <section class="section pricing">
-<h2>Tarifas</h2>
+    <h2>Tarifas</h2>
 
-<div class="pricing-container">
+    <div class="pricing-container">
 
-    <div class="price-card">
-        <h3>30 minutos</h3>
-        <p class="price">30€</p>
+        <div class="price-card">
+            <h3>30 minutos</h3>
+            <p class="price">30€</p>
+        </div>
+
+        <div class="price-card highlight">
+            <h3>60 minutos</h3>
+            <p class="price">50€</p>
+        </div>
+
+        <div class="price-card">
+            <h3>90 minutos</h3>
+            <p class="price">70€</p>
+        </div>
+
     </div>
-
-    <div class="price-card highlight">
-        <h3>60 minutos</h3>
-        <p class="price">50€</p>
-    </div>
-
-    <div class="price-card">
-        <h3>90 minutos</h3>
-        <p class="price">70€</p>
-    </div>
-
-</div>
 </section>
 
 <section id="reserva" class="section">
-<h2>Reserva tu cita</h2>
-<p>Horario: 10:00 - 20:00</p>
+    <h2>Reserva tu cita</h2>
+    <p>Horario: 10:00 - 20:00</p>
 
-<a class="phone-btn" href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita" target="_blank">
-📞 675 75 25 00
-</a>
+    <a class="phone-btn"
+       href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
+       target="_blank"
+       rel="noopener noreferrer">
+        📞 675 75 25 00
+    </a>
 </section>
 
 <section class="section location">
-  <h2>📍 Nuestra Ubicación</h2>
-  <p>Plaça d'Alexander Fleming, 12, Nord, 07004 Palma, Illes Balears</p>
+    <h2>📍 Nuestra Ubicación</h2>
+    <p>Plaça d'Alexander Fleming, 12, Nord, 07004 Palma, Illes Balears</p>
 
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps?q=Pla%C3%A7a%20d'Alexander%20Fleming,%2012,%20Palma&output=embed"></iframe>
-  </div>
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps?q=Pla%C3%A7a%20d'Alexander%20Fleming,%2012,%20Palma&output=embed"
+            title="Ubicación de El Capitol Bienestar"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+        </iframe>
+    </div>
 </section>
 
-<script src="script.js"></script>
+<!-- BOTÓN SUBIR -->
+<button id="topBtn" type="button" aria-label="Volver arriba"
+        onclick="scrollTopSmooth()">↑</button>
 
-</body>
-</html>
-
-<button id="topBtn" onclick="scrollTopSmooth()">↑</button>
-
+<!-- REDES SOCIALES -->
 <div class="floating">
-  <a href="https://wa.me/34675752500" class="whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <a href="https://wa.me/34675752500"
+       class="whatsapp"
+       aria-label="WhatsApp"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <a href="https://www.instagram.com/el_capitol_bienestar/" class="instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
+    <a href="https://www.instagram.com/el_capitol_bienestar/"
+       class="instagram"
+       aria-label="Instagram"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+    </a>
 
-  <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/" class="facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
+    <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/"
+       class="facebook"
+       aria-label="Facebook"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i>
+    </a>
 
-  <a href="https://www.tiktok.com/@miguel.villalonga21" class="tiktok">
-    <i class="fab fa-tiktok"></i>
-  </a>
+    <a href="https://www.tiktok.com/@miguel.villalonga21"
+       class="tiktok"
+       aria-label="TikTok"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-tiktok"></i>
+    </a>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
