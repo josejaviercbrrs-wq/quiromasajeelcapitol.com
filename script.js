@@ -1,4 +1,3 @@
-
 /* EL CAPITOL BIENESTAR — idiomas y funcionalidades */
 "use strict";
 
@@ -90,7 +89,11 @@ function applyLanguage(language) {
   });
 
   if (languageSelect) languageSelect.value = selected;
-  try { localStorage.setItem("elCapitolLanguage", selected); } catch (error) { /* El sitio sigue funcionando si el almacenamiento está bloqueado. */ }
+  try {
+    localStorage.setItem("elCapitolLanguage", selected);
+  } catch (error) {
+    console.warn("No se pudo guardar el idioma.");
+  }
   updateMenuLabel();
 }
 
@@ -108,10 +111,24 @@ function closeMenu() {
   updateMenuLabel();
 }
 
+/* CAMBIO DE IDIOMA: guardar selección y recargar la página */
 if (languageSelect) {
-  languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
+  languageSelect.addEventListener("change", (event) => {
+    const selectedLanguage = translations[event.target.value]
+      ? event.target.value
+      : "es";
+
+    try {
+      localStorage.setItem("elCapitolLanguage", selectedLanguage);
+    } catch (error) {
+      console.warn("No se pudo guardar el idioma.");
+    }
+
+    window.location.reload();
+  });
 }
 
+/* MENÚ DE NAVEGACIÓN */
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
     const open = menuToggle.getAttribute("aria-expanded") !== "true";
@@ -119,24 +136,36 @@ if (menuToggle && nav) {
     nav.classList.toggle("is-open", open);
     updateMenuLabel();
   });
-  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
   });
+
   window.addEventListener("resize", () => {
     if (window.innerWidth > 820) closeMenu();
   });
 }
 
+/* AÑO AUTOMÁTICO DEL FOOTER */
 const currentYear = document.getElementById("current-year");
-if (currentYear) currentYear.textContent = new Date().getFullYear();
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
 
+/* ANIMACIONES AL DESPLAZARSE */
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealItems = document.querySelectorAll(
     ".section-heading, .service-card, .about-visual, .about-copy, .location-info, .map-wrap, .faq-item, .reviews-inner, .gallery-tile, .tip-card, .contact-cta > *"
   );
+
   revealItems.forEach((item) => item.classList.add("js-reveal"));
+
   const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -145,21 +174,32 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
       }
     });
   }, { threshold: 0.12 });
+
   revealItems.forEach((item) => observer.observe(item));
 }
 
-// Idioma inicial: preferencia guardada, idioma del navegador o español.
+/* IDIOMA INICIAL: preferencia guardada, idioma del navegador o español */
 let initialLanguage = "es";
+
 try {
   const savedLanguage = localStorage.getItem("elCapitolLanguage");
+
   if (savedLanguage && translations[savedLanguage]) {
     initialLanguage = savedLanguage;
   } else {
     const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
-    if (translations[browserLanguage]) initialLanguage = browserLanguage;
+
+    if (translations[browserLanguage]) {
+      initialLanguage = browserLanguage;
+    }
   }
 } catch (error) {
   const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
-  if (translations[browserLanguage]) initialLanguage = browserLanguage;
+
+  if (translations[browserLanguage]) {
+    initialLanguage = browserLanguage;
+  }
 }
+
+/* Aplicar el idioma al cargar la página */
 applyLanguage(initialLanguage);
