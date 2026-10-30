@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>El Capitol Bienestar</title>
+    <meta name="description" content="El Capitol Bienestar en Palma. Descubre nuestros tratamientos relajantes, deportivos y descontracturantes y reserva tu cita.">
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -13,14 +14,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body>
+<body id="inicio">
 
 <header class="navbar">
-    <div class="logo">EL CAPITOL BIENESTAR</div>
+    <a class="logo" href="#inicio">EL CAPITOL BIENESTAR</a>
 </header>
 
 <section class="hero">
     <div class="hero-content">
+        <h1>Tu momento de bienestar</h1>
+        <p>Relajación, cuidado y equilibrio para ti.</p>
         <a class="btn" href="#reserva">Reservar ahora</a>
     </div>
 </section>
@@ -31,52 +34,49 @@
     <div class="treatments-wrapper">
         <div class="treatments">
 
-            <div class="treatment">
-                <img src="https://i.ibb.co/CKCWc521/relax.png" alt="Tratamiento relajante">
+            <article class="treatment">
+                <img src="https://i.ibb.co/CKCWc521/relax.png" alt="Tratamiento relajante" loading="lazy">
                 <div class="info">
                     <h3>Relajante</h3>
                 </div>
-            </div>
+            </article>
 
-            <div class="treatment">
-                <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png" alt="Tratamiento deportivo">
+            <article class="treatment">
+                <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png" alt="Tratamiento deportivo" loading="lazy">
                 <div class="info">
                     <h3>Deportivo</h3>
                 </div>
-            </div>
+            </article>
 
-            <div class="treatment">
-                <img src="https://i.ibb.co/V45Pn14/el-ultimo.png" alt="Tratamiento descontracturante">
+            <article class="treatment">
+                <img src="https://i.ibb.co/V45Pn14/el-ultimo.png" alt="Tratamiento descontracturante" loading="lazy">
                 <div class="info">
                     <h3>Descontracturante</h3>
                 </div>
-            </div>
+            </article>
 
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN TARIFAS -->
 <section class="section pricing">
     <h2>Tarifas</h2>
 
     <div class="pricing-container">
-
-        <div class="price-card">
+        <article class="price-card">
             <h3>30 minutos</h3>
             <p class="price">30€</p>
-        </div>
+        </article>
 
-        <div class="price-card highlight">
+        <article class="price-card highlight">
             <h3>60 minutos</h3>
             <p class="price">50€</p>
-        </div>
+        </article>
 
-        <div class="price-card">
+        <article class="price-card">
             <h3>90 minutos</h3>
             <p class="price">70€</p>
-        </div>
-
+        </article>
     </div>
 </section>
 
@@ -88,18 +88,19 @@
        href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
        target="_blank"
        rel="noopener noreferrer">
-        📞 675 75 25 00
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        675 75 25 00
     </a>
 </section>
 
 <section class="section location">
-    <h2>📍 Nuestra Ubicación</h2>
+    <h2>Nuestra ubicación</h2>
     <p>Plaça d'Alexander Fleming, 12, Nord, 07004 Palma, Illes Balears</p>
 
     <div class="map-container">
         <iframe
-            src="https://www.google.com/maps?q=Pla%C3%A7a%20d'Alexander%20Fleming,%2012,%20Palma&output=embed"
-            title="Ubicación de El Capitol Bienestar"
+            src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma&output=embed"
+            title="Ubicación de El Capitol Bienestar en Palma"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen>
@@ -107,18 +108,57 @@
     </div>
 </section>
 
-<!-- BOTÓN SUBIR -->
-<button id="topBtn" type="button" aria-label="Volver arriba"
-        onclick="scrollTopSmooth()">↑</button>
+<section id="resenas" class="section reviews">
+    <h2>Opiniones de clientes</h2>
+    <p>Comparte tu experiencia con nosotros.</p>
 
-<!-- REDES SOCIALES -->
-<div class="floating">
+    <div class="review-form">
+        <label for="reviewName">Tu nombre</label>
+        <input
+            type="text"
+            id="reviewName"
+            maxlength="60"
+            placeholder="Escribe tu nombre"
+            autocomplete="name"
+            required>
+
+        <label for="reviewText">Tu opinión</label>
+        <textarea
+            id="reviewText"
+            maxlength="1000"
+            rows="4"
+            placeholder="Cuéntanos tu experiencia"
+            required></textarea>
+
+        <p class="rating-label">Tu valoración</p>
+        <div id="starRating" class="star-rating" aria-label="Selecciona de una a cinco estrellas">
+            <i class="fas fa-star" data-rating="1" role="button" tabindex="0" aria-label="1 estrella"></i>
+            <i class="fas fa-star" data-rating="2" role="button" tabindex="0" aria-label="2 estrellas"></i>
+            <i class="fas fa-star" data-rating="3" role="button" tabindex="0" aria-label="3 estrellas"></i>
+            <i class="fas fa-star" data-rating="4" role="button" tabindex="0" aria-label="4 estrellas"></i>
+            <i class="fas fa-star" data-rating="5" role="button" tabindex="0" aria-label="5 estrellas"></i>
+        </div>
+
+        <button class="btn review-submit" type="button" onclick="addReview()">
+            Publicar opinión
+        </button>
+        <p class="review-note">Las opiniones se guardan en este navegador y no se comparten automáticamente entre dispositivos.</p>
+    </div>
+
+    <div id="reviewsContainer" class="reviews-container" aria-live="polite"></div>
+</section>
+
+<button id="topBtn" type="button" aria-label="Volver arriba" title="Volver arriba">
+    ↑
+</button>
+
+<div class="floating" aria-label="Redes sociales">
     <a href="https://wa.me/34675752500"
        class="whatsapp"
        aria-label="WhatsApp"
        target="_blank"
        rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <a href="https://www.instagram.com/el_capitol_bienestar/"
@@ -126,7 +166,7 @@
        aria-label="Instagram"
        target="_blank"
        rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
+        <i class="fab fa-instagram" aria-hidden="true"></i>
     </a>
 
     <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/"
@@ -134,7 +174,7 @@
        aria-label="Facebook"
        target="_blank"
        rel="noopener noreferrer">
-        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
     </a>
 
     <a href="https://www.tiktok.com/@miguel.villalonga21"
@@ -142,11 +182,16 @@
        aria-label="TikTok"
        target="_blank"
        rel="noopener noreferrer">
-        <i class="fab fa-tiktok"></i>
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
     </a>
 </div>
+
+<footer class="footer">
+    <p>© <span id="currentYear"></span> El Capitol Bienestar</p>
+</footer>
 
 <script src="script.js"></script>
 
 </body>
 </html>
+```
