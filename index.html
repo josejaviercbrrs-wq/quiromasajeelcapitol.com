@@ -5,193 +5,422 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>El Capitol Bienestar</title>
-    <meta name="description" content="El Capitol Bienestar en Palma. Descubre nuestros tratamientos relajantes, deportivos y descontracturantes y reserva tu cita.">
+    <title>El Capitol Bienestar | Quiromasaje en Palma</title>
+    <meta name="description" content="Descubre los tratamientos relajantes, deportivos y descontracturantes de El Capitol Bienestar en Palma. Reserva tu cita por WhatsApp.">
+    <meta name="theme-color" content="#10110f">
 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="inicio">
 
 <header class="navbar">
-    <a class="logo" href="#inicio">EL CAPITOL BIENESTAR</a>
+    <a class="brand" href="#inicio" aria-label="El Capitol Bienestar, inicio">
+        <span class="brand-mark"><i class="fa-solid fa-spa"></i></span>
+        <span class="brand-copy">
+            <span class="brand-name">EL CAPITOL</span>
+            <span class="brand-subtitle">BIENESTAR · PALMA</span>
+        </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#tratamientos">Tratamientos</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#nosotros">Bienestar</a>
+        <a href="#ubicacion">Ubicación</a>
+    </nav>
+
+    <a class="nav-cta"
+       href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
+       target="_blank" rel="noopener noreferrer">
+        Reservar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Tu momento de bienestar</h1>
-        <p>Relajación, cuidado y equilibrio para ti.</p>
-        <a class="btn" href="#reserva">Reservar ahora</a>
-    </div>
-</section>
+<main>
+    <section class="hero">
+        <div class="hero-image" role="img" aria-label="Ambiente cálido y relajante de bienestar"></div>
+        <div class="hero-overlay"></div>
 
-<section class="section">
-    <h2>Tratamientos</h2>
+        <div class="hero-content reveal">
+            <p class="eyebrow"><span></span> TU ESPACIO DE BIENESTAR EN PALMA</p>
 
-    <div class="treatments-wrapper">
-        <div class="treatments">
+            <h1>Desconecta del mundo.<br><em>Vuelve a ti.</em></h1>
 
-            <article class="treatment">
-                <img src="https://i.ibb.co/CKCWc521/relax.png" alt="Tratamiento relajante" loading="lazy">
-                <div class="info">
+            <p class="hero-description">
+                Regálate un momento para parar, cuidarte y recuperar tu equilibrio.
+                Tu bienestar empieza aquí.
+            </p>
+
+            <div class="hero-actions">
+                <a class="button button-gold"
+                   href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
+                   target="_blank" rel="noopener noreferrer">
+                    Reserva tu cita <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a class="button button-outline" href="#tratamientos">
+                    Descubre los tratamientos
+                </a>
+            </div>
+
+            <div class="hero-note">
+                <span class="note-icon"><i class="fa-regular fa-clock"></i></span>
+                <span>Horario de atención</span>
+                <strong>10:00 – 20:00</strong>
+            </div>
+        </div>
+
+        <a href="#tratamientos" class="scroll-cue" aria-label="Descubrir tratamientos">
+            <span>DESCUBRIR</span>
+            <i class="fa-solid fa-arrow-down"></i>
+        </a>
+
+        <div class="hero-index" aria-hidden="true">01 / BIENESTAR</div>
+    </section>
+
+    <section class="intro section-shell" id="nosotros">
+        <div class="intro-label reveal">
+            <span class="section-number">01</span>
+            <span class="eyebrow">UN MOMENTO PARA TI</span>
+        </div>
+
+        <div class="intro-content reveal">
+            <h2>Tu cuerpo necesita<br><em>que también lo escuches.</em></h2>
+            <p>
+                En El Capitol Bienestar encontrarás un espacio dedicado al cuidado
+                personal. Elige el tratamiento que mejor encaje contigo y reserva
+                un momento para desconectar de la rutina.
+            </p>
+            <a class="text-link" href="#tarifas">
+                Encuentra tu sesión <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="intro-decoration" aria-hidden="true">
+            <span class="decor-circle"></span>
+            <span class="decor-line"></span>
+            <span class="decor-word">BIENESTAR</span>
+        </div>
+    </section>
+
+    <section class="treatments-section section-shell" id="tratamientos">
+        <div class="section-heading reveal">
+            <div>
+                <p class="eyebrow"><span></span> CUIDADO PERSONALIZADO</p>
+                <h2>Encuentra tu<br><em>momento de calma.</em></h2>
+            </div>
+            <p class="heading-aside">
+                Tres opciones para dedicar tiempo a tu cuerpo y a tu bienestar.
+            </p>
+        </div>
+
+        <div class="treatments-grid">
+            <article class="treatment-card reveal">
+                <div class="treatment-image">
+                    <img src="https://i.ibb.co/CKCWc521/relax.png"
+                         alt="Tratamiento relajante"
+                         loading="lazy">
+                    <span class="treatment-index">01</span>
+                </div>
+                <div class="treatment-content">
+                    <p class="card-kicker">PAUSA Y DESCANSO</p>
                     <h3>Relajante</h3>
+                    <p>
+                        Un momento para bajar el ritmo, desconectar de la rutina
+                        y dedicarte tiempo.
+                    </p>
+                    <a href="https://wa.me/34675752500?text=Hola%2C%20me%20interesa%20el%20tratamiento%20relajante"
+                       target="_blank" rel="noopener noreferrer" class="card-link">
+                        Consultar y reservar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </article>
 
-            <article class="treatment">
-                <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png" alt="Tratamiento deportivo" loading="lazy">
-                <div class="info">
+            <article class="treatment-card treatment-featured reveal">
+                <div class="treatment-image">
+                    <img src="https://i.ibb.co/Fk8Hc0c6/deportivo.png"
+                         alt="Tratamiento deportivo"
+                         loading="lazy">
+                    <span class="treatment-index">02</span>
+                    <span class="image-tag">CUIDADO ACTIVO</span>
+                </div>
+                <div class="treatment-content">
+                    <p class="card-kicker">MOVIMIENTO Y RECUPERACIÓN</p>
                     <h3>Deportivo</h3>
+                    <p>
+                        Una opción orientada a quienes mantienen una rutina activa
+                        y desean cuidar su musculatura.
+                    </p>
+                    <a href="https://wa.me/34675752500?text=Hola%2C%20me%20interesa%20el%20tratamiento%20deportivo"
+                       target="_blank" rel="noopener noreferrer" class="card-link">
+                        Consultar y reservar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </article>
 
-            <article class="treatment">
-                <img src="https://i.ibb.co/V45Pn14/el-ultimo.png" alt="Tratamiento descontracturante" loading="lazy">
-                <div class="info">
+            <article class="treatment-card reveal">
+                <div class="treatment-image">
+                    <img src="https://i.ibb.co/V45Pn14/el-ultimo.png"
+                         alt="Tratamiento descontracturante"
+                         loading="lazy">
+                    <span class="treatment-index">03</span>
+                </div>
+                <div class="treatment-content">
+                    <p class="card-kicker">CUIDADO MUSCULAR</p>
                     <h3>Descontracturante</h3>
+                    <p>
+                        Una sesión enfocada en el cuidado de las zonas con tensión
+                        muscular, adaptada a tus necesidades.
+                    </p>
+                    <a href="https://wa.me/34675752500?text=Hola%2C%20me%20interesa%20el%20tratamiento%20descontracturante"
+                       target="_blank" rel="noopener noreferrer" class="card-link">
+                        Consultar y reservar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </article>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="section pricing">
-    <h2>Tarifas</h2>
+    <section class="pricing-section" id="tarifas">
+        <div class="section-shell pricing-inner">
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow"><span></span> ELIGE TU MOMENTO</p>
+                    <h2>Tu tiempo.<br><em>Tu bienestar.</em></h2>
+                </div>
+                <p class="heading-aside">
+                    Elige la duración de tu sesión y contacta con nosotros
+                    para consultar disponibilidad.
+                </p>
+            </div>
 
-    <div class="pricing-container">
-        <article class="price-card">
-            <h3>30 minutos</h3>
-            <p class="price">30€</p>
-        </article>
+            <div class="pricing-grid">
+                <article class="price-card reveal">
+                    <span class="price-label">ESENCIAL</span>
+                    <h3>30 minutos</h3>
+                    <p class="price-value">30<span>€</span></p>
+                    <p class="price-description">Una pausa para dedicarte tiempo.</p>
+                    <a class="price-link"
+                       href="https://wa.me/34675752500?text=Hola%2C%20quiero%20reservar%20una%20sesion%20de%2030%20minutos"
+                       target="_blank" rel="noopener noreferrer">
+                        Elegir sesión <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
 
-        <article class="price-card highlight">
-            <h3>60 minutos</h3>
-            <p class="price">50€</p>
-        </article>
+                <article class="price-card price-card-featured reveal">
+                    <span class="popular-label">UNA SESIÓN MÁS LARGA</span>
+                    <span class="price-label">EQUILIBRIO</span>
+                    <h3>60 minutos</h3>
+                    <p class="price-value">50<span>€</span></p>
+                    <p class="price-description">Más tiempo para centrarte en tu bienestar.</p>
+                    <a class="price-link"
+                       href="https://wa.me/34675752500?text=Hola%2C%20quiero%20reservar%20una%20sesion%20de%2060%20minutos"
+                       target="_blank" rel="noopener noreferrer">
+                        Elegir sesión <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
 
-        <article class="price-card">
-            <h3>90 minutos</h3>
-            <p class="price">70€</p>
-        </article>
-    </div>
-</section>
+                <article class="price-card reveal">
+                    <span class="price-label">EXPERIENCIA EXTENDIDA</span>
+                    <h3>90 minutos</h3>
+                    <p class="price-value">70<span>€</span></p>
+                    <p class="price-description">Una sesión más extensa para dedicarte tiempo.</p>
+                    <a class="price-link"
+                       href="https://wa.me/34675752500?text=Hola%2C%20quiero%20reservar%20una%20sesion%20de%2090%20minutos"
+                       target="_blank" rel="noopener noreferrer">
+                        Elegir sesión <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
 
-<section id="reserva" class="section">
-    <h2>Reserva tu cita</h2>
-    <p>Horario: 10:00 - 20:00</p>
+            <p class="pricing-footnote">
+                La duración y el precio corresponden a la sesión elegida.
+                Consulta disponibilidad por WhatsApp.
+            </p>
+        </div>
+    </section>
 
-    <a class="phone-btn"
-       href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        675 75 25 00
-    </a>
-</section>
+    <section class="booking-banner">
+        <div class="booking-glow" aria-hidden="true"></div>
+        <div class="booking-content reveal">
+            <p class="eyebrow"><span></span> TU PRÓXIMO MOMENTO EMPIEZA AQUÍ</p>
+            <h2>Haz espacio para<br><em>sentirte bien.</em></h2>
+            <p>Contacta con nosotros y encuentra el momento que mejor te encaje.</p>
+            <a class="button button-gold"
+               href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
+               target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+            </a>
+            <span class="booking-phone">675 75 25 00 · HORARIO 10:00–20:00</span>
+        </div>
+    </section>
 
-<section class="section location">
-    <h2>Nuestra ubicación</h2>
-    <p>Plaça d'Alexander Fleming, 12, Nord, 07004 Palma, Illes Balears</p>
+    <section class="location-section section-shell" id="ubicacion">
+        <div class="location-copy reveal">
+            <p class="eyebrow"><span></span> ESTAMOS EN PALMA</p>
+            <h2>Un espacio para<br><em>volver a tu centro.</em></h2>
 
-    <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma&output=embed"
-            title="Ubicación de El Capitol Bienestar en Palma"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
+            <div class="location-detail">
+                <span class="detail-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                    <h3>Encuéntranos</h3>
+                    <p>Plaça d'Alexander Fleming, 12, Nord, 07004 Palma, Illes Balears</p>
+                </div>
+            </div>
 
-<section id="resenas" class="section reviews">
-    <h2>Opiniones de clientes</h2>
-    <p>Comparte tu experiencia con nosotros.</p>
+            <div class="location-detail">
+                <span class="detail-icon"><i class="fa-regular fa-clock"></i></span>
+                <div>
+                    <h3>Horario</h3>
+                    <p>10:00 – 20:00</p>
+                </div>
+            </div>
 
-    <div class="review-form">
-        <label for="reviewName">Tu nombre</label>
-        <input
-            type="text"
-            id="reviewName"
-            maxlength="60"
-            placeholder="Escribe tu nombre"
-            autocomplete="name"
-            required>
-
-        <label for="reviewText">Tu opinión</label>
-        <textarea
-            id="reviewText"
-            maxlength="1000"
-            rows="4"
-            placeholder="Cuéntanos tu experiencia"
-            required></textarea>
-
-        <p class="rating-label">Tu valoración</p>
-        <div id="starRating" class="star-rating" aria-label="Selecciona de una a cinco estrellas">
-            <i class="fas fa-star" data-rating="1" role="button" tabindex="0" aria-label="1 estrella"></i>
-            <i class="fas fa-star" data-rating="2" role="button" tabindex="0" aria-label="2 estrellas"></i>
-            <i class="fas fa-star" data-rating="3" role="button" tabindex="0" aria-label="3 estrellas"></i>
-            <i class="fas fa-star" data-rating="4" role="button" tabindex="0" aria-label="4 estrellas"></i>
-            <i class="fas fa-star" data-rating="5" role="button" tabindex="0" aria-label="5 estrellas"></i>
+            <a class="text-link"
+               href="https://www.google.com/maps/search/?api=1&query=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma"
+               target="_blank" rel="noopener noreferrer">
+                Cómo llegar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
         </div>
 
-        <button class="btn review-submit" type="button" onclick="addReview()">
-            Publicar opinión
-        </button>
-        <p class="review-note">Las opiniones se guardan en este navegador y no se comparten automáticamente entre dispositivos.</p>
-    </div>
+        <div class="map-container reveal">
+            <iframe
+                src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%20Palma&output=embed"
+                title="Ubicación de El Capitol Bienestar en Palma"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
-    <div id="reviewsContainer" class="reviews-container" aria-live="polite"></div>
-</section>
+    <section class="reviews-section section-shell" id="resenas">
+        <div class="section-heading reveal">
+            <div>
+                <p class="eyebrow"><span></span> TU EXPERIENCIA CUENTA</p>
+                <h2>Comparte tu<br><em>experiencia.</em></h2>
+            </div>
+            <p class="heading-aside">
+                Si has visitado el centro, puedes dejar una opinión sobre tu experiencia.
+            </p>
+        </div>
 
-<button id="topBtn" type="button" aria-label="Volver arriba" title="Volver arriba">
-    ↑
-</button>
+        <div class="review-layout">
+            <form class="review-form reveal" id="reviewForm">
+                <label for="reviewName">Tu nombre</label>
+                <input id="reviewName" name="name" type="text"
+                       maxlength="60" autocomplete="name"
+                       placeholder="Escribe tu nombre" required>
 
-<div class="floating" aria-label="Redes sociales">
-    <a href="https://wa.me/34675752500"
-       class="whatsapp"
-       aria-label="WhatsApp"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <label for="reviewText">Tu opinión</label>
+                <textarea id="reviewText" name="review" rows="4"
+                          maxlength="1000" placeholder="Cuéntanos tu experiencia"
+                          required></textarea>
+
+                <span class="rating-label">Tu valoración</span>
+                <div id="starRating" class="star-rating"
+                     role="group" aria-label="Selecciona una valoración">
+                    <button type="button" class="star" data-rating="1" aria-label="1 estrella">★</button>
+                    <button type="button" class="star" data-rating="2" aria-label="2 estrellas">★</button>
+                    <button type="button" class="star" data-rating="3" aria-label="3 estrellas">★</button>
+                    <button type="button" class="star" data-rating="4" aria-label="4 estrellas">★</button>
+                    <button type="button" class="star" data-rating="5" aria-label="5 estrellas">★</button>
+                </div>
+
+                <button class="button button-gold submit-review" type="submit">
+                    Publicar opinión <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <p class="review-note">
+                    Las opiniones se guardan solo en este navegador y no se publican
+                    en Google ni se comparten automáticamente con otros visitantes.
+                </p>
+                <p id="reviewMessage" class="review-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="review-display reveal">
+                <div class="review-display-heading">
+                    <i class="fa-regular fa-comments"></i>
+                    <div>
+                        <h3>Opiniones guardadas</h3>
+                        <p>Experiencias registradas en este navegador</p>
+                    </div>
+                </div>
+                <div id="reviewsContainer" class="reviews-container" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <a class="brand footer-brand" href="#inicio">
+        <span class="brand-mark"><i class="fa-solid fa-spa"></i></span>
+        <span class="brand-copy">
+            <span class="brand-name">EL CAPITOL</span>
+            <span class="brand-subtitle">BIENESTAR · PALMA</span>
+        </span>
     </a>
 
+    <p class="footer-message">Un momento para ti. Un espacio para tu bienestar.</p>
+
+    <div class="footer-socials" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/el_capitol_bienestar/"
+           aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/"
+           aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/@miguel.villalonga21"
+           aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.me/34675752500"
+           aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© <span id="currentYear"></span> El Capitol Bienestar</span>
+        <a href="#inicio">Volver al inicio ↑</a>
+    </div>
+</footer>
+
+<div class="floating-socials" aria-label="Accesos rápidos a redes sociales">
+    <a href="https://wa.me/34675752500?text=Hola%20quiero%20reservar%20una%20cita"
+       class="float-whatsapp" aria-label="Reservar por WhatsApp"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <a href="https://www.instagram.com/el_capitol_bienestar/"
-       class="instagram"
-       aria-label="Instagram"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-instagram" aria-hidden="true"></i>
+       class="float-instagram" aria-label="Instagram"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
     </a>
-
     <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/"
-       class="facebook"
-       aria-label="Facebook"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+       class="float-facebook" aria-label="Facebook"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i>
     </a>
-
     <a href="https://www.tiktok.com/@miguel.villalonga21"
-       class="tiktok"
-       aria-label="TikTok"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-tiktok" aria-hidden="true"></i>
+       class="float-tiktok" aria-label="TikTok"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-tiktok"></i>
     </a>
 </div>
 
-<footer class="footer">
-    <p>© <span id="currentYear"></span> El Capitol Bienestar</p>
-</footer>
+<button id="topBtn" type="button" aria-label="Volver arriba" title="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
 
 <script src="script.js"></script>
-
 </body>
 </html>
 ```
