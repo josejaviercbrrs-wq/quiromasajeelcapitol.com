@@ -1221,3 +1221,126 @@ h1 em, h2 em {
 }
 
 .gallery-tile:first-child img { min-height: 320px; }
+
+/* =================================
+   OPINIONES GOOGLE - EL CAPITOL
+================================= */
+
+.reviews-section {
+  padding: 110px 24px;
+  background: #17100c;
+  text-align: center;
+}
+
+.reviews-section .section-heading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+}
+
+.reviews-section .eyebrow {
+  color: #c99b4b;
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.reviews-section h2 {
+  color: #f4ead9;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.reviews-section h2 em {
+  color: #e5bd76;
+}
+
+.reviews-section .section-heading p {
+  color: #c5b8a5;
+  line-height: 1.8;
+}
+
+.google-review-card {
+  max-width: 520px;
+  margin: auto;
+  padding: 45px 30px;
+  border: 1px solid rgba(218, 177, 105, 0.55);
+  background: linear-gradient(145deg, #2a1b12, #1b120d);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+.google-logo {
+  color: #f4ead9;
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.google-logo span {
+  font-size: 27px;
+  font-weight: 800;
+  color: #4285f4;
+  margin-right: 7px;
+}
+
+.google-rating-number {
+  color: #f2d18e;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 75px;
+  line-height: 1;
+}
+
+.google-stars {
+  color: #e5b65f;
+  font-size: 27px;
+  letter-spacing: 5px;
+  margin: 15px 0;
+}
+
+.google-review-count {
+  color: #e9d9bf;
+  font-size: 14px;
+}
+
+.google-review-description {
+  color: #bcae9c;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 25px auto;
+  max-width: 350px;
+}
+
+.google-reviews-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 17px 25px;
+  background: linear-gradient(135deg, #edca83, #c99443);
+  color: #21150c;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.google-reviews-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(218, 177, 105, 0.25);
+}
+
+.google-reviews-button span {
+  font-size: 17px;
+}
+
+@media (max-width: 600px) {
+  .reviews-section {
+    padding: 75px 18px;
+  }
+
+  .google-review-card {
+    padding: 35px 20px;
+  }
+}
