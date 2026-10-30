@@ -1,251 +1,165 @@
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#17110e">
-  <meta name="description" content="El Capitol Bienestar. Quiromasaje con Miguel Villalonga Clar en Palma de Mallorca. Reserva tu sesión por WhatsApp.">
-  <title>El Capitol Bienestar | Quiromasaje en Palma</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
-  <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand-mini" href="#inicio" aria-label="El Capitol Bienestar, inicio">
-        <span class="brand-mark" aria-hidden="true">EC</span>
-        <span><strong>El Capitol</strong><small>Bienestar</small></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-aria="menuOpen" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Navegación principal">
-        <a href="#inicio" data-i18n="navHome">Inicio</a>
-        <a href="#servicios" data-i18n="navServices">Servicios</a>
-        <a href="#sobre-mi" data-i18n="navAbout">Sobre mí</a>
-        <a href="#ubicacion" data-i18n="navLocation">Ubicación</a>
-        <a href="#preguntas" data-i18n="navFaq">Preguntas</a>
-        <a href="#galeria" data-i18n="navGallery">Galería</a>
-        <a href="#contacto" data-i18n="navContact">Contacto</a>
-      </nav>
-      <div class="header-actions">
-        <label class="sr-only" for="language-select" data-i18n="languageLabel">Seleccionar idioma</label>
-        <select id="language-select" class="language-select" aria-label="Seleccionar idioma">
-          <option value="es">ES</option><option value="ca">CA</option><option value="en">EN</option><option value="fr">FR</option><option value="de">DE</option>
-        </select>
-        <a class="button button-small button-gold header-book" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="book">Reservar cita</a>
-      </div>
-    </div>
-  </header>
+/* EL CAPITOL BIENESTAR — idiomas y funcionalidades */
+"use strict";
 
-  <main id="main">
-    <section class="hero section" id="inicio">
-      <div class="hero-glow"></div>
-      <div class="hero-content">
-        <p class="eyebrow" data-i18n="heroEyebrow">UN ESPACIO PARA VOLVER A TI</p>
-        <h1 data-i18n="heroTitle">El bienestar empieza<br><em>cuando te escuchas.</em></h1>
-        <p class="hero-copy" data-i18n="heroText">Un momento de calma, cuidado y atención personal a través del quiromasaje, en el corazón de Palma.</p>
-        <div class="hero-buttons">
-          <a class="button button-gold" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="heroCta">Reserva tu momento</a>
-          <a class="text-link" href="#servicios" data-i18n="heroMore">Descubrir tratamientos <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="hero-note"><span class="note-line"></span><span data-i18n="heroNote">Atención personal · Palma de Mallorca</span></div>
-      </div>
-      <div class="hero-art" aria-label="Logotipo de El Capitol Bienestar">
-        <div class="logo-frame">
-          <svg class="main-logo" viewBox="0 0 520 560" role="img" aria-labelledby="logo-title logo-desc" xmlns="http://www.w3.org/2000/svg">
-            <title id="logo-title">Quiromasaje El Capitol Bienestar</title>
-            <desc id="logo-desc">Logotipo con marco crema, sol dorado, edificio blanco con cúpula sostenido por dos manos y el nombre Miguel Villalonga Clar.</desc>
-            <defs>
-              <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0bd"/><stop offset=".45" stop-color="#d9a84d"/><stop offset="1" stop-color="#9c6228"/></linearGradient>
-              <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff8e8"/><stop offset="1" stop-color="#d8c8a9"/></linearGradient>
-              <filter id="logoGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <rect x="12" y="12" width="496" height="536" rx="5" fill="none" stroke="#f4e8cb" stroke-width="3"/>
-            <rect x="21" y="21" width="478" height="518" rx="3" fill="none" stroke="#b77a35" stroke-width="1.2"/>
-            <text x="260" y="78" text-anchor="middle" fill="#f3e5c7" font-family="Great Vibes,cursive" font-size="47">Quiromasaje</text>
-            <g transform="translate(260 190)" filter="url(#logoGlow)">
-              <circle r="54" fill="url(#gold)" opacity=".92"/>
-              <g stroke="#e7bd69" stroke-width="5" stroke-linecap="round">
-                <path d="M0 -91V-72 M0 72V91 M-91 0H-72 M72 0H91 M-64 -64L-51 -51 M51 51L64 64 M64 -64L51 -51 M-51 51L-64 64"/>
-                <path d="M-35 -83L-27 -65 M35 83L27 65 M83 -35L65 -27 M-83 35L-65 27"/>
-              </g>
-              <path d="M-110 52 Q-100 25 -74 23 L-55 23 L-55 -3 Q-55 -13 -45 -13 Q-35 -13 -35 -3 L-35 12 L-27 -27 Q-25 -38 -15 -36 Q-5 -34 -8 -23 L-15 15 L-5 -41 Q-2 -53 9 -49 Q19 -46 15 -34 L7 13 L18 -28 Q22 -40 32 -35 Q42 -31 37 -19 L27 18 L43 -3 Q50 -13 59 -5 Q68 3 60 13 L37 45 Q26 60 4 60 L-78 60 Q-100 60 -110 52Z" fill="#fffaf0" stroke="#d9c9aa" stroke-width="2"/>
-              <path d="M110 52 Q100 25 74 23 L55 23 L55 -3 Q55 -13 45 -13 Q35 -13 35 -3 L35 12 L27 -27 Q25 -38 15 -36 Q5 -34 8 -23 L15 15 L5 -41 Q2 -53 -9 -49 Q-19 -46 -15 -34 L-7 13 L-18 -28 Q-22 -40 -32 -35 Q-42 -31 -37 -19 L-27 18 L-43 -3 Q-50 -13 -59 -5 Q-68 3 -60 13 L-37 45 Q-26 60 -4 60 L78 60 Q100 60 110 52Z" fill="#fffaf0" stroke="#d9c9aa" stroke-width="2"/>
-            </g>
-            <g transform="translate(260 220)">
-              <path d="M-79 27 Q-75 -5 0 -34 Q75 -5 79 27Z" fill="url(#cream)" stroke="#b8a27c" stroke-width="2"/>
-              <path d="M-88 28H88V42H-88Z" fill="#f7eedc" stroke="#b8a27c" stroke-width="2"/>
-              <path d="M-72 43H72V94H-72Z" fill="#f7eedc" stroke="#b8a27c" stroke-width="2"/>
-              <path d="M-88 94H88V106H-88Z" fill="#e5d7bd" stroke="#b8a27c" stroke-width="2"/>
-              <path d="M-18 -32Q0 -49 18 -32 M-7 -45V-54H7V-45" fill="none" stroke="#f8edda" stroke-width="4"/>
-              <g fill="#a98c60"><path d="M-58 52h10v28h-10z M-32 52h10v28h-10z M-5 52h10v28h-10z M22 52h10v28h-10z M48 52h10v28h-10z"/></g>
-              <path d="M-94 108Q-48 125 0 116Q48 125 94 108" fill="none" stroke="#d5a24c" stroke-width="3"/>
-            </g>
-            <text x="260" y="390" text-anchor="middle" fill="#fff4dd" font-family="Cormorant Garamond,serif" font-size="59" letter-spacing="3">El Capitol</text>
-            <path d="M115 405H405" stroke="url(#gold)" stroke-width="1.5"/>
-            <text x="260" y="447" text-anchor="middle" fill="#dcb76d" font-family="Cormorant Garamond,serif" font-size="34" letter-spacing="8">BIENESTAR</text>
-            <text x="260" y="493" text-anchor="middle" fill="#e8dcc4" font-family="DM Sans,sans-serif" font-size="15" letter-spacing="3">MIGUEL VILLALONGA CLAR</text>
-          </svg>
-        </div>
-        <span class="art-caption" data-i18n="logoCaption">Cuidado personal · Equilibrio · Bienestar</span>
-      </div>
-      <a class="scroll-cue" href="#servicios" aria-label="Desplazarse a servicios"><span></span></a>
-    </section>
+const translations = {
+  es: {
+    skip:"Saltar al contenido", menuOpen:"Abrir menú", menuClose:"Cerrar menú", languageLabel:"Seleccionar idioma",
+    navHome:"Inicio",navServices:"Servicios",navAbout:"Sobre mí",navLocation:"Ubicación",navFaq:"Preguntas",navGallery:"Galería",navContact:"Contacto",book:"Reservar cita",
+    heroEyebrow:"UN ESPACIO PARA VOLVER A TI",heroTitle:"El bienestar empieza<br><em>cuando te escuchas.</em>",heroText:"Un momento de calma, cuidado y atención personal a través del quiromasaje, en el corazón de Palma.",heroCta:"Reserva tu momento",heroMore:"Descubrir tratamientos",heroNote:"Atención personal · Palma de Mallorca",logoCaption:"Cuidado personal · Equilibrio · Bienestar",
+    stripText:"Un trato cercano. Un espacio acogedor. Un tiempo dedicado a tu bienestar.",
+    servicesEyebrow:"ELIGE TU MOMENTO",servicesTitle:"Tiempo para <em>cuidarte</em>",servicesText:"Sesiones de quiromasaje adaptadas al tiempo que quieras dedicarte.",
+    duration30:"30 minutos",duration60:"60 minutos",duration90:"90 minutos",service30:"Pausa renovadora",service60:"Tiempo de bienestar",service90:"Ritual completo",desc30:"Un primer espacio para desconectar y dedicarte atención.",desc60:"Una sesión más amplia para disfrutar de un cuidado pausado.",desc90:"Más tiempo para regalarte una experiencia de cuidado sin prisas.",popular:"Una opción equilibrada",bookWhatsApp:"Consultar por WhatsApp ↗",priceNote:"Las sesiones se acuerdan previamente. Consulta disponibilidad y detalles al reservar.",
+    aboutEyebrow:"QUIÉN TE ACOMPAÑA",aboutTitle:"Hola, soy <em>Miguel.</em>",aboutP1:"En El Capitol Bienestar quiero ofrecerte un espacio tranquilo donde puedas parar, respirar y dedicar un tiempo a cuidarte.",aboutP2:"Cada persona y cada día son diferentes. Por eso, antes de comenzar, hablamos de lo que necesitas y de tus preferencias para orientar la sesión con atención y respeto.",aboutVisual:"Atención cercana y personalizada",aboutCta:"Hablemos de tu sesión",
+    locationEyebrow:"ESTAMOS EN PALMA",locationTitle:"Un rincón de calma <em>en la ciudad</em>",addressLabel:"Dirección",hoursLabel:"Horario orientativo",hoursText:"10:00–20:00. Confirma la disponibilidad al reservar.",mapCta:"Abrir ubicación en Maps ↗",
+    faqEyebrow:"ANTES DE TU VISITA",faqTitle:"Preguntas <em>frecuentes</em>",faqQ1:"¿Cómo puedo reservar una sesión?",faqA1:"Puedes escribir directamente por WhatsApp. Acordaremos el día, la hora y la duración según disponibilidad.",faqQ2:"¿Qué duración puedo elegir?",faqA2:"Hay sesiones de 30, 60 y 90 minutos. Consulta cuál encaja mejor con lo que buscas.",faqQ3:"¿Qué debo hacer antes de la sesión?",faqA3:"Ven con ropa cómoda y comenta antes de empezar cualquier preferencia, molestia o circunstancia relevante para adaptar la sesión con prudencia.",faqQ4:"¿El quiromasaje sustituye un tratamiento médico?",faqA4:"No. El quiromasaje es una práctica de bienestar y no sustituye el diagnóstico ni el tratamiento de profesionales sanitarios. Si tienes dudas de salud, consulta con tu profesional sanitario.",faqQ5:"¿Cuál es el horario?",faqA5:"El horario orientativo es de 10:00 a 20:00. Es necesario confirmar la disponibilidad al solicitar cita.",
+    reviewsEyebrow:"TU EXPERIENCIA CUENTA",reviewsTitle:"Opiniones <em>reales</em>",reviewsText:"Este espacio está preparado para compartir las experiencias de clientes que quieran dejar su opinión. Próximamente podrás leer aquí reseñas verificadas.",reviewsPlaceholder:"Las opiniones de clientes se publicarán con su autorización.",
+    galleryEyebrow:"EL ESPACIO",galleryTitle:"Un ambiente para <em>desconectar</em>",galleryText:"Próximamente, fotografías reales de El Capitol Bienestar.",gallerySpace:"El espacio",galleryRoom:"La sala",galleryDetails:"Los detalles",galleryNote:"Los paneles son espacios reservados para tus fotografías; no son imágenes de stock.",
+    tipsEyebrow:"PEQUEÑOS GESTOS, GRANDES PAUSAS",tipsTitle:"Consejos para tu <em>bienestar</em>",tip1Title:"Haz una pausa",tip1Text:"Reserva unos minutos para respirar con calma y apartarte de las pantallas.",tip2Title:"Cambia de postura",tip2Text:"Si pasas mucho tiempo sentado, levántate y mueve suavemente el cuerpo de vez en cuando.",tip3Title:"Respeta tu ritmo",tip3Text:"Descansa, hidrátate y adapta tus actividades a cómo te encuentras cada día.",tipsDisclaimer:"Estos consejos son generales y no sustituyen recomendaciones médicas individualizadas.",
+    contactEyebrow:"TU MOMENTO TE ESPERA",contactTitle:"Regálate un momento <em>para ti.</em>",contactText:"Escríbeme y buscamos el momento que mejor te venga.",contactCta:"Reservar por WhatsApp ↗",footerPhrase:"Quiromasaje y cuidado personal en Palma de Mallorca.",backTop:"Volver arriba ↑"
+  },
+  ca: {
+    skip:"Ves al contingut",menuOpen:"Obrir menú",menuClose:"Tancar menú",languageLabel:"Selecciona l'idioma",navHome:"Inici",navServices:"Serveis",navAbout:"Sobre mi",navLocation:"Ubicació",navFaq:"Preguntes",navGallery:"Galeria",navContact:"Contacte",book:"Reserva cita",
+    heroEyebrow:"UN ESPAI PER TORNAR A TU",heroTitle:"El benestar comença<br><em>quan t'escoltes.</em>",heroText:"Un moment de calma, cura i atenció personal a través del quiromassatge, al cor de Palma.",heroCta:"Reserva el teu moment",heroMore:"Descobreix els tractaments",heroNote:"Atenció personal · Palma de Mallorca",logoCaption:"Cura personal · Equilibri · Benestar",stripText:"Un tracte proper. Un espai acollidor. Un temps dedicat al teu benestar.",
+    servicesEyebrow:"TRIA EL TEU MOMENT",servicesTitle:"Temps per <em>cuidar-te</em>",servicesText:"Sessions de quiromassatge adaptades al temps que et vulguis dedicar.",duration30:"30 minuts",duration60:"60 minuts",duration90:"90 minuts",service30:"Pausa renovadora",service60:"Temps de benestar",service90:"Ritual complet",desc30:"Un primer espai per desconnectar i dedicar-te atenció.",desc60:"Una sessió més àmplia per gaudir d'una cura sense presses.",desc90:"Més temps per regalar-te una experiència de cura tranquil·la.",popular:"Una opció equilibrada",bookWhatsApp:"Consulta per WhatsApp ↗",priceNote:"Les sessions es concreten prèviament. Consulta la disponibilitat i els detalls en reservar.",
+    aboutEyebrow:"QUI T'ACOMPANYA",aboutTitle:"Hola, soc <em>Miguel.</em>",aboutP1:"A El Capitol Bienestar vull oferir-te un espai tranquil on puguis parar, respirar i dedicar un temps a cuidar-te.",aboutP2:"Cada persona i cada dia són diferents. Per això, abans de començar, parlem del que necessites i de les teves preferències per orientar la sessió amb atenció i respecte.",aboutVisual:"Atenció propera i personalitzada",aboutCta:"Parlem de la teva sessió",
+    locationEyebrow:"SOM A PALMA",locationTitle:"Un racó de calma <em>a la ciutat</em>",addressLabel:"Adreça",hoursLabel:"Horari orientatiu",hoursText:"10:00–20:00. Confirma la disponibilitat en reservar.",mapCta:"Obre la ubicació a Maps ↗",
+    faqEyebrow:"ABANS DE LA VISITA",faqTitle:"Preguntes <em>freqüents</em>",faqQ1:"Com puc reservar una sessió?",faqA1:"Pots escriure directament per WhatsApp. Acordarem el dia, l'hora i la durada segons la disponibilitat.",faqQ2:"Quina durada puc triar?",faqA2:"Hi ha sessions de 30, 60 i 90 minuts. Consulta quina s'adapta millor al que busques.",faqQ3:"Què he de fer abans de la sessió?",faqA3:"Vine amb roba còmoda i comenta abans de començar qualsevol preferència, molèstia o circumstància rellevant per adaptar la sessió amb prudència.",faqQ4:"El quiromassatge substitueix un tractament mèdic?",faqA4:"No. El quiromassatge és una pràctica de benestar i no substitueix el diagnòstic ni el tractament de professionals sanitaris. Si tens dubtes de salut, consulta el teu professional sanitari.",faqQ5:"Quin és l'horari?",faqA5:"L'horari orientatiu és de 10:00 a 20:00. Cal confirmar la disponibilitat en demanar cita.",
+    reviewsEyebrow:"LA TEVA EXPERIÈNCIA COMPTA",reviewsTitle:"Opinions <em>reals</em>",reviewsText:"Aquest espai està preparat per compartir les experiències dels clients que vulguin deixar la seva opinió. Ben aviat hi podràs llegir ressenyes verificades.",reviewsPlaceholder:"Les opinions dels clients es publicaran amb la seva autorització.",
+    galleryEyebrow:"L'ESPAI",galleryTitle:"Un ambient per <em>desconnectar</em>",galleryText:"Ben aviat, fotografies reals d'El Capitol Bienestar.",gallerySpace:"L'espai",galleryRoom:"La sala",galleryDetails:"Els detalls",galleryNote:"Els plafons són espais reservats per a les teves fotografies; no són imatges d'estoc.",
+    tipsEyebrow:"PETITS GESTOS, GRANS PAUSES",tipsTitle:"Consells per al teu <em>benestar</em>",tip1Title:"Fes una pausa",tip1Text:"Reserva uns minuts per respirar amb calma i allunyar-te de les pantalles.",tip2Title:"Canvia de postura",tip2Text:"Si passes molta estona assegut, aixeca't i mou suaument el cos de tant en tant.",tip3Title:"Respecta el teu ritme",tip3Text:"Descansa, hidrata't i adapta les activitats a com et trobis cada dia.",tipsDisclaimer:"Aquests consells són generals i no substitueixen recomanacions mèdiques individualitzades.",
+    contactEyebrow:"EL TEU MOMENT T'ESPERA",contactTitle:"Regala't un moment <em>per a tu.</em>",contactText:"Escriu-me i trobarem el moment que et vagi millor.",contactCta:"Reserva per WhatsApp ↗",footerPhrase:"Quiromassatge i cura personal a Palma de Mallorca.",backTop:"Torna a dalt ↑"
+  },
+  en: {
+    skip:"Skip to content",menuOpen:"Open menu",menuClose:"Close menu",languageLabel:"Select language",navHome:"Home",navServices:"Services",navAbout:"About me",navLocation:"Location",navFaq:"FAQ",navGallery:"Gallery",navContact:"Contact",book:"Book an appointment",
+    heroEyebrow:"A SPACE TO RECONNECT WITH YOURSELF",heroTitle:"Wellbeing begins<br><em>when you listen to yourself.</em>",heroText:"A moment of calm, care and personal attention through massage, in the heart of Palma.",heroCta:"Book your moment",heroMore:"Explore treatments",heroNote:"Personal care · Palma de Mallorca",logoCaption:"Personal care · Balance · Wellbeing",stripText:"A warm welcome. A peaceful space. Time dedicated to your wellbeing.",
+    servicesEyebrow:"CHOOSE YOUR MOMENT",servicesTitle:"Time to <em>take care</em>",servicesText:"Massage sessions tailored to the time you would like to set aside for yourself.",duration30:"30 minutes",duration60:"60 minutes",duration90:"90 minutes",service30:"A refreshing pause",service60:"Time for wellbeing",service90:"The complete ritual",desc30:"A first opportunity to switch off and give yourself some attention.",desc60:"A longer session to enjoy unhurried personal care.",desc90:"More time to enjoy a relaxing care experience without rushing.",popular:"A balanced choice",bookWhatsApp:"Enquire on WhatsApp ↗",priceNote:"Sessions are arranged in advance. Please ask about availability and details when booking.",
+    aboutEyebrow:"YOUR PRACTITIONER",aboutTitle:"Hello, I'm <em>Miguel.</em>",aboutP1:"At El Capitol Bienestar, I want to offer you a peaceful space where you can pause, breathe and take time to look after yourself.",aboutP2:"Every person and every day is different. Before we begin, we talk about your needs and preferences so the session can be approached with care and respect.",aboutVisual:"Personal and attentive care",aboutCta:"Let's talk about your session",
+    locationEyebrow:"FIND US IN PALMA",locationTitle:"A peaceful corner <em>in the city</em>",addressLabel:"Address",hoursLabel:"Indicative hours",hoursText:"10:00–20:00. Please confirm availability when booking.",mapCta:"Open location in Maps ↗",
+    faqEyebrow:"BEFORE YOUR VISIT",faqTitle:"Frequently asked <em>questions</em>",faqQ1:"How can I book a session?",faqA1:"Send a message directly on WhatsApp. We will agree on a day, time and session length subject to availability.",faqQ2:"What session lengths are available?",faqA2:"Sessions are available for 30, 60 or 90 minutes. Ask which option best suits what you are looking for.",faqQ3:"What should I do before the session?",faqA3:"Wear comfortable clothing and let me know beforehand about any preferences, discomfort or relevant circumstances so the session can be adapted carefully.",faqQ4:"Does massage replace medical treatment?",faqA4:"No. Massage is a wellbeing practice and does not replace diagnosis or treatment by healthcare professionals. If you have health concerns, consult your healthcare professional.",faqQ5:"What are the opening hours?",faqA5:"The indicative hours are 10:00 to 20:00. Availability must be confirmed when requesting an appointment.",
+    reviewsEyebrow:"YOUR EXPERIENCE MATTERS",reviewsTitle:"Genuine <em>reviews</em>",reviewsText:"This space is ready to share feedback from clients who wish to leave a review. Verified reviews will appear here in due course.",reviewsPlaceholder:"Client reviews will be published with their permission.",
+    galleryEyebrow:"THE SPACE",galleryTitle:"An atmosphere to <em>unwind</em>",galleryText:"Real photographs of El Capitol Bienestar will be added here soon.",gallerySpace:"The space",galleryRoom:"The room",galleryDetails:"The details",galleryNote:"These panels are reserved for your own photographs; they are not stock images.",
+    tipsEyebrow:"SMALL HABITS, MEANINGFUL PAUSES",tipsTitle:"Wellbeing <em>tips</em>",tip1Title:"Take a pause",tip1Text:"Set aside a few minutes to breathe calmly and step away from screens.",tip2Title:"Change position",tip2Text:"If you sit for long periods, stand up and gently move your body from time to time.",tip3Title:"Respect your pace",tip3Text:"Rest, stay hydrated and adapt your activities to how you feel each day.",tipsDisclaimer:"These are general tips and do not replace individual medical advice.",
+    contactEyebrow:"YOUR MOMENT IS WAITING",contactTitle:"Give yourself a moment <em>for you.</em>",contactText:"Send me a message and we can find a time that suits you.",contactCta:"Book on WhatsApp ↗",footerPhrase:"Massage and personal care in Palma de Mallorca.",backTop:"Back to top ↑"
+  },
+  fr: {
+    skip:"Aller au contenu",menuOpen:"Ouvrir le menu",menuClose:"Fermer le menu",languageLabel:"Choisir la langue",navHome:"Accueil",navServices:"Prestations",navAbout:"À propos",navLocation:"Adresse",navFaq:"Questions",navGallery:"Galerie",navContact:"Contact",book:"Prendre rendez-vous",
+    heroEyebrow:"UN ESPACE POUR SE RETROUVER",heroTitle:"Le bien-être commence<br><em>quand on s'écoute.</em>",heroText:"Un moment de calme, de soin et d'attention personnelle grâce au massage, au cœur de Palma.",heroCta:"Réservez votre moment",heroMore:"Découvrir les soins",heroNote:"Attention personnalisée · Palma de Majorque",logoCaption:"Soin personnel · Équilibre · Bien-être",stripText:"Un accueil chaleureux. Un espace apaisant. Du temps consacré à votre bien-être.",
+    servicesEyebrow:"CHOISISSEZ VOTRE MOMENT",servicesTitle:"Du temps pour <em>prendre soin de vous</em>",servicesText:"Des séances de massage adaptées au temps que vous souhaitez vous accorder.",duration30:"30 minutes",duration60:"60 minutes",duration90:"90 minutes",service30:"Pause revitalisante",service60:"Temps de bien-être",service90:"Rituel complet",desc30:"Un premier moment pour déconnecter et prendre soin de vous.",desc60:"Une séance plus longue pour profiter d'un soin sans précipitation.",desc90:"Plus de temps pour profiter d'une expérience de détente à votre rythme.",popular:"Un choix équilibré",bookWhatsApp:"Demander sur WhatsApp ↗",priceNote:"Les séances sont convenues à l'avance. Veuillez demander les disponibilités et les détails lors de la réservation.",
+    aboutEyebrow:"QUI VOUS ACCOMPAGNE",aboutTitle:"Bonjour, je suis <em>Miguel.</em>",aboutP1:"Chez El Capitol Bienestar, je souhaite vous offrir un espace paisible où vous pourrez faire une pause, respirer et prendre du temps pour vous.",aboutP2:"Chaque personne et chaque journée sont différentes. Avant de commencer, nous échangeons sur vos besoins et vos préférences afin d'aborder la séance avec attention et respect.",aboutVisual:"Une attention personnelle et attentive",aboutCta:"Parlons de votre séance",
+    locationEyebrow:"NOUS SOMMES À PALMA",locationTitle:"Un havre de calme <em>en ville</em>",addressLabel:"Adresse",hoursLabel:"Horaires indicatifs",hoursText:"10 h–20 h. Veuillez confirmer les disponibilités lors de la réservation.",mapCta:"Ouvrir l'adresse dans Maps ↗",
+    faqEyebrow:"AVANT VOTRE VISITE",faqTitle:"Questions <em>fréquentes</em>",faqQ1:"Comment réserver une séance ?",faqA1:"Vous pouvez envoyer directement un message sur WhatsApp. Nous conviendrons du jour, de l'heure et de la durée selon les disponibilités.",faqQ2:"Quelles durées sont proposées ?",faqA2:"Des séances de 30, 60 et 90 minutes sont proposées. Demandez quelle option correspond le mieux à vos attentes.",faqQ3:"Que dois-je faire avant la séance ?",faqA3:"Portez des vêtements confortables et signalez avant de commencer vos préférences, gênes ou toute circonstance utile afin d'adapter la séance avec prudence.",faqQ4:"Le massage remplace-t-il un traitement médical ?",faqA4:"Non. Le massage est une pratique de bien-être et ne remplace ni le diagnostic ni le traitement par des professionnels de santé. En cas de question médicale, consultez votre professionnel de santé.",faqQ5:"Quels sont les horaires ?",faqA5:"Les horaires indicatifs sont de 10 h à 20 h. Les disponibilités doivent être confirmées lors de la demande de rendez-vous.",
+    reviewsEyebrow:"VOTRE EXPÉRIENCE COMPTE",reviewsTitle:"Avis <em>authentiques</em>",reviewsText:"Cet espace est prévu pour partager les retours des clients qui souhaitent donner leur avis. Des avis vérifiés seront publiés ici prochainement.",reviewsPlaceholder:"Les avis des clients seront publiés avec leur autorisation.",
+    galleryEyebrow:"LE LIEU",galleryTitle:"Une atmosphère pour <em>déconnecter</em>",galleryText:"Des photos réelles d'El Capitol Bienestar seront bientôt ajoutées.",gallerySpace:"L'espace",galleryRoom:"La salle",galleryDetails:"Les détails",galleryNote:"Ces emplacements sont réservés à vos propres photos ; ce ne sont pas des images de banque d'images.",
+    tipsEyebrow:"PETITS GESTES, GRANDES PAUSES",tipsTitle:"Conseils de <em>bien-être</em>",tip1Title:"Faites une pause",tip1Text:"Prenez quelques minutes pour respirer calmement et vous éloigner des écrans.",tip2Title:"Changez de posture",tip2Text:"Si vous restez longtemps assis, levez-vous et bougez doucement de temps en temps.",tip3Title:"Respectez votre rythme",tip3Text:"Reposez-vous, hydratez-vous et adaptez vos activités à votre forme du jour.",tipsDisclaimer:"Ces conseils sont généraux et ne remplacent pas un avis médical personnalisé.",
+    contactEyebrow:"VOTRE MOMENT VOUS ATTEND",contactTitle:"Offrez-vous un moment <em>à vous.</em>",contactText:"Écrivez-moi et nous trouverons un moment qui vous convient.",contactCta:"Réserver sur WhatsApp ↗",footerPhrase:"Massage et soin personnel à Palma de Majorque.",backTop:"Retour en haut ↑"
+  },
+  de: {
+    skip:"Zum Inhalt springen",menuOpen:"Menü öffnen",menuClose:"Menü schließen",languageLabel:"Sprache auswählen",navHome:"Start",navServices:"Angebote",navAbout:"Über mich",navLocation:"Standort",navFaq:"Fragen",navGallery:"Galerie",navContact:"Kontakt",book:"Termin buchen",
+    heroEyebrow:"EIN ORT, UM ZU SICH ZU FINDEN",heroTitle:"Wohlbefinden beginnt,<br><em>wenn du auf dich hörst.</em>",heroText:"Ein Moment der Ruhe, Achtsamkeit und persönlichen Betreuung durch Massage – im Herzen von Palma.",heroCta:"Deinen Moment buchen",heroMore:"Anwendungen entdecken",heroNote:"Persönliche Betreuung · Palma de Mallorca",logoCaption:"Persönliche Pflege · Balance · Wohlbefinden",stripText:"Ein herzlicher Empfang. Ein angenehmer Ort. Zeit ganz für dein Wohlbefinden.",
+    servicesEyebrow:"WÄHLE DEINEN MOMENT",servicesTitle:"Zeit, um auf dich <em>zu achten</em>",servicesText:"Massagesitzungen passend zu der Zeit, die du dir gönnen möchtest.",duration30:"30 Minuten",duration60:"60 Minuten",duration90:"90 Minuten",service30:"Erfrischende Pause",service60:"Zeit für Wohlbefinden",service90:"Das vollständige Ritual",desc30:"Ein erster Moment zum Abschalten und um dir Aufmerksamkeit zu schenken.",desc60:"Eine längere Sitzung für eine entspannte Pflege ohne Eile.",desc90:"Mehr Zeit für ein wohltuendes Erlebnis ganz ohne Zeitdruck.",popular:"Eine ausgewogene Wahl",bookWhatsApp:"Per WhatsApp anfragen ↗",priceNote:"Termine werden im Voraus vereinbart. Bitte frage bei der Buchung nach Verfügbarkeit und Einzelheiten.",
+    aboutEyebrow:"WER DICH BEGLEITET",aboutTitle:"Hallo, ich bin <em>Miguel.</em>",aboutP1:"Bei El Capitol Bienestar möchte ich dir einen ruhigen Ort bieten, an dem du innehalten, durchatmen und dir Zeit für dich nehmen kannst.",aboutP2:"Jeder Mensch und jeder Tag ist anders. Deshalb sprechen wir vor Beginn über deine Bedürfnisse und Wünsche, damit die Sitzung achtsam und respektvoll gestaltet werden kann.",aboutVisual:"Persönliche und aufmerksame Betreuung",aboutCta:"Lass uns über deine Sitzung sprechen",
+    locationEyebrow:"WIR SIND IN PALMA",locationTitle:"Ein ruhiger Ort <em>mitten in der Stadt</em>",addressLabel:"Adresse",hoursLabel:"Ungefähre Öffnungszeiten",hoursText:"10:00–20:00 Uhr. Bitte bestätige die Verfügbarkeit bei der Buchung.",mapCta:"Standort in Maps öffnen ↗",
+    faqEyebrow:"VOR DEINEM BESUCH",faqTitle:"Häufige <em>Fragen</em>",faqQ1:"Wie kann ich eine Sitzung buchen?",faqA1:"Schreib mir direkt über WhatsApp. Wir vereinbaren je nach Verfügbarkeit einen Tag, eine Uhrzeit und die Dauer.",faqQ2:"Welche Dauer kann ich wählen?",faqA2:"Es gibt Sitzungen von 30, 60 und 90 Minuten. Frag nach, welche Option am besten zu deinen Wünschen passt.",faqQ3:"Was sollte ich vor der Sitzung beachten?",faqA3:"Komm in bequemer Kleidung und teile vor Beginn Wünsche, Beschwerden oder wichtige Umstände mit, damit die Sitzung umsichtig angepasst werden kann.",faqQ4:"Ersetzt die Massage eine medizinische Behandlung?",faqA4:"Nein. Massage ist eine Wellness-Anwendung und ersetzt weder die Diagnose noch die Behandlung durch medizinisches Fachpersonal. Bei gesundheitlichen Fragen wende dich bitte an medizinisches Fachpersonal.",faqQ5:"Wie sind die Öffnungszeiten?",faqA5:"Die ungefähren Öffnungszeiten sind 10:00 bis 20:00 Uhr. Die Verfügbarkeit muss bei der Terminanfrage bestätigt werden.",
+    reviewsEyebrow:"DEINE ERFAHRUNG ZÄHLT",reviewsTitle:"Echte <em>Bewertungen</em>",reviewsText:"Dieser Bereich ist für Rückmeldungen von Kundinnen und Kunden vorgesehen. Verifizierte Bewertungen werden hier veröffentlicht, sobald sie vorliegen.",reviewsPlaceholder:"Kundenbewertungen werden nur mit Zustimmung veröffentlicht.",
+    galleryEyebrow:"DIE RÄUMLICHKEITEN",galleryTitle:"Eine Atmosphäre zum <em>Abschalten</em>",galleryText:"Demnächst findest du hier echte Fotos von El Capitol Bienestar.",gallerySpace:"Der Raum",galleryRoom:"Der Behandlungsraum",galleryDetails:"Die Details",galleryNote:"Diese Felder sind für deine eigenen Fotos vorgesehen und enthalten keine Stockbilder.",
+    tipsEyebrow:"KLEINE GESTEN, WERTVOLLE PAUSEN",tipsTitle:"Tipps für dein <em>Wohlbefinden</em>",tip1Title:"Mach eine Pause",tip1Text:"Nimm dir ein paar Minuten Zeit zum ruhigen Atmen und leg die Bildschirme beiseite.",tip2Title:"Wechsle deine Haltung",tip2Text:"Wenn du lange sitzt, steh zwischendurch auf und bewege deinen Körper sanft.",tip3Title:"Achte auf deinen Rhythmus",tip3Text:"Ruh dich aus, trink ausreichend und passe deine Aktivitäten daran an, wie du dich fühlst.",tipsDisclaimer:"Diese Hinweise sind allgemein und ersetzen keine individuelle medizinische Beratung.",
+    contactEyebrow:"DEIN MOMENT WARTET",contactTitle:"Schenke dir einen Moment <em>für dich.</em>",contactText:"Schreib mir, dann finden wir einen passenden Termin.",contactCta:"Über WhatsApp buchen ↗",footerPhrase:"Massage und persönliche Pflege in Palma de Mallorca.",backTop:"Nach oben ↑"
+  }
+};
 
-    <section class="intro-strip">
-      <p data-i18n="stripText">Un trato cercano. Un espacio acogedor. Un tiempo dedicado a tu bienestar.</p>
-    </section>
+const languageSelect = document.getElementById("language-select");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.getElementById("primary-nav");
 
-    <section class="section services-section" id="servicios">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="servicesEyebrow">ELIGE TU MOMENTO</p>
-        <h2 data-i18n="servicesTitle">Tiempo para <em>cuidarte</em></h2>
-        <p data-i18n="servicesText">Sesiones de quiromasaje adaptadas al tiempo que quieras dedicarte.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <span class="service-number">01</span><div class="service-rule"></div>
-          <p class="service-duration" data-i18n="duration30">30 minutos</p>
-          <h3 data-i18n="service30">Pausa renovadora</h3>
-          <p class="service-description" data-i18n="desc30">Un primer espacio para desconectar y dedicarte atención.</p>
-          <p class="price"><span>30</span><small>€</small></p>
-          <a class="text-link service-book" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="bookWhatsApp">Consultar por WhatsApp ↗</a>
-        </article>
-        <article class="service-card featured">
-          <span class="featured-label" data-i18n="popular">Una opción equilibrada</span>
-          <span class="service-number">02</span><div class="service-rule"></div>
-          <p class="service-duration" data-i18n="duration60">60 minutos</p>
-          <h3 data-i18n="service60">Tiempo de bienestar</h3>
-          <p class="service-description" data-i18n="desc60">Una sesión más amplia para disfrutar de un cuidado pausado.</p>
-          <p class="price"><span>50</span><small>€</small></p>
-          <a class="text-link service-book" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="bookWhatsApp">Consultar por WhatsApp ↗</a>
-        </article>
-        <article class="service-card">
-          <span class="service-number">03</span><div class="service-rule"></div>
-          <p class="service-duration" data-i18n="duration90">90 minutos</p>
-          <h3 data-i18n="service90">Ritual completo</h3>
-          <p class="service-description" data-i18n="desc90">Más tiempo para regalarte una experiencia de cuidado sin prisas.</p>
-          <p class="price"><span>70</span><small>€</small></p>
-          <a class="text-link service-book" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="bookWhatsApp">Consultar por WhatsApp ↗</a>
-        </article>
-      </div>
-      <p class="small-note" data-i18n="priceNote">Las sesiones se acuerdan previamente. Consulta disponibilidad y detalles al reservar.</p>
-    </section>
+function applyLanguage(language) {
+  const selected = translations[language] ? language : "es";
+  document.documentElement.lang = selected;
+  document.documentElement.dataset.language = selected;
 
-    <section class="about-section section" id="sobre-mi">
-      <div class="about-visual">
-        <div class="about-visual-inner"><span class="about-monogram">M</span><span class="about-visual-caption" data-i18n="aboutVisual">Atención cercana y personalizada</span></div>
-      </div>
-      <div class="about-copy">
-        <p class="eyebrow" data-i18n="aboutEyebrow">QUIÉN TE ACOMPAÑA</p>
-        <h2 data-i18n="aboutTitle">Hola, soy <em>Miguel.</em></h2>
-        <p data-i18n="aboutP1">En El Capitol Bienestar quiero ofrecerte un espacio tranquilo donde puedas parar, respirar y dedicar un tiempo a cuidarte.</p>
-        <p data-i18n="aboutP2">Cada persona y cada día son diferentes. Por eso, antes de comenzar, hablamos de lo que necesitas y de tus preferencias para orientar la sesión con atención y respeto.</p>
-        <p class="signature">Miguel Villalonga Clar</p>
-        <a class="button button-outline" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="aboutCta">Hablemos de tu sesión</a>
-      </div>
-    </section>
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.dataset.i18n;
+    const value = translations[selected][key];
+    if (typeof value === "string") element.innerHTML = value;
+  });
 
-    <section class="section location-section" id="ubicacion">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="locationEyebrow">ESTAMOS EN PALMA</p>
-        <h2 data-i18n="locationTitle">Un rincón de calma <em>en la ciudad</em></h2>
-      </div>
-      <div class="location-grid">
-        <div class="location-info">
-          <div class="info-item"><span class="info-icon">⌖</span><div><h3 data-i18n="addressLabel">Dirección</h3><p>Plaça d'Alexander Fleming, 12<br>Nord, 07004 Palma, Illes Balears, España</p></div></div>
-          <div class="info-item"><span class="info-icon">◷</span><div><h3 data-i18n="hoursLabel">Horario orientativo</h3><p data-i18n="hoursText">10:00–20:00. Confirma la disponibilidad al reservar.</p></div></div>
-          <a class="button button-gold" href="https://www.google.com/maps/search/?api=1&query=Pla%C3%A7a+d%27Alexander+Fleming%2C+12%2C+07004+Palma" target="_blank" rel="noopener noreferrer" data-i18n="mapCta">Abrir ubicación en Maps ↗</a>
-        </div>
-        <div class="map-wrap">
-          <iframe title="Mapa de El Capitol Bienestar en Palma de Mallorca" src="https://www.google.com/maps?q=Pla%C3%A7a%20d%27Alexander%20Fleming%2C%2012%2C%2007004%20Palma&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const key = element.dataset.i18nAria;
+    const value = translations[selected][key];
+    if (typeof value === "string") element.setAttribute("aria-label", value);
+  });
 
-    <section class="section faq-section" id="preguntas">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="faqEyebrow">ANTES DE TU VISITA</p>
-        <h2 data-i18n="faqTitle">Preguntas <em>frecuentes</em></h2>
-      </div>
-      <div class="faq-list">
-        <details class="faq-item"><summary data-i18n="faqQ1">¿Cómo puedo reservar una sesión?</summary><p data-i18n="faqA1">Puedes escribir directamente por WhatsApp. Acordaremos el día, la hora y la duración según disponibilidad.</p></details>
-        <details class="faq-item"><summary data-i18n="faqQ2">¿Qué duración puedo elegir?</summary><p data-i18n="faqA2">Hay sesiones de 30, 60 y 90 minutos. Consulta cuál encaja mejor con lo que buscas.</p></details>
-        <details class="faq-item"><summary data-i18n="faqQ3">¿Qué debo hacer antes de la sesión?</summary><p data-i18n="faqA3">Ven con ropa cómoda y comenta antes de empezar cualquier preferencia, molestia o circunstancia relevante para adaptar la sesión con prudencia.</p></details>
-        <details class="faq-item"><summary data-i18n="faqQ4">¿El quiromasaje sustituye un tratamiento médico?</summary><p data-i18n="faqA4">No. El quiromasaje es una práctica de bienestar y no sustituye el diagnóstico ni el tratamiento de profesionales sanitarios. Si tienes dudas de salud, consulta con tu profesional sanitario.</p></details>
-        <details class="faq-item"><summary data-i18n="faqQ5">¿Cuál es el horario?</summary><p data-i18n="faqA5">El horario orientativo es de 10:00 a 20:00. Es necesario confirmar la disponibilidad al solicitar cita.</p></details>
-      </div>
-    </section>
+  if (languageSelect) languageSelect.value = selected;
+  try { localStorage.setItem("elCapitolLanguage", selected); } catch (error) { /* El sitio sigue funcionando si el almacenamiento está bloqueado. */ }
+  updateMenuLabel();
+}
 
-    <section class="reviews-section section" id="opiniones">
-      <div class="reviews-inner">
-        <p class="eyebrow" data-i18n="reviewsEyebrow">TU EXPERIENCIA CUENTA</p>
-        <h2 data-i18n="reviewsTitle">Opiniones <em>reales</em></h2>
-        <p data-i18n="reviewsText">Este espacio está preparado para compartir las experiencias de clientes que quieran dejar su opinión. Próximamente podrás leer aquí reseñas verificadas.</p>
-        <span class="review-placeholder" data-i18n="reviewsPlaceholder">Las opiniones de clientes se publicarán con su autorización.</span>
-      </div>
-    </section>
+function updateMenuLabel() {
+  if (!menuToggle) return;
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  const language = document.documentElement.lang || "es";
+  menuToggle.setAttribute("aria-label", translations[language][isOpen ? "menuClose" : "menuOpen"]);
+}
 
-    <section class="section gallery-section" id="galeria">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="galleryEyebrow">EL ESPACIO</p>
-        <h2 data-i18n="galleryTitle">Un ambiente para <em>desconectar</em></h2>
-        <p data-i18n="galleryText">Próximamente, fotografías reales de El Capitol Bienestar.</p>
-      </div>
-      <div class="gallery-grid">
-        <figure class="gallery-tile gallery-one"><div class="photo-placeholder"><span>01</span><p data-i18n="gallerySpace">El espacio</p></div></figure>
-        <figure class="gallery-tile gallery-two"><div class="photo-placeholder"><span>02</span><p data-i18n="galleryRoom">La sala</p></div></figure>
-        <figure class="gallery-tile gallery-three"><div class="photo-placeholder"><span>03</span><p data-i18n="galleryDetails">Los detalles</p></div></figure>
-      </div>
-      <p class="small-note" data-i18n="galleryNote">Los paneles son espacios reservados para tus fotografías; no son imágenes de stock.</p>
-    </section>
+function closeMenu() {
+  if (!menuToggle || !nav) return;
+  menuToggle.setAttribute("aria-expanded", "false");
+  nav.classList.remove("is-open");
+  updateMenuLabel();
+}
 
-    <section class="section tips-section" id="consejos">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="tipsEyebrow">PEQUEÑOS GESTOS, GRANDES PAUSAS</p>
-        <h2 data-i18n="tipsTitle">Consejos para tu <em>bienestar</em></h2>
-      </div>
-      <div class="tips-grid">
-        <article class="tip-card"><span>01 / RESPIRA</span><h3 data-i18n="tip1Title">Haz una pausa</h3><p data-i18n="tip1Text">Reserva unos minutos para respirar con calma y apartarte de las pantallas.</p></article>
-        <article class="tip-card"><span>02 / MUÉVETE</span><h3 data-i18n="tip2Title">Cambia de postura</h3><p data-i18n="tip2Text">Si pasas mucho tiempo sentado, levántate y mueve suavemente el cuerpo de vez en cuando.</p></article>
-        <article class="tip-card"><span>03 / ESCÚCHATE</span><h3 data-i18n="tip3Title">Respeta tu ritmo</h3><p data-i18n="tip3Text">Descansa, hidrátate y adapta tus actividades a cómo te encuentras cada día.</p></article>
-      </div>
-      <p class="disclaimer" data-i18n="tipsDisclaimer">Estos consejos son generales y no sustituyen recomendaciones médicas individualizadas.</p>
-    </section>
+if (languageSelect) {
+  languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
+}
 
-    <section class="contact-cta section" id="contacto">
-      <p class="eyebrow" data-i18n="contactEyebrow">TU MOMENTO TE ESPERA</p>
-      <h2 data-i18n="contactTitle">Regálate un momento <em>para ti.</em></h2>
-      <p data-i18n="contactText">Escríbeme y buscamos el momento que mejor te venga.</p>
-      <a class="button button-gold button-large" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" data-i18n="contactCta">Reservar por WhatsApp ↗</a>
-    </section>
-  </main>
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    menuToggle.setAttribute("aria-expanded", String(open));
+    nav.classList.toggle("is-open", open);
+    updateMenuLabel();
+  });
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 820) closeMenu();
+  });
+}
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <a class="brand-mini footer-brand" href="#inicio"><span class="brand-mark">EC</span><span><strong>El Capitol</strong><small>Bienestar</small></span></a>
-      <p data-i18n="footerPhrase">Quiromasaje y cuidado personal en Palma de Mallorca.</p>
-      <div class="social-links" aria-label="Redes sociales">
-        <a href="https://www.instagram.com/el_capitol_bienestar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
-        <a href="https://www.facebook.com/people/El-capitol-bienestar/61591450350809/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-        <a href="https://www.tiktok.com/@miguel.villalonga21" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TT</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="current-year"></span> El Capitol Bienestar · Miguel Villalonga Clar</span>
-      <a href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer">+34 675 75 25 00</a>
-      <a href="#top" data-i18n="backTop">Volver arriba ↑</a>
-    </div>
-  </footer>
+const currentYear = document.getElementById("current-year");
+if (currentYear) currentYear.textContent = new Date().getFullYear();
 
-  <a class="whatsapp-float" href="https://wa.me/34675752500" target="_blank" rel="noopener noreferrer" aria-label="Contactar con El Capitol Bienestar por WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .8A15.1 15.1 0 0 0 3.05 23.7L1 31l7.5-1.97A15.1 15.1 0 1 0 16 .8Zm0 27.5c-2.3 0-4.55-.62-6.5-1.8l-.47-.28-4.45 1.17 1.19-4.34-.3-.49A12.4 12.4 0 1 1 16 28.3Zm6.8-9.3c-.37-.19-2.2-1.08-2.54-1.2-.34-.13-.59-.19-.83.18-.25.37-.96 1.2-1.17 1.45-.22.25-.43.28-.8.1-.37-.19-1.56-.58-2.98-1.85-1.1-.98-1.85-2.2-2.07-2.57-.22-.37-.02-.57.16-.75.17-.16.37-.43.56-.65.18-.22.24-.37.37-.62.12-.25.06-.47-.03-.65-.1-.19-.83-2-1.14-2.74-.3-.72-.6-.62-.83-.63h-.7c-.25 0-.65.1-.99.47-.34.37-1.3 1.27-1.3 3.08s1.33 3.57 1.52 3.82c.18.25 2.61 3.99 6.32 5.59.88.38 1.57.61 2.1.78.88.28 1.68.24 2.31.15.7-.1 2.2-.9 2.5-1.77.31-.87.31-1.62.22-1.77-.1-.15-.34-.25-.71-.43Z"/></svg>
-  </a>
-</body>
-</html>
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  const revealItems = document.querySelectorAll(
+    ".section-heading, .service-card, .about-visual, .about-copy, .location-info, .map-wrap, .faq-item, .reviews-inner, .gallery-tile, .tip-card, .contact-cta > *"
+  );
+  revealItems.forEach((item) => item.classList.add("js-reveal"));
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        currentObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+// Idioma inicial: preferencia guardada, idioma del navegador o español.
+let initialLanguage = "es";
+try {
+  const savedLanguage = localStorage.getItem("elCapitolLanguage");
+  if (savedLanguage && translations[savedLanguage]) {
+    initialLanguage = savedLanguage;
+  } else {
+    const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
+    if (translations[browserLanguage]) initialLanguage = browserLanguage;
+  }
+} catch (error) {
+  const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
+  if (translations[browserLanguage]) initialLanguage = browserLanguage;
+}
+applyLanguage(initialLanguage);
