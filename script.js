@@ -1,4 +1,3 @@
-```javascript
 "use strict";
 
 let selectedRating = 0;
