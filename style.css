@@ -1,165 +1,247 @@
 
-/* EL CAPITOL BIENESTAR — idiomas y funcionalidades */
-"use strict";
-
-const translations = {
-  es: {
-    skip:"Saltar al contenido", menuOpen:"Abrir menú", menuClose:"Cerrar menú", languageLabel:"Seleccionar idioma",
-    navHome:"Inicio",navServices:"Servicios",navAbout:"Sobre mí",navLocation:"Ubicación",navFaq:"Preguntas",navGallery:"Galería",navContact:"Contacto",book:"Reservar cita",
-    heroEyebrow:"UN ESPACIO PARA VOLVER A TI",heroTitle:"El bienestar empieza<br><em>cuando te escuchas.</em>",heroText:"Un momento de calma, cuidado y atención personal a través del quiromasaje, en el corazón de Palma.",heroCta:"Reserva tu momento",heroMore:"Descubrir tratamientos",heroNote:"Atención personal · Palma de Mallorca",logoCaption:"Cuidado personal · Equilibrio · Bienestar",
-    stripText:"Un trato cercano. Un espacio acogedor. Un tiempo dedicado a tu bienestar.",
-    servicesEyebrow:"ELIGE TU MOMENTO",servicesTitle:"Tiempo para <em>cuidarte</em>",servicesText:"Sesiones de quiromasaje adaptadas al tiempo que quieras dedicarte.",
-    duration30:"30 minutos",duration60:"60 minutos",duration90:"90 minutos",service30:"Pausa renovadora",service60:"Tiempo de bienestar",service90:"Ritual completo",desc30:"Un primer espacio para desconectar y dedicarte atención.",desc60:"Una sesión más amplia para disfrutar de un cuidado pausado.",desc90:"Más tiempo para regalarte una experiencia de cuidado sin prisas.",popular:"Una opción equilibrada",bookWhatsApp:"Consultar por WhatsApp ↗",priceNote:"Las sesiones se acuerdan previamente. Consulta disponibilidad y detalles al reservar.",
-    aboutEyebrow:"QUIÉN TE ACOMPAÑA",aboutTitle:"Hola, soy <em>Miguel.</em>",aboutP1:"En El Capitol Bienestar quiero ofrecerte un espacio tranquilo donde puedas parar, respirar y dedicar un tiempo a cuidarte.",aboutP2:"Cada persona y cada día son diferentes. Por eso, antes de comenzar, hablamos de lo que necesitas y de tus preferencias para orientar la sesión con atención y respeto.",aboutVisual:"Atención cercana y personalizada",aboutCta:"Hablemos de tu sesión",
-    locationEyebrow:"ESTAMOS EN PALMA",locationTitle:"Un rincón de calma <em>en la ciudad</em>",addressLabel:"Dirección",hoursLabel:"Horario orientativo",hoursText:"10:00–20:00. Confirma la disponibilidad al reservar.",mapCta:"Abrir ubicación en Maps ↗",
-    faqEyebrow:"ANTES DE TU VISITA",faqTitle:"Preguntas <em>frecuentes</em>",faqQ1:"¿Cómo puedo reservar una sesión?",faqA1:"Puedes escribir directamente por WhatsApp. Acordaremos el día, la hora y la duración según disponibilidad.",faqQ2:"¿Qué duración puedo elegir?",faqA2:"Hay sesiones de 30, 60 y 90 minutos. Consulta cuál encaja mejor con lo que buscas.",faqQ3:"¿Qué debo hacer antes de la sesión?",faqA3:"Ven con ropa cómoda y comenta antes de empezar cualquier preferencia, molestia o circunstancia relevante para adaptar la sesión con prudencia.",faqQ4:"¿El quiromasaje sustituye un tratamiento médico?",faqA4:"No. El quiromasaje es una práctica de bienestar y no sustituye el diagnóstico ni el tratamiento de profesionales sanitarios. Si tienes dudas de salud, consulta con tu profesional sanitario.",faqQ5:"¿Cuál es el horario?",faqA5:"El horario orientativo es de 10:00 a 20:00. Es necesario confirmar la disponibilidad al solicitar cita.",
-    reviewsEyebrow:"TU EXPERIENCIA CUENTA",reviewsTitle:"Opiniones <em>reales</em>",reviewsText:"Este espacio está preparado para compartir las experiencias de clientes que quieran dejar su opinión. Próximamente podrás leer aquí reseñas verificadas.",reviewsPlaceholder:"Las opiniones de clientes se publicarán con su autorización.",
-    galleryEyebrow:"EL ESPACIO",galleryTitle:"Un ambiente para <em>desconectar</em>",galleryText:"Próximamente, fotografías reales de El Capitol Bienestar.",gallerySpace:"El espacio",galleryRoom:"La sala",galleryDetails:"Los detalles",galleryNote:"Los paneles son espacios reservados para tus fotografías; no son imágenes de stock.",
-    tipsEyebrow:"PEQUEÑOS GESTOS, GRANDES PAUSAS",tipsTitle:"Consejos para tu <em>bienestar</em>",tip1Title:"Haz una pausa",tip1Text:"Reserva unos minutos para respirar con calma y apartarte de las pantallas.",tip2Title:"Cambia de postura",tip2Text:"Si pasas mucho tiempo sentado, levántate y mueve suavemente el cuerpo de vez en cuando.",tip3Title:"Respeta tu ritmo",tip3Text:"Descansa, hidrátate y adapta tus actividades a cómo te encuentras cada día.",tipsDisclaimer:"Estos consejos son generales y no sustituyen recomendaciones médicas individualizadas.",
-    contactEyebrow:"TU MOMENTO TE ESPERA",contactTitle:"Regálate un momento <em>para ti.</em>",contactText:"Escríbeme y buscamos el momento que mejor te venga.",contactCta:"Reservar por WhatsApp ↗",footerPhrase:"Quiromasaje y cuidado personal en Palma de Mallorca.",backTop:"Volver arriba ↑"
-  },
-  ca: {
-    skip:"Ves al contingut",menuOpen:"Obrir menú",menuClose:"Tancar menú",languageLabel:"Selecciona l'idioma",navHome:"Inici",navServices:"Serveis",navAbout:"Sobre mi",navLocation:"Ubicació",navFaq:"Preguntes",navGallery:"Galeria",navContact:"Contacte",book:"Reserva cita",
-    heroEyebrow:"UN ESPAI PER TORNAR A TU",heroTitle:"El benestar comença<br><em>quan t'escoltes.</em>",heroText:"Un moment de calma, cura i atenció personal a través del quiromassatge, al cor de Palma.",heroCta:"Reserva el teu moment",heroMore:"Descobreix els tractaments",heroNote:"Atenció personal · Palma de Mallorca",logoCaption:"Cura personal · Equilibri · Benestar",stripText:"Un tracte proper. Un espai acollidor. Un temps dedicat al teu benestar.",
-    servicesEyebrow:"TRIA EL TEU MOMENT",servicesTitle:"Temps per <em>cuidar-te</em>",servicesText:"Sessions de quiromassatge adaptades al temps que et vulguis dedicar.",duration30:"30 minuts",duration60:"60 minuts",duration90:"90 minuts",service30:"Pausa renovadora",service60:"Temps de benestar",service90:"Ritual complet",desc30:"Un primer espai per desconnectar i dedicar-te atenció.",desc60:"Una sessió més àmplia per gaudir d'una cura sense presses.",desc90:"Més temps per regalar-te una experiència de cura tranquil·la.",popular:"Una opció equilibrada",bookWhatsApp:"Consulta per WhatsApp ↗",priceNote:"Les sessions es concreten prèviament. Consulta la disponibilitat i els detalls en reservar.",
-    aboutEyebrow:"QUI T'ACOMPANYA",aboutTitle:"Hola, soc <em>Miguel.</em>",aboutP1:"A El Capitol Bienestar vull oferir-te un espai tranquil on puguis parar, respirar i dedicar un temps a cuidar-te.",aboutP2:"Cada persona i cada dia són diferents. Per això, abans de començar, parlem del que necessites i de les teves preferències per orientar la sessió amb atenció i respecte.",aboutVisual:"Atenció propera i personalitzada",aboutCta:"Parlem de la teva sessió",
-    locationEyebrow:"SOM A PALMA",locationTitle:"Un racó de calma <em>a la ciutat</em>",addressLabel:"Adreça",hoursLabel:"Horari orientatiu",hoursText:"10:00–20:00. Confirma la disponibilitat en reservar.",mapCta:"Obre la ubicació a Maps ↗",
-    faqEyebrow:"ABANS DE LA VISITA",faqTitle:"Preguntes <em>freqüents</em>",faqQ1:"Com puc reservar una sessió?",faqA1:"Pots escriure directament per WhatsApp. Acordarem el dia, l'hora i la durada segons la disponibilitat.",faqQ2:"Quina durada puc triar?",faqA2:"Hi ha sessions de 30, 60 i 90 minuts. Consulta quina s'adapta millor al que busques.",faqQ3:"Què he de fer abans de la sessió?",faqA3:"Vine amb roba còmoda i comenta abans de començar qualsevol preferència, molèstia o circumstància rellevant per adaptar la sessió amb prudència.",faqQ4:"El quiromassatge substitueix un tractament mèdic?",faqA4:"No. El quiromassatge és una pràctica de benestar i no substitueix el diagnòstic ni el tractament de professionals sanitaris. Si tens dubtes de salut, consulta el teu professional sanitari.",faqQ5:"Quin és l'horari?",faqA5:"L'horari orientatiu és de 10:00 a 20:00. Cal confirmar la disponibilitat en demanar cita.",
-    reviewsEyebrow:"LA TEVA EXPERIÈNCIA COMPTA",reviewsTitle:"Opinions <em>reals</em>",reviewsText:"Aquest espai està preparat per compartir les experiències dels clients que vulguin deixar la seva opinió. Ben aviat hi podràs llegir ressenyes verificades.",reviewsPlaceholder:"Les opinions dels clients es publicaran amb la seva autorització.",
-    galleryEyebrow:"L'ESPAI",galleryTitle:"Un ambient per <em>desconnectar</em>",galleryText:"Ben aviat, fotografies reals d'El Capitol Bienestar.",gallerySpace:"L'espai",galleryRoom:"La sala",galleryDetails:"Els detalls",galleryNote:"Els plafons són espais reservats per a les teves fotografies; no són imatges d'estoc.",
-    tipsEyebrow:"PETITS GESTOS, GRANS PAUSES",tipsTitle:"Consells per al teu <em>benestar</em>",tip1Title:"Fes una pausa",tip1Text:"Reserva uns minuts per respirar amb calma i allunyar-te de les pantalles.",tip2Title:"Canvia de postura",tip2Text:"Si passes molta estona assegut, aixeca't i mou suaument el cos de tant en tant.",tip3Title:"Respecta el teu ritme",tip3Text:"Descansa, hidrata't i adapta les activitats a com et trobis cada dia.",tipsDisclaimer:"Aquests consells són generals i no substitueixen recomanacions mèdiques individualitzades.",
-    contactEyebrow:"EL TEU MOMENT T'ESPERA",contactTitle:"Regala't un moment <em>per a tu.</em>",contactText:"Escriu-me i trobarem el moment que et vagi millor.",contactCta:"Reserva per WhatsApp ↗",footerPhrase:"Quiromassatge i cura personal a Palma de Mallorca.",backTop:"Torna a dalt ↑"
-  },
-  en: {
-    skip:"Skip to content",menuOpen:"Open menu",menuClose:"Close menu",languageLabel:"Select language",navHome:"Home",navServices:"Services",navAbout:"About me",navLocation:"Location",navFaq:"FAQ",navGallery:"Gallery",navContact:"Contact",book:"Book an appointment",
-    heroEyebrow:"A SPACE TO RECONNECT WITH YOURSELF",heroTitle:"Wellbeing begins<br><em>when you listen to yourself.</em>",heroText:"A moment of calm, care and personal attention through massage, in the heart of Palma.",heroCta:"Book your moment",heroMore:"Explore treatments",heroNote:"Personal care · Palma de Mallorca",logoCaption:"Personal care · Balance · Wellbeing",stripText:"A warm welcome. A peaceful space. Time dedicated to your wellbeing.",
-    servicesEyebrow:"CHOOSE YOUR MOMENT",servicesTitle:"Time to <em>take care</em>",servicesText:"Massage sessions tailored to the time you would like to set aside for yourself.",duration30:"30 minutes",duration60:"60 minutes",duration90:"90 minutes",service30:"A refreshing pause",service60:"Time for wellbeing",service90:"The complete ritual",desc30:"A first opportunity to switch off and give yourself some attention.",desc60:"A longer session to enjoy unhurried personal care.",desc90:"More time to enjoy a relaxing care experience without rushing.",popular:"A balanced choice",bookWhatsApp:"Enquire on WhatsApp ↗",priceNote:"Sessions are arranged in advance. Please ask about availability and details when booking.",
-    aboutEyebrow:"YOUR PRACTITIONER",aboutTitle:"Hello, I'm <em>Miguel.</em>",aboutP1:"At El Capitol Bienestar, I want to offer you a peaceful space where you can pause, breathe and take time to look after yourself.",aboutP2:"Every person and every day is different. Before we begin, we talk about your needs and preferences so the session can be approached with care and respect.",aboutVisual:"Personal and attentive care",aboutCta:"Let's talk about your session",
-    locationEyebrow:"FIND US IN PALMA",locationTitle:"A peaceful corner <em>in the city</em>",addressLabel:"Address",hoursLabel:"Indicative hours",hoursText:"10:00–20:00. Please confirm availability when booking.",mapCta:"Open location in Maps ↗",
-    faqEyebrow:"BEFORE YOUR VISIT",faqTitle:"Frequently asked <em>questions</em>",faqQ1:"How can I book a session?",faqA1:"Send a message directly on WhatsApp. We will agree on a day, time and session length subject to availability.",faqQ2:"What session lengths are available?",faqA2:"Sessions are available for 30, 60 or 90 minutes. Ask which option best suits what you are looking for.",faqQ3:"What should I do before the session?",faqA3:"Wear comfortable clothing and let me know beforehand about any preferences, discomfort or relevant circumstances so the session can be adapted carefully.",faqQ4:"Does massage replace medical treatment?",faqA4:"No. Massage is a wellbeing practice and does not replace diagnosis or treatment by healthcare professionals. If you have health concerns, consult your healthcare professional.",faqQ5:"What are the opening hours?",faqA5:"The indicative hours are 10:00 to 20:00. Availability must be confirmed when requesting an appointment.",
-    reviewsEyebrow:"YOUR EXPERIENCE MATTERS",reviewsTitle:"Genuine <em>reviews</em>",reviewsText:"This space is ready to share feedback from clients who wish to leave a review. Verified reviews will appear here in due course.",reviewsPlaceholder:"Client reviews will be published with their permission.",
-    galleryEyebrow:"THE SPACE",galleryTitle:"An atmosphere to <em>unwind</em>",galleryText:"Real photographs of El Capitol Bienestar will be added here soon.",gallerySpace:"The space",galleryRoom:"The room",galleryDetails:"The details",galleryNote:"These panels are reserved for your own photographs; they are not stock images.",
-    tipsEyebrow:"SMALL HABITS, MEANINGFUL PAUSES",tipsTitle:"Wellbeing <em>tips</em>",tip1Title:"Take a pause",tip1Text:"Set aside a few minutes to breathe calmly and step away from screens.",tip2Title:"Change position",tip2Text:"If you sit for long periods, stand up and gently move your body from time to time.",tip3Title:"Respect your pace",tip3Text:"Rest, stay hydrated and adapt your activities to how you feel each day.",tipsDisclaimer:"These are general tips and do not replace individual medical advice.",
-    contactEyebrow:"YOUR MOMENT IS WAITING",contactTitle:"Give yourself a moment <em>for you.</em>",contactText:"Send me a message and we can find a time that suits you.",contactCta:"Book on WhatsApp ↗",footerPhrase:"Massage and personal care in Palma de Mallorca.",backTop:"Back to top ↑"
-  },
-  fr: {
-    skip:"Aller au contenu",menuOpen:"Ouvrir le menu",menuClose:"Fermer le menu",languageLabel:"Choisir la langue",navHome:"Accueil",navServices:"Prestations",navAbout:"À propos",navLocation:"Adresse",navFaq:"Questions",navGallery:"Galerie",navContact:"Contact",book:"Prendre rendez-vous",
-    heroEyebrow:"UN ESPACE POUR SE RETROUVER",heroTitle:"Le bien-être commence<br><em>quand on s'écoute.</em>",heroText:"Un moment de calme, de soin et d'attention personnelle grâce au massage, au cœur de Palma.",heroCta:"Réservez votre moment",heroMore:"Découvrir les soins",heroNote:"Attention personnalisée · Palma de Majorque",logoCaption:"Soin personnel · Équilibre · Bien-être",stripText:"Un accueil chaleureux. Un espace apaisant. Du temps consacré à votre bien-être.",
-    servicesEyebrow:"CHOISISSEZ VOTRE MOMENT",servicesTitle:"Du temps pour <em>prendre soin de vous</em>",servicesText:"Des séances de massage adaptées au temps que vous souhaitez vous accorder.",duration30:"30 minutes",duration60:"60 minutes",duration90:"90 minutes",service30:"Pause revitalisante",service60:"Temps de bien-être",service90:"Rituel complet",desc30:"Un premier moment pour déconnecter et prendre soin de vous.",desc60:"Une séance plus longue pour profiter d'un soin sans précipitation.",desc90:"Plus de temps pour profiter d'une expérience de détente à votre rythme.",popular:"Un choix équilibré",bookWhatsApp:"Demander sur WhatsApp ↗",priceNote:"Les séances sont convenues à l'avance. Veuillez demander les disponibilités et les détails lors de la réservation.",
-    aboutEyebrow:"QUI VOUS ACCOMPAGNE",aboutTitle:"Bonjour, je suis <em>Miguel.</em>",aboutP1:"Chez El Capitol Bienestar, je souhaite vous offrir un espace paisible où vous pourrez faire une pause, respirer et prendre du temps pour vous.",aboutP2:"Chaque personne et chaque journée sont différentes. Avant de commencer, nous échangeons sur vos besoins et vos préférences afin d'aborder la séance avec attention et respect.",aboutVisual:"Une attention personnelle et attentive",aboutCta:"Parlons de votre séance",
-    locationEyebrow:"NOUS SOMMES À PALMA",locationTitle:"Un havre de calme <em>en ville</em>",addressLabel:"Adresse",hoursLabel:"Horaires indicatifs",hoursText:"10 h–20 h. Veuillez confirmer les disponibilités lors de la réservation.",mapCta:"Ouvrir l'adresse dans Maps ↗",
-    faqEyebrow:"AVANT VOTRE VISITE",faqTitle:"Questions <em>fréquentes</em>",faqQ1:"Comment réserver une séance ?",faqA1:"Vous pouvez envoyer directement un message sur WhatsApp. Nous conviendrons du jour, de l'heure et de la durée selon les disponibilités.",faqQ2:"Quelles durées sont proposées ?",faqA2:"Des séances de 30, 60 et 90 minutes sont proposées. Demandez quelle option correspond le mieux à vos attentes.",faqQ3:"Que dois-je faire avant la séance ?",faqA3:"Portez des vêtements confortables et signalez avant de commencer vos préférences, gênes ou toute circonstance utile afin d'adapter la séance avec prudence.",faqQ4:"Le massage remplace-t-il un traitement médical ?",faqA4:"Non. Le massage est une pratique de bien-être et ne remplace ni le diagnostic ni le traitement par des professionnels de santé. En cas de question médicale, consultez votre professionnel de santé.",faqQ5:"Quels sont les horaires ?",faqA5:"Les horaires indicatifs sont de 10 h à 20 h. Les disponibilités doivent être confirmées lors de la demande de rendez-vous.",
-    reviewsEyebrow:"VOTRE EXPÉRIENCE COMPTE",reviewsTitle:"Avis <em>authentiques</em>",reviewsText:"Cet espace est prévu pour partager les retours des clients qui souhaitent donner leur avis. Des avis vérifiés seront publiés ici prochainement.",reviewsPlaceholder:"Les avis des clients seront publiés avec leur autorisation.",
-    galleryEyebrow:"LE LIEU",galleryTitle:"Une atmosphère pour <em>déconnecter</em>",galleryText:"Des photos réelles d'El Capitol Bienestar seront bientôt ajoutées.",gallerySpace:"L'espace",galleryRoom:"La salle",galleryDetails:"Les détails",galleryNote:"Ces emplacements sont réservés à vos propres photos ; ce ne sont pas des images de banque d'images.",
-    tipsEyebrow:"PETITS GESTES, GRANDES PAUSES",tipsTitle:"Conseils de <em>bien-être</em>",tip1Title:"Faites une pause",tip1Text:"Prenez quelques minutes pour respirer calmement et vous éloigner des écrans.",tip2Title:"Changez de posture",tip2Text:"Si vous restez longtemps assis, levez-vous et bougez doucement de temps en temps.",tip3Title:"Respectez votre rythme",tip3Text:"Reposez-vous, hydratez-vous et adaptez vos activités à votre forme du jour.",tipsDisclaimer:"Ces conseils sont généraux et ne remplacent pas un avis médical personnalisé.",
-    contactEyebrow:"VOTRE MOMENT VOUS ATTEND",contactTitle:"Offrez-vous un moment <em>à vous.</em>",contactText:"Écrivez-moi et nous trouverons un moment qui vous convient.",contactCta:"Réserver sur WhatsApp ↗",footerPhrase:"Massage et soin personnel à Palma de Majorque.",backTop:"Retour en haut ↑"
-  },
-  de: {
-    skip:"Zum Inhalt springen",menuOpen:"Menü öffnen",menuClose:"Menü schließen",languageLabel:"Sprache auswählen",navHome:"Start",navServices:"Angebote",navAbout:"Über mich",navLocation:"Standort",navFaq:"Fragen",navGallery:"Galerie",navContact:"Kontakt",book:"Termin buchen",
-    heroEyebrow:"EIN ORT, UM ZU SICH ZU FINDEN",heroTitle:"Wohlbefinden beginnt,<br><em>wenn du auf dich hörst.</em>",heroText:"Ein Moment der Ruhe, Achtsamkeit und persönlichen Betreuung durch Massage – im Herzen von Palma.",heroCta:"Deinen Moment buchen",heroMore:"Anwendungen entdecken",heroNote:"Persönliche Betreuung · Palma de Mallorca",logoCaption:"Persönliche Pflege · Balance · Wohlbefinden",stripText:"Ein herzlicher Empfang. Ein angenehmer Ort. Zeit ganz für dein Wohlbefinden.",
-    servicesEyebrow:"WÄHLE DEINEN MOMENT",servicesTitle:"Zeit, um auf dich <em>zu achten</em>",servicesText:"Massagesitzungen passend zu der Zeit, die du dir gönnen möchtest.",duration30:"30 Minuten",duration60:"60 Minuten",duration90:"90 Minuten",service30:"Erfrischende Pause",service60:"Zeit für Wohlbefinden",service90:"Das vollständige Ritual",desc30:"Ein erster Moment zum Abschalten und um dir Aufmerksamkeit zu schenken.",desc60:"Eine längere Sitzung für eine entspannte Pflege ohne Eile.",desc90:"Mehr Zeit für ein wohltuendes Erlebnis ganz ohne Zeitdruck.",popular:"Eine ausgewogene Wahl",bookWhatsApp:"Per WhatsApp anfragen ↗",priceNote:"Termine werden im Voraus vereinbart. Bitte frage bei der Buchung nach Verfügbarkeit und Einzelheiten.",
-    aboutEyebrow:"WER DICH BEGLEITET",aboutTitle:"Hallo, ich bin <em>Miguel.</em>",aboutP1:"Bei El Capitol Bienestar möchte ich dir einen ruhigen Ort bieten, an dem du innehalten, durchatmen und dir Zeit für dich nehmen kannst.",aboutP2:"Jeder Mensch und jeder Tag ist anders. Deshalb sprechen wir vor Beginn über deine Bedürfnisse und Wünsche, damit die Sitzung achtsam und respektvoll gestaltet werden kann.",aboutVisual:"Persönliche und aufmerksame Betreuung",aboutCta:"Lass uns über deine Sitzung sprechen",
-    locationEyebrow:"WIR SIND IN PALMA",locationTitle:"Ein ruhiger Ort <em>mitten in der Stadt</em>",addressLabel:"Adresse",hoursLabel:"Ungefähre Öffnungszeiten",hoursText:"10:00–20:00 Uhr. Bitte bestätige die Verfügbarkeit bei der Buchung.",mapCta:"Standort in Maps öffnen ↗",
-    faqEyebrow:"VOR DEINEM BESUCH",faqTitle:"Häufige <em>Fragen</em>",faqQ1:"Wie kann ich eine Sitzung buchen?",faqA1:"Schreib mir direkt über WhatsApp. Wir vereinbaren je nach Verfügbarkeit einen Tag, eine Uhrzeit und die Dauer.",faqQ2:"Welche Dauer kann ich wählen?",faqA2:"Es gibt Sitzungen von 30, 60 und 90 Minuten. Frag nach, welche Option am besten zu deinen Wünschen passt.",faqQ3:"Was sollte ich vor der Sitzung beachten?",faqA3:"Komm in bequemer Kleidung und teile vor Beginn Wünsche, Beschwerden oder wichtige Umstände mit, damit die Sitzung umsichtig angepasst werden kann.",faqQ4:"Ersetzt die Massage eine medizinische Behandlung?",faqA4:"Nein. Massage ist eine Wellness-Anwendung und ersetzt weder die Diagnose noch die Behandlung durch medizinisches Fachpersonal. Bei gesundheitlichen Fragen wende dich bitte an medizinisches Fachpersonal.",faqQ5:"Wie sind die Öffnungszeiten?",faqA5:"Die ungefähren Öffnungszeiten sind 10:00 bis 20:00 Uhr. Die Verfügbarkeit muss bei der Terminanfrage bestätigt werden.",
-    reviewsEyebrow:"DEINE ERFAHRUNG ZÄHLT",reviewsTitle:"Echte <em>Bewertungen</em>",reviewsText:"Dieser Bereich ist für Rückmeldungen von Kundinnen und Kunden vorgesehen. Verifizierte Bewertungen werden hier veröffentlicht, sobald sie vorliegen.",reviewsPlaceholder:"Kundenbewertungen werden nur mit Zustimmung veröffentlicht.",
-    galleryEyebrow:"DIE RÄUMLICHKEITEN",galleryTitle:"Eine Atmosphäre zum <em>Abschalten</em>",galleryText:"Demnächst findest du hier echte Fotos von El Capitol Bienestar.",gallerySpace:"Der Raum",galleryRoom:"Der Behandlungsraum",galleryDetails:"Die Details",galleryNote:"Diese Felder sind für deine eigenen Fotos vorgesehen und enthalten keine Stockbilder.",
-    tipsEyebrow:"KLEINE GESTEN, WERTVOLLE PAUSEN",tipsTitle:"Tipps für dein <em>Wohlbefinden</em>",tip1Title:"Mach eine Pause",tip1Text:"Nimm dir ein paar Minuten Zeit zum ruhigen Atmen und leg die Bildschirme beiseite.",tip2Title:"Wechsle deine Haltung",tip2Text:"Wenn du lange sitzt, steh zwischendurch auf und bewege deinen Körper sanft.",tip3Title:"Achte auf deinen Rhythmus",tip3Text:"Ruh dich aus, trink ausreichend und passe deine Aktivitäten daran an, wie du dich fühlst.",tipsDisclaimer:"Diese Hinweise sind allgemein und ersetzen keine individuelle medizinische Beratung.",
-    contactEyebrow:"DEIN MOMENT WARTET",contactTitle:"Schenke dir einen Moment <em>für dich.</em>",contactText:"Schreib mir, dann finden wir einen passenden Termin.",contactCta:"Über WhatsApp buchen ↗",footerPhrase:"Massage und persönliche Pflege in Palma de Mallorca.",backTop:"Nach oben ↑"
-  }
-};
-
-const languageSelect = document.getElementById("language-select");
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.getElementById("primary-nav");
-
-function applyLanguage(language) {
-  const selected = translations[language] ? language : "es";
-  document.documentElement.lang = selected;
-  document.documentElement.dataset.language = selected;
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    const value = translations[selected][key];
-    if (typeof value === "string") element.innerHTML = value;
-  });
-
-  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
-    const key = element.dataset.i18nAria;
-    const value = translations[selected][key];
-    if (typeof value === "string") element.setAttribute("aria-label", value);
-  });
-
-  if (languageSelect) languageSelect.value = selected;
-  try { localStorage.setItem("elCapitolLanguage", selected); } catch (error) { /* El sitio sigue funcionando si el almacenamiento está bloqueado. */ }
-  updateMenuLabel();
+/* EL CAPITOL BIENESTAR — estilos principales */
+:root {
+  --ink: #17110e;
+  --ink-soft: #211813;
+  --brown: #302219;
+  --cream: #f1e8d7;
+  --cream-muted: #cbbda6;
+  --gold: #d5a653;
+  --gold-light: #f1d18c;
+  --amber: #a9672e;
+  --wine: #642f35;
+  --white: #fff9ef;
+  --muted: #b8aa96;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+  --script: "Great Vibes", cursive;
+  --content: 1160px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; color: var(--white); background: var(--ink); font-family: var(--sans); line-height: 1.7; }
+a { color: inherit; }
+button, select { font: inherit; }
+img, svg { max-width: 100%; }
+::selection { background: var(--gold); color: var(--ink); }
+.skip-link { position: fixed; z-index: 1000; top: 10px; left: 10px; padding: 10px 16px; background: var(--cream); color: var(--ink); transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(23,17,14,.94); border-bottom: 1px solid rgba(213,166,83,.17); backdrop-filter: blur(16px); }
+.header-inner { width: min(var(--content), calc(100% - 48px)); min-height: 82px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand-mini { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+.brand-mini > span:last-child { display: grid; line-height: 1.05; }
+.brand-mini strong { color: var(--cream); font: 600 23px var(--serif); letter-spacing: .5px; }
+.brand-mini small { margin-top: 4px; color: var(--gold); font: 10px var(--sans); letter-spacing: 4px; text-transform: uppercase; }
+.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold-light); font: 600 17px var(--serif); }
+.primary-nav { display: flex; align-items: center; gap: clamp(12px, 1.7vw, 24px); }
+.primary-nav a { color: var(--cream-muted); text-decoration: none; font-size: 11px; letter-spacing: .7px; transition: color .2s; }
+.primary-nav a:hover, .primary-nav a:focus-visible { color: var(--gold-light); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.language-select { appearance: none; min-width: 53px; padding: 9px 22px 9px 10px; color: var(--cream); border: 1px solid rgba(213,166,83,.5); border-radius: 0; background: #211813 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%23d5a653' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 8px center; cursor: pointer; font-size: 11px; }
+.menu-toggle { display: none; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 49px; padding: 12px 23px; border: 1px solid transparent; text-decoration: none; text-transform: uppercase; letter-spacing: 1.4px; font-size: 10px; font-weight: 700; transition: transform .25s, box-shadow .25s, background .25s; cursor: pointer; }
+.button:hover { transform: translateY(-2px); }
+.button-gold { color: #24180e; background: linear-gradient(135deg, #f0d28e, #c18a3d); box-shadow: 0 7px 24px rgba(184,126,48,.16); }
+.button-gold:hover { box-shadow: 0 10px 28px rgba(213,166,83,.3); }
+.button-small { min-height: 38px; padding: 9px 14px; font-size: 9px; }
+.button-large { min-height: 56px; padding: 15px 30px; }
+.button-outline { border-color: var(--gold); color: var(--gold-light); background: transparent; }
+.button-outline:hover { color: var(--ink); background: var(--gold-light); }
+.section { padding: 112px 24px; }
+.hero { position: relative; min-height: 690px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 40px; overflow: hidden; padding-top: 75px; padding-bottom: 95px; background: radial-gradient(ellipse at 77% 48%, rgba(141,83,34,.2), transparent 37%), linear-gradient(110deg, #17110e 0%, #211710 60%, #2b1b13 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; opacity: .12; pointer-events: none; background-image: radial-gradient(rgba(244,221,174,.4) .6px, transparent .6px); background-size: 6px 6px; mask-image: linear-gradient(90deg, transparent, #000); }
+.hero-glow { position: absolute; width: 520px; height: 520px; right: 8%; top: 10%; border-radius: 50%; background: rgba(185,113,45,.12); filter: blur(90px); }
+.hero-content { position: relative; z-index: 1; width: min(560px, 100%); justify-self: end; }
+.eyebrow { margin: 0 0 18px; color: var(--gold); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 500; line-height: 1.04; }
+h1 { max-width: 650px; margin-bottom: 24px; font-size: clamp(48px, 5.5vw, 76px); letter-spacing: -.8px; }
+h1 em, h2 em { color: var(--gold-light); font-weight: 400; }
+.hero-copy { max-width: 470px; color: var(--cream-muted); font-size: 14px; line-height: 1.9; }
+.hero-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 32px; }
+.text-link { color: var(--gold-light); font-size: 10px; font-weight: 600; letter-spacing: .8px; text-decoration: none; }
+.text-link span { margin-left: 7px; }
+.text-link:hover { color: var(--white); }
+.hero-note { display: flex; align-items: center; gap: 12px; margin-top: 65px; color: #a99b87; font-size: 10px; letter-spacing: 1px; }
+.note-line { width: 38px; height: 1px; background: var(--gold); }
+.hero-art { position: relative; z-index: 1; width: min(460px, 100%); justify-self: center; text-align: center; }
+.logo-frame { padding: 12px; border: 1px solid rgba(244,232,207,.8); box-shadow: 0 0 0 5px rgba(213,166,83,.08), 0 0 45px rgba(213,145,56,.23), inset 0 0 40px rgba(213,145,56,.07); background: rgba(32,22,16,.58); }
+.main-logo { display: block; width: 100%; filter: drop-shadow(0 0 10px rgba(218,164,83,.13)); }
+.art-caption { display: block; margin-top: 18px; color: #c7ad83; font: italic 13px var(--serif); letter-spacing: 1.4px; }
+.scroll-cue { position: absolute; bottom: 28px; left: 50%; width: 20px; height: 34px; border: 1px solid rgba(241,209,140,.5); border-radius: 20px; }
+.scroll-cue span { position: absolute; top: 7px; left: 8px; width: 2px; height: 7px; background: var(--gold-light); animation: scroll 1.6s infinite; }
+@keyframes scroll { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(11px); } }
+.intro-strip { padding: 24px; text-align: center; background: #e9deca; color: #493323; }
+.intro-strip p { margin: 0; font: italic 20px var(--serif); letter-spacing: .4px; }
+.section-heading { max-width: 680px; margin: 0 auto 54px; text-align: center; }
+.section-heading h2, .about-copy h2, .contact-cta h2, .reviews-inner h2 { margin-bottom: 17px; font-size: clamp(39px, 4.5vw, 58px); }
+.section-heading > p:last-child { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+.services-section { background: #f0e7d7; color: #281d16; }
+.services-section .eyebrow, .location-section .eyebrow, .gallery-section .eyebrow, .tips-section .eyebrow { color: #94652d; }
+.services-section .section-heading h2 { color: #281d16; }
+.services-section .section-heading h2 em { color: #a87536; }
+.services-section .section-heading > p:last-child { color: #766a5b; }
+.service-grid { width: min(var(--content), 100%); margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.service-card { position: relative; min-height: 365px; padding: 34px 30px 30px; border: 1px solid #d6c7ad; background: rgba(255,251,243,.58); transition: transform .3s, box-shadow .3s; }
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 35px rgba(64,43,24,.1); }
+.service-card.featured { background: #2a1d15; color: var(--white); border-color: #9c713d; box-shadow: 0 15px 35px rgba(50,31,16,.13); }
+.featured-label { position: absolute; top: 0; right: 0; padding: 7px 12px; color: #291c12; background: var(--gold-light); font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.service-number { color: #a67a42; font: 17px var(--serif); }
+.service-rule { width: 42px; height: 1px; margin: 20px 0 22px; background: #bd955a; }
+.service-duration { margin-bottom: 7px; color: #a67a42; font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; }
+.service-card h3 { margin-bottom: 12px; font: 500 29px var(--serif); }
+.service-description { min-height: 58px; color: #796e60; font-size: 12px; line-height: 1.7; }
+.featured .service-description { color: #c6b7a2; }
+.price { display: flex; align-items: flex-start; gap: 5px; margin: 19px 0 17px; color: #986a32; font: 500 49px/.95 var(--serif); }
+.price small { padding-top: 6px; font: 19px var(--sans); }
+.featured .price { color: var(--gold-light); }
+.service-book { font-size: 9px; }
+.small-note { margin: 28px auto 0; color: #817463; text-align: center; font-size: 10px; }
+.about-section { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(45px, 8vw, 110px); width: min(1120px, 100%); margin: auto; }
+.about-visual { min-height: 450px; padding: 18px; border: 1px solid rgba(213,166,83,.55); background: linear-gradient(145deg, #4b3020, #211710 65%); }
+.about-visual-inner { position: relative; min-height: 412px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(239,215,173,.25); background: radial-gradient(ellipse at 50% 42%, rgba(214,160,80,.28), transparent 46%), linear-gradient(160deg, #38261b, #17110e); }
+.about-visual-inner::before, .about-visual-inner::after { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(213,166,83,.23); border-radius: 50%; }
+.about-visual-inner::after { width: 330px; height: 330px; }
+.about-monogram { color: rgba(239,211,157,.9); font: 200px/.8 var(--serif); text-shadow: 0 0 45px rgba(213,166,83,.22); }
+.about-visual-caption { position: absolute; bottom: 25px; color: #d6bd94; font: italic 15px var(--serif); letter-spacing: 1px; }
+.about-copy .eyebrow { margin-bottom: 13px; }
+.about-copy h2 { font-size: clamp(42px, 4.4vw, 58px); }
+.about-copy > p:not(.eyebrow):not(.signature) { max-width: 540px; color: var(--cream-muted); font-size: 13px; line-height: 1.95; }
+.signature { margin: 28px 0; color: var(--gold-light); font: italic 27px var(--script); }
+.location-section { background: #eee4d3; color: #2c2018; }
+.location-section .section-heading h2 { color: #2c2018; }
+.location-section .section-heading h2 em { color: #9e7036; }
+.location-grid { width: min(var(--content), 100%); margin: auto; display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; align-items: center; }
+.location-info { padding: 20px 0; }
+.info-item { display: flex; gap: 17px; margin-bottom: 28px; }
+.info-icon { width: 40px; height: 40px; display: grid; place-items: center; flex: 0 0 40px; border: 1px solid #c6a36d; color: #91642e; font-size: 21px; }
+.info-item h3 { margin: 0 0 6px; color: #3a2a1e; font: 600 21px var(--serif); }
+.info-item p { margin: 0; color: #726657; font-size: 12px; line-height: 1.8; }
+.map-wrap { min-height: 370px; overflow: hidden; border: 8px solid #fffaf1; box-shadow: 0 14px 40px rgba(55,36,19,.12); }
+.map-wrap iframe { display: block; width: 100%; height: 370px; border: 0; filter: sepia(.15) saturate(.8); }
+.faq-section { background: #211812; }
+.faq-list { width: min(820px, 100%); margin: auto; border-top: 1px solid rgba(213,166,83,.35); }
+.faq-item { border-bottom: 1px solid rgba(213,166,83,.35); }
+.faq-item summary { position: relative; padding: 22px 42px 22px 4px; color: var(--cream); cursor: pointer; list-style: none; font: 500 22px var(--serif); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 8px; top: 18px; color: var(--gold); font: 24px var(--sans); transition: transform .2s; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { max-width: 720px; padding: 0 38px 20px 4px; margin: 0; color: #c3b5a1; font-size: 12px; line-height: 1.9; }
+.reviews-section { padding-top: 95px; padding-bottom: 95px; text-align: center; background: radial-gradient(ellipse at center, #3a281c, #211710 70%); }
+.reviews-inner { max-width: 680px; margin: auto; }
+.reviews-inner h2 { font-size: clamp(42px, 4vw, 54px); }
+.reviews-inner > p:not(.eyebrow) { color: var(--cream-muted); font-size: 13px; line-height: 1.9; }
+.review-placeholder { display: inline-block; margin-top: 15px; padding: 12px 18px; border: 1px dashed rgba(213,166,83,.5); color: #d9c39e; font: italic 15px var(--serif); }
+.gallery-section { background: #eee4d3; color: #2c2018; }
+.gallery-section .section-heading h2 { color: #2c2018; }
+.gallery-section .section-heading h2 em { color: #9e7036; }
+.gallery-grid { width: min(var(--content), 100%); margin: auto; display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 15px; }
+.gallery-tile { min-height: 280px; margin: 0; padding: 10px; border: 1px solid #d5c5a9; background: #e4d6bf; }
+.gallery-tile:first-child { min-height: 340px; }
+.photo-placeholder { position: relative; height: 100%; min-height: inherit; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; overflow: hidden; background: radial-gradient(ellipse at 70% 30%, rgba(224,177,100,.4), transparent 40%), linear-gradient(145deg, #73533a, #302219 75%); }
+.gallery-two .photo-placeholder { background: radial-gradient(ellipse at 35% 35%, rgba(220,183,125,.36), transparent 42%), linear-gradient(145deg, #58402d, #211812 78%); }
+.gallery-three .photo-placeholder { background: radial-gradient(ellipse at 65% 25%, rgba(222,181,106,.36), transparent 40%), linear-gradient(145deg, #8a6844, #39271b 80%); }
+.photo-placeholder::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(242,222,184,.25); }
+.photo-placeholder span { color: var(--gold-light); font: 18px var(--serif); }
+.photo-placeholder p { position: relative; margin: 4px 0 0; color: #fff6e6; font: 28px var(--serif); }
+.gallery-section .small-note { color: #786c5c; }
+.tips-section { background: #f3eadb; color: #2b2018; }
+.tips-section .section-heading h2 { color: #2b2018; }
+.tips-section .section-heading h2 em { color: #9e7036; }
+.tips-grid { width: min(var(--content), 100%); margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.tip-card { padding: 28px 27px; border-top: 2px solid #bd9454; background: rgba(255,255,255,.38); }
+.tip-card > span { color: #98703a; font-size: 9px; letter-spacing: 2px; }
+.tip-card h3 { margin: 19px 0 10px; font: 500 28px var(--serif); }
+.tip-card p { margin: 0; color: #766b5e; font-size: 12px; line-height: 1.85; }
+.disclaimer { width: min(var(--content), 100%); margin: 24px auto 0; color: #8a7c6b; font-size: 10px; text-align: center; }
+.contact-cta { position: relative; overflow: hidden; text-align: center; background: radial-gradient(ellipse at 50% 120%, rgba(179,113,47,.28), transparent 60%), #211710; }
+.contact-cta::before { content: ""; position: absolute; inset: 20px; border: 1px solid rgba(213,166,83,.17); pointer-events: none; }
+.contact-cta h2 { position: relative; max-width: 750px; margin: 0 auto 18px; font-size: clamp(42px, 5vw, 62px); }
+.contact-cta > p:not(.eyebrow) { position: relative; margin-bottom: 28px; color: var(--cream-muted); font-size: 13px; }
+.contact-cta .button { position: relative; }
+.site-footer { padding: 48px 24px 20px; background: #120e0c; border-top: 1px solid rgba(213,166,83,.25); }
+.footer-main, .footer-bottom { width: min(var(--content), 100%); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.footer-main { padding-bottom: 34px; }
+.footer-main > p { margin: 0; color: #a99a86; font: italic 17px var(--serif); }
+.social-links { display: flex; gap: 9px; }
+.social-links a { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(213,166,83,.45); color: var(--gold-light); text-decoration: none; font-size: 10px; transition: background .2s, color .2s; }
+.social-links a:hover { color: var(--ink); background: var(--gold); }
+.footer-bottom { padding-top: 18px; border-top: 1px solid rgba(213,166,83,.16); color: #897d6e; font-size: 9px; letter-spacing: .3px; }
+.footer-bottom a { color: #c6a56d; text-decoration: none; }
+.whatsapp-float { position: fixed; z-index: 90; right: 22px; bottom: 22px; width: 57px; height: 57px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: #218c5a; box-shadow: 0 7px 24px rgba(0,0,0,.35); transition: transform .2s; }
+.whatsapp-float:hover { transform: translateY(-4px) scale(1.04); }
+.whatsapp-float svg { width: 29px; fill: white; }
+.js-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.js-reveal.is-visible { opacity: 1; transform: none; }
+:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+@media (max-width: 1050px) {
+  .primary-nav { gap: 11px; }
+  .primary-nav a { font-size: 10px; }
+  .header-inner { width: min(var(--content), calc(100% - 32px)); gap: 14px; }
+  .brand-mini strong { font-size: 20px; }
+  .header-book { display: none; }
+}
+@media (max-width: 820px) {
+  html { scroll-padding-top: 72px; }
+  .header-inner { min-height: 72px; }
+  .menu-toggle { width: 42px; height: 42px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; order: 3; border: 1px solid rgba(213,166,83,.45); background: transparent; cursor: pointer; }
+  .menu-toggle span { width: 18px; height: 1px; background: var(--gold-light); transition: transform .2s, opacity .2s; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+  .header-actions { margin-left: auto; }
+  .primary-nav { position: absolute; top: 72px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 24px 20px; border-bottom: 1px solid rgba(213,166,83,.3); background: rgba(23,17,14,.98); }
+  .primary-nav.is-open { display: flex; }
+  .primary-nav a { padding: 12px 0; border-bottom: 1px solid rgba(213,166,83,.1); font-size: 12px; }
+  .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 75px; text-align: center; }
+  .hero-content { justify-self: center; }
+  .hero-copy { margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-note { justify-content: center; margin-top: 38px; }
+  .hero-art { width: min(390px, 90%); margin-top: 20px; }
+  .scroll-cue { display: none; }
+  .service-grid { grid-template-columns: 1fr; max-width: 500px; }
+  .service-card { min-height: 0; }
+  .service-description { min-height: 0; }
+  .about-section { grid-template-columns: 1fr; max-width: 650px; }
+  .about-visual { min-height: 330px; }
+  .about-visual-inner { min-height: 292px; }
+  .location-grid { grid-template-columns: 1fr; gap: 25px; }
+  .location-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .location-info .button { grid-column: 1/-1; justify-self: start; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-tile:first-child { grid-column: 1/-1; min-height: 260px; }
+  .tips-grid { grid-template-columns: 1fr; max-width: 600px; }
+}
+@media (max-width: 560px) {
+  .section { padding: 78px 20px; }
+  .header-inner { width: calc(100% - 28px); }
+  .brand-mark { width: 36px; height: 36px; }
+  .brand-mini strong { font-size: 18px; }
+  .language-select { min-width: 48px; }
+  .hero { padding: 65px 20px 70px; }
+  h1 { font-size: clamp(43px, 12vw, 58px); }
+  .hero-buttons { flex-direction: column; gap: 18px; }
+  .hero-note { font-size: 9px; }
+  .logo-frame { padding: 6px; }
+  .intro-strip p { font-size: 17px; }
+  .section-heading { margin-bottom: 38px; }
+  .section-heading h2, .about-copy h2 { font-size: 42px; }
+  .location-info { display: block; }
+  .map-wrap, .map-wrap iframe { min-height: 300px; height: 300px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-tile, .gallery-tile:first-child { min-height: 230px; grid-column: auto; }
+  .footer-main, .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .footer-main { gap: 17px; }
+  .footer-bottom { gap: 10px; }
+  .whatsapp-float { right: 15px; bottom: 15px; width: 52px; height: 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .js-reveal { opacity: 1; transform: none; }
 }
 
-function updateMenuLabel() {
-  if (!menuToggle) return;
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-  const language = document.documentElement.lang || "es";
-  menuToggle.setAttribute("aria-label", translations[language][isOpen ? "menuClose" : "menuOpen"]);
-}
-
-function closeMenu() {
-  if (!menuToggle || !nav) return;
-  menuToggle.setAttribute("aria-expanded", "false");
-  nav.classList.remove("is-open");
-  updateMenuLabel();
-}
-
-if (languageSelect) {
-  languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
-}
-
-if (menuToggle && nav) {
-  menuToggle.addEventListener("click", () => {
-    const open = menuToggle.getAttribute("aria-expanded") !== "true";
-    menuToggle.setAttribute("aria-expanded", String(open));
-    nav.classList.toggle("is-open", open);
-    updateMenuLabel();
-  });
-  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
-  });
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 820) closeMenu();
-  });
-}
-
-const currentYear = document.getElementById("current-year");
-if (currentYear) currentYear.textContent = new Date().getFullYear();
-
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (!prefersReducedMotion && "IntersectionObserver" in window) {
-  const revealItems = document.querySelectorAll(
-    ".section-heading, .service-card, .about-visual, .about-copy, .location-info, .map-wrap, .faq-item, .reviews-inner, .gallery-tile, .tip-card, .contact-cta > *"
-  );
-  revealItems.forEach((item) => item.classList.add("js-reveal"));
-  const observer = new IntersectionObserver((entries, currentObserver) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        currentObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealItems.forEach((item) => observer.observe(item));
-}
-
-// Idioma inicial: preferencia guardada, idioma del navegador o español.
-let initialLanguage = "es";
-try {
-  const savedLanguage = localStorage.getItem("elCapitolLanguage");
-  if (savedLanguage && translations[savedLanguage]) {
-    initialLanguage = savedLanguage;
-  } else {
-    const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
-    if (translations[browserLanguage]) initialLanguage = browserLanguage;
-  }
-} catch (error) {
-  const browserLanguage = (navigator.language || "es").slice(0, 2).toLowerCase();
-  if (translations[browserLanguage]) initialLanguage = browserLanguage;
-}
-applyLanguage(initialLanguage);
+/* Cuando añadas tus fotos reales a la galería, estas reglas las adaptan al panel. */
+.gallery-tile img { display: block; width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.gallery-tile:first-child img { min-height: 320px; }
